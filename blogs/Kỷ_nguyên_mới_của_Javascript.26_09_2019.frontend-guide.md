@@ -12,10 +12,11 @@ Dành một hoặc 2 ngày để xem lại ES5 và ES6. Những tính năng chí
 
 Thời gian dự kiến 3-4 ngày. Bạn có thể học, tìm những cú pháp khi học các thư viện khác và thử xây dựng ứng dụng riêng của bạn.
 
-Link để tham khảo một vài tính năng mới của [ES6](https://babeljs.io/docs/en/learn/)
-
-
-
+Link để tham khảo để học ES5, ES6:
+- [ES6 with Babel](https://babeljs.io/docs/en/learn/)
+- [ES6 katas](https://jskatas.org)
+- [You don't know JS](https://github.com/getify/You-Dont-Know-JS)
+- [Frontend interview questions](https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/javascript-questions.md)
 
 
 
