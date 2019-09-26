@@ -14,7 +14,7 @@ React đem đến những ý tưởng căn bản và khuyến khích các lập 
 
 Qua nhiều năm, nhiều thư viện mới thậm chí còn hiệu quả hơn React đã xuất hiện. React bây giờ có thể không còn là thư viện nhanh nhất, nhưng về mặt hệ sinh thái, trải nghiệm sử dụng và lợi ích thì React vẫn là một trong những thư viện tuyệt vời nhất. Facebook cũng đang nỗ lực để làm cho React nhanh hơn nữa bằng cách viết lại thuật toán [underlying reconciliation](https://github.com/acdlite/react-fiber-architecture). Những khái niệm mà React giới thiệu dạy cho chúng ta cách viết code tốt hơn, dễ bảo trì hơn, và làm cho chúng ta trở thành những developer tốt hơn.
 
-Grab khuyến khích xem qua [hướng dẫn](https://reactjs.org/tutorial/tutorial.html) xây dưng một game tic-tac-toe để hiểu về cách React hoạt động. Và để đào sâu hơn thì có thể xem qua các khóa học của Egghead, (Building Your First Production Quality React)[https://egghead.io/courses/build-your-first-production-quality-react-app]. Khóa này bao gồm nhiều khái niệm nâng cao và sử dụng trong thực tế mà ko được nhắc đến trong tài liệu của React.
+Grab khuyến khích xem qua [hướng dẫn](https://reactjs.org/tutorial/tutorial.html) xây dưng một game tic-tac-toe để hiểu về cách React hoạt động. Và để đào sâu hơn thì có thể xem qua các khóa học của Egghead, [Building Your First Production Quality React](https://egghead.io/courses/build-your-first-production-quality-react-app). Khóa này bao gồm nhiều khái niệm nâng cao và sử dụng trong thực tế mà ko được nhắc đến trong tài liệu của React.
 
 React là một thư viện, không phải là một framework, và nó không xử lí các layers dưới phần view - app state. 
 
