@@ -167,81 +167,47 @@ Trong 'The Gang of Four', "Bạn sẽ thấy việc object composition được 
 
 Kế thừa class có thể dùng để khởi tạo composite objects, nhưng đây là một cách hạn chế và mong manh để làm việc này. Khi 'the Gang of Four' nói rằng "ủng hộ object composition hơn class inheritance", họ khuyên bạn dùng những cách tiếp cận linh hoạt để xây dựng composite object, hơn là cách tiếp cận cứng nhắc, tighlty-coupled(chặt chẽ) của kế thừa lớp (class inheritance).
 
-Class inheritance chỉ là một cách tạo composite object. Tất cả các lớp sinh ra composite objects, nhưng không phải tất cả những composite object đều sinh ra từ class hay class inheritance. "Ủng hộ object composition hơn class inheritance" có nghĩa là bạn nên hình thành composite object từ những phần nhỏ, hơn là kế thừa tất cả những thuộc tính từ một ancestor(tổ tiên) trong hệ thống lớp phân cấp. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Class inheritance chỉ là một cách tạo composite object. Tất cả các lớp sinh ra composite objects, nhưng không phải tất cả những composite object đều sinh ra từ class hay class inheritance. "Ủng hộ object composition hơn class inheritance" có nghĩa là bạn nên hình thành composite object từ những phần nhỏ, hơn là kế thừa tất cả những thuộc tính từ một ancestor(tổ tiên) trong hệ thống lớp phân cấp. Cái sau gây nên những vấn đề nổi tiếng trong thiết kế hướng đối tượng:
+- The tight coupling problem: Bởi vì các lớp con phụ thuộc vào việc cài đặt lớp cha, class inheritance là phần chặt chẽ nhất tồn tại trong thiết kế hướng đối tượng.
+- The fragile base class problem: Dựa vào tight coupling(liên kết chặt chẽ), sự thay đổi ở base class có thể phá vỡ số lượng lớn các lớp con. 
+- The inflexible hierachy problem: With single ancestor taxonomies, given enough time and evolution, all class taxonomies are eventually wrong for new use-cases.
+- The duplication by necessity problem: Dựa theo việc cấu trúc phân cấp không linh hoạt(inflexible hierachies), những use case mới thương được cài đặt duplication, hơn là extension(mở rộng), dẫn đến những class tương tự nhau bị chia ra không mong muốn. Một khi bị duplication, sẽ ko còn sự rõ ràng trong việc class mới nào nên xuất hiện từ đâu và tại sao.
+- The gorilla/banana problem: "Vấn dề với ngôn ngữ hướng đối tượng là chúng có tất cả những môi trường ngầm này (implicit environment) mà chúng luôn gắn lấy. Bạn muốn một quả chuối nhưn bạn phải tạo ra một con gorilla giữ quả chuối và cả một khu rừng" - Joe Amstrong.
+
+Hình thức phổ biến nhất của object composition trong Javascript là object concatennation(còn gọi là mixin composition). Nó hoạt động giống như kem vậy. Bạn bắt đầu với một object, sau đó trộn những tính năng mà bạn muốn vào. Thêm caramel, chocolate, ...
+
+Xây dụng composites với class inheritance:
+```javascript
+  class Foo {
+    constructor() {
+      this.a  = 'a';
+    }
+  }
+  
+  class Bar extends Foo {
+    constructor(options) {
+      super(options);
+      this.b = 'b';
+    }
+  }
+  
+  const myBar = new Bar(); // {a: 'a', b: 'b'}
+```
+
+Xây dựng composites với mixin composition:
+```javascript
+  const a = {
+    a: 'a'
+  };
+  
+  const b = {
+    b: 'b'
+  };
+  
+  const c = { ...a, ...b };
+```
+
+Chúng ta sẽ khám phá những style khác của object composition sâu hơn ở những bài sau. Bây giờ, bạn nên hiểu là:
+1. Có nhiều cách để làm được việc này
+2. Một vài cách tốt hơn những cái khác
+3. Bạn có thể chọn cách đơn giản nhất, giải pháp linh hoạt nhất để giải quyết task.
