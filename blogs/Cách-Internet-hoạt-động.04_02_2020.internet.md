@@ -45,7 +45,7 @@ Như vậy, có một mapping một một (one to one) giữa IPv4 và IPv6. Lư
 Đó là bởi vì có địa chỉ IP public và private. Chỉ cần biết một trong những hàng xóm của nó, gọi là outbound link, thì có thể định tuyến packet đến. Lưu ý rằng địa chỉ IP có thể có thể chia thành 2 phần, một network prefix và một host identifier. Ví dụ, `129.42.13.69` có thể chia thành 2 phần là:
 ```
 Network Prefix: 129.42
-Host Identifier; 13.69
+Host Identifier: 13.69
 ```
 
 
