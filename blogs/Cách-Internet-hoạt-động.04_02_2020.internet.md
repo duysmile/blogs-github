@@ -42,7 +42,13 @@ Tiêu chuẩn đầu tiên của địa chỉ được gọi là IPv4 và nó tr
 Như vậy, có một mapping một một (one to one) giữa IPv4 và IPv6. Lưu ý là việc chuyển từ IPv4 tới IPv6 vẫn còn đang trong quá trình và sẽ mất một khoảng thời gian dài. Ở năm 2014 thì Google tiết lộ là traffic trên IPv6 của họ mới chỉ là 3%.
 
 ### Làm thế nào có thể có hơn 8 tỉ thiết bị được kết nối mạng trên Internet nếu chỉ có khoảng 4 tỉ địa chỉ IPv4?
-Đó là bởi vì có địa chỉ IP public và private. 
+Đó là bởi vì có địa chỉ IP public và private. Chỉ cần biết một trong những hàng xóm của nó, gọi là outbound link, thì có thể định tuyến packet đến. Lưu ý rằng địa chỉ IP có thể có thể chia thành 2 phần, một network prefix và một host identifier. Ví dụ, `129.42.13.69` có thể chia thành 2 phần là:
+```
+Network Prefix: 129.42
+Host Identifier; 13.69
+```
+
+
 
 
 
