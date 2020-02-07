@@ -48,6 +48,27 @@ Network Prefix: 129.42
 Host Identifier: 13.69
 ```
 
+Tất cả thiết bị kết nối Internet thông qua một kết nối đơn (single connection) (ví dụ như khuôn viên trường, một doanh nghiệp, hoặc ISP trong khu vực tàu điện ngầm) sẽ cùng chia sẻ một network prefix.
+
+Routers sẽ gửi tất cả các packets có dạng 129.42.*.* đến cùng một vị trí. Do đó thay vì phải tracking hàng tỉ địa chỉ IP, routers chỉ cần theo dõi khoảng 1 triệu network prefix.
+
+### Nhưng một router vẫn cần biết nhiều network prefix. Nếu một router mới được thêm vào Internet thì làm sao nó có thể xử lí được những packets cho tất cả những network prefixes?
+Một router mới có thể bắt đầu bằng một vài route được cấu hình sẵn. Nhưng nếu gặp một packet mà nó không biết phải định tuyến đi đâu, thì nó sẽ truy vấn đến một trong những router lân cận. Nếu có được thông tin định tuyến của packet thì nó sẽ gửi thông tin lại cho router mới yêu cầu. Và router mới này sẽ lưu thông tin lại cho những lần sử dụng tiếp theo. Bằng cách này, một router mới sẽ xâu dựng bảng định tuyến cho mình, một database về network prefixes cho các outbound links. Nếu mà router lân cận cũng k có thông tin gì thì nó sẽ tiếp tục truy vấn tới những router khác, và cứ như thế đến khi có thì thôi :))
+
+### Làm sao để máy tính nối mạng có thể tìm ra địa chỉ IP dựa vào tên domain?
+Chúng ta thường hay gọi việc tìm kiếm địa chỉ IP thông qua một tên miền như `www.google.com` là "phân giải địa chỉ IP" (resolving the IP address). Máy tính phần giải địa chỉ IP thông qua Domain Name System (DNS), một database phi tập trung (decentralized) ánh xạ từ tên miền sang địa chỉ IP.
+
+Để phân giải địa chỉ IP, đầu tiên máy tính sẽ kiểm tra local DNS cache, nơi lưu trữ địa chỉ IP của các website mà nó đã truy cập. Nếu không thể tìm thấy địa chỉ IP ở đây hoặc là bản ghi địa chỉ IP hết hạn, nó sẽ truy vấn những server ISP's DNS chuyên dụng để phân giải địa chỉ IP. Nếu những server ISP's DNS cũng không thể phân giải địa chỉ IP, thì chúng sẽ truy vấn những root name server, nơi có thể phân giải mọi tên miền cho một top-level domain. Top-level domain là những từ ở bên phải ngoài cùng của một domain như là `.com`, `.net`, `.org` là những ví dụ.
+
+### Làm sao để những ứng dụng có thể giao tiếp với nhau qua Internet?
+Giống như những dự án kỹ thuật phức tạp khác, Internet được chia thành nhiều phần nhỏ độc lập, chúng hoạt động cùng nhau qua những interface được xác định rõ ràng. Những thành phần này được gọi là Internet Network Layers và chúng bao gồm Link Layer, Internet Layer, Transport Layer, và Application Layer. Chúng được gọi là layer vì chúng được xây dựng trên đỉnh của cái khác, mỗi layer sử dụng các khả năng của layer bên dưới nó mà không phải quan tâm đến chi tiết các bước thực hiện.
+
+[Internet Network Layer](https://miro.medium.com/max/317/1*PxADiXu9n6cFFEl2QOLwdA.jpeg)
+
+Các ứng dụng trên Internet hoạt động ở Application Layer và không cần quan tâm đến chi tiết ở những layer bên dưới. Ví dụ, một ứng dụng kết nối tới một ứng dụng khác trên mạng thông qua TCP sử dụng một kiến trúc gọi là `socket`, nó là tóm tắt các chi tiết của việc định tuyến gói tin, và lắp ráp các gói tin để tạo nên messages.
+
+### Công việc của mỗi Internet Layers là gì?
+
 
 
 
