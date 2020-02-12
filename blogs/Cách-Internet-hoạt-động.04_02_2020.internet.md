@@ -110,8 +110,14 @@ Khi một client yêu cầu một kết nối SSL-encrypted với một server, 
 Client sau đó dùng public key của chứng chỉ SSL để encrypt một secret key tạm thời ngẫu nhiên và gửi lại cho server. Bởi vì server có một private key tương ứng, nó có thể giải mã secret key tạm thời của client. Bây giờ cả client và server đều biết secret key tạm thời, do đó chúng có thể dùng nó để mã hóa đối xứng các message gửi cho nhau. Chúng sẽ loại bỏ secret key tạm này sau khi hết phiên (session).
 
 ### Điều gì xảy ra khi hacker chặn phiên mã hóa SSL?
+Giả sử một hacker chặn mỗi message được gửi giữa client và server. Hacker sẽ thấy chứng chỉ SSL mà server gửi và mã hóa secret key tạm của client. Nhưng vì hacker không có private nên nó không thể giải mã secret key tạm được. Và do đó nó không có secret key tạm, nó không thể giải mã bất cứ gì của message gửi client và server.
 
-
+### Tóm lại
+- Internet bắt đầu với ARPANET vào những năm 1960 với mục đích của một mạng máy tính phân tán.
+- Về mặt vật lí, Internet là một tập các máy tính chuyển các bits với nhau qua dây, cáp hoặc tín hiệu vô tuyến.
+- Giống như nhiều dự án phức tạp, Internet được chia thành nhiều tầng, mỗi tầng dùng để xử lí những vấn đề nhỏ hơn. Mỗi tầng kết nối với nhau qua các interface được định nghĩa sẵn.
+- Có nhiều giao thức định nghĩa cách Internet và các ứng dụng của nó hoạt động tại các tầng khác nhau: HTTP, IMAP, SSH, TCP, UDP, IP, vv. Trong trường hợp này, Internet là một tập nhiều quy tắc quy định cách các máy tính và chương trình hoạt động vì nó là một mạng máy tính vật lí.
+- Với sự phát triển của Internet, wifi, và những nhu cầu thương mại điện tử, SSL/TLS được phát triển để giải quyết các mối quan tâm v
 
 
 
