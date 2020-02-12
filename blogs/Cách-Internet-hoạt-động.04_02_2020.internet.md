@@ -68,6 +68,50 @@ Giống như những dự án kỹ thuật phức tạp khác, Internet được
 Các ứng dụng trên Internet hoạt động ở Application Layer và không cần quan tâm đến chi tiết ở những layer bên dưới. Ví dụ, một ứng dụng kết nối tới một ứng dụng khác trên mạng thông qua TCP sử dụng một kiến trúc gọi là `socket`, nó là tóm tắt các chi tiết của việc định tuyến gói tin, và lắp ráp các gói tin để tạo nên messages.
 
 ### Công việc của mỗi Internet Layers là gì?
+ Ở tầng thấp nhất là Link Layer được gọi là lớp vật lí (physical layer) của Internet. Link Layer liên quan đến việc truyền data bits thông qua một số phương tiện vật lí như cáp quan hay tín hiệu vô tuyến wifi.
+
+Trên đỉnh của Link Layer là Internet Layer. Internet Layer liên quan dến việc định tuyến gói tin tới đích. Internet Protocol được đề cập ở trên hoạt động trong lớp này (nên chúng có cùng tên vs nhau). Internet Protocol tự động điều chỉnh và định tuyến lại cá gói tin dựa trên tải mảng hoặc trong trường hợp mất điện. Lưu ý rằng nó ko phải khi nào cũng đảm bảo gói tin sẽ đi đến đích, nó chỉ cố gắng tốt nhất có thể thôi.
+
+Phía trên lớp Internet Layer là Transport Layer. Tầng này dùng để bù đắp lại những dữ liệu có thể bị mất ở tầng Internet và Link bên dưới. Transport Control Protocol (TCP) chúng ta đã đề cập ở trên được dùng ở tầng này, và nó họat động chủ yếu để tập hợp các gói tin vào message ban đầu và cũng như truyền lại các thông tin đã mất.
+
+Application Layer là tầng trên cùng. Tầng này dùng tất cả các tầng bên dưới để xử lí những chi tiết phức tạp trong việc chuyển các packets đi qua Internet. Nó giúp các ứng dụng đễ dàng tạo kết nói với các ứng dụng khác trên Internet vói những abstactions đơn giản như sockets. HTTP protocol, giao thức chỉ định cách các web browsers và web servers tương tác, hoạt động ở Application Layer. IMAP Protocol, giao thức chỉ định việc các email clients nhận email, cũng tồn tại ở Application Layer. FTP Protocol, giao thức đảm nhận việc truyền file giữa file-downloading client và file-hosting servers cũng ở lớp này.
+
+### Client và Server là gì?
+Client và Server là những ứng dụng có thể giao tiếp thông qua Internet, client thì gần với người dùng hơn,do đó chúng là những ứng dụng người dùng như là web browser, email clients, hay smart phone apps. Server là những ứng dụng chạy trên một máy tính remote mà client có thể giao tiếp thông qua Internet khi cần.
+
+Một định nghĩa chính thống thì là thế này: Một ứng dụng khởi tạo một kết nối TCP là `client`, trong khi một ứng dụng nhận một kết nối TCP là `server`.
+
+### Làm sao mà những dữ liệu nhạy cảm như credit card có thể được truyền một cách bảo mật thông qua Internet?
+Trong những ngày đầu của Internet, nó cũng đủ dể đảm bảo rằng các bộ định tuyến và liên kết mạng nằm ở những vị tri an toàn về mặt vật lí. Những khi Internet phát triển nhanh, nhiều routers hơn cũng đi kèm với nhiều rủi ro hơn. Hơn nữa, với sự ra đời cũng các công nghệ không dây như Wifi, hackers có thể đánh chặn các gói tin, dó đó việc đảm bảo các phần cứng mạng an toàn không thôi là chưa đủ. Giải pháp chính là encryption và authentication thông qua SSL/TLS.
+
+### SSL/TLS là gì?
+SSL viết tắt của Secured Sockets Layer. TLS viết tắt của Transport Layer Security. SSL lần đầu được phát triển bởi Netscape năm 1994 nhưng một phiên bản bảo mật hơn được nghĩ ra và đổi tên thành TLS. Chúng ta sẽ đề cập đến chúng cùng nhau là SSL/TLS.
+
+SSL/TLS là một tầng tùy chọn nằm giữa Transport Layer và Application Layer. Nó đảm bảo tính bảo mật của những thông tin nhạy cảm thông qua encryption và authentication.
+
+Encryption có nghĩa là client có thể yêu cầu một kết nối TCP tới server được mã hóa. Tất cả các messages được gửi giữa client và server sẽ được mã hóa trước khi chia nhỏ thành các packets. Nếu hacker chặn được những gói tin này, họ cũng ko thể tái tạo lại tin nhắn ban đầu.
+
+Authentication có nghĩa là client có thể tin tưởng server là đúng nơi nó yêu cầu. Điều này bảo vệ khỏi cách tấn công `man in the middle`, điều này là khi một mã độc can thiệp vào kết nối giữa client và server để nghe lén và giả mạo kết nối của họ.
+
+Chúng ta sẽ thấy SSL bất cứ khi nào truy cập vào một site nào có bật SSL trên những browser hiện đại. Khi browser yêu cầu một web site sử dụng `https` protocol thay vì `http`, nó nói với web-server rằng nó muốn một kết nối mã hóa SSL. Nếu web-server hỗ trợ SSL, một kết nối mã hóa bảo mật được tạo và chúng ta sẽ thấy một icon khóa bên cạnh thanh địa chỉ trên browser.
+
+### Làm thế nào mà SSL xác thực định danh của một server và mã hóa giao tiếp của chúng?
+Nó sử dụng mã hóa bất đối xứng và chứng chỉ SSL.
+
+Mã hóa bất đối xứng là một cơ chế mã hóa sử dụng public key và private key. Những khóa này căn bản là các số có nguồn gốc từ các số nguyên tố lớn. Private key được dùng để giải mã dữ liệu và sign documents. Còn public key được dùng để mã hóa dữ liệu và xác thực signed documents. Không giống mã hóa đối xứng, mã hóa bất đối xứng có nghĩa là khả năng mã hóa không tự động trao khả năng giải mã. Nó làm được việc này bằng cách sử dụng các nguyên lí trong một nhánh toán học gọi là lý thuyến số (number theory).
+
+Một chứng chỉ SSL là một tài liệu số bao gồm một public key được gán cho một web server. Những chứng chỉ SSL được cấp cho web server thông qua các cơ quan chứng nhận. Hệ điều hành, thiết bị di động, và browser đi kèm với cơ sở dữ liệu của một số cơ quan cấp chứng chỉ để nó có thể xác minh chứng chỉ SSL.
+
+Khi một client yêu cầu một kết nối SSL-encrypted với một server, server gửi lại chứng chỉ SSL của nó. Client kiểm tra chứng chỉ SSL:
+- được cấp cho server
+- được signed bởi một cơ quan chứng nhận đáng tin cậy
+- không hết hạn
+
+Client sau đó dùng public key của chứng chỉ SSL để encrypt một secret key tạm thời ngẫu nhiên và gửi lại cho server. Bởi vì server có một private key tương ứng, nó có thể giải mã secret key tạm thời của client. Bây giờ cả client và server đều biết secret key tạm thời, do đó chúng có thể dùng nó để mã hóa đối xứng các message gửi cho nhau. Chúng sẽ loại bỏ secret key tạm này sau khi hết phiên (session).
+
+### Điều gì xảy ra khi hacker chặn phiên mã hóa SSL?
+
+
 
 
 
