@@ -118,100 +118,39 @@ Có những kiểu headers khác nhau mà chúng ta sẽ phân loại chúng d�
 - **Response header** - những headers chứa thông tin về incoming response.
 - **Entity header** - những headers này mô tả nội dung tạo nên phần body của message.
 
-[Những loại headers](https://miro.medium.com/max/837/0*0BI1BEJpajUiJ_4R)
+![Những loại headers](https://miro.medium.com/max/837/0*0BI1BEJpajUiJ_4R)
 
+### HTTP status code
 
+Mỗi HTTP response message phải chứa một HTTP status code trong first line của nó, để chỉ ra kết quả của request.
 
+Có 5 nhóm status code được phân theo chữ số đầu tiên:
+- 1xx - Thông tin
+- 2xx - Request thành công
+- 3xx - Client được điều hướng sang tài nguyên khác
+- 4xx - Request chứa một lỗi nào đó
+- 5xx - Server gặp lỗi khi thực hiện yêu cầu
 
+Chi tiết về các HTTP Status Response Code có thể tham khảo thêm ở [đây](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
 
+### HTTPS(Hypertext Transfer Protocol Secure)
 
+Phiên bản bảo mật của giao thức HTTP là HTTPS. HTTPS cung cấp giao tiếp được mã hóa giữa trình duyệt(client) và website(server).
 
+Trong HTTPS, giao thức giao tiếp được mã hóa sử dụng Transport Layer Security(TLS) hoặc Secure Sockets Layer(SSL).
 
+Nên giao thức thường được gọi là HTTP over TLS,  hay HTTP over SSL.
 
+Cả TLS và SSL đều sử dụng hệ thống mã hóa bất đối xứng. Hệ thống này sử dụng một khóa public (khóa mã hóa) và một private key(khóa giải mã) để mã hóa một message. Bất cứ ai có thể dùng public key để mã hóa message. Tuy nhiên, khóa private là bí mật, chỉ có người nhận mới có thể giải mã message.
+![Ví dụ mã hóa bất đối xứng](https://miro.medium.com/max/450/0*pB_y5GVIF_O_z4lw.gif)
 
+### SSL/TLS handshake
 
+Khi bạn request một kết nối HTTPS tới một website, website gửi chứng chỉ SSL của nó tới browser. Việc này xảy ra khi trình duyệt và website khởi tạo giao tiếp gọi là 'SSL/TLS handshake'. SSL/TLS handshake bao gồm một loạt các bước để trình duyệt và website xác thực lẫn nhau và bắt đầu liên lạc thông qua SSL/TLS tunnel.
 
+### Lợi ích của HTTPS
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Những lợi ích chính của HTTPS là:
+- Thông tin khác hàng, như số thẻ credit và những thông tin nhạy cảm, được mã hóa và thông thể bị đánh chặn.
+- Những visitor có thể xác nhận là bạn là một doanh nghiệp đã đăng kí và sở hữu một domain của mình.
+- Khách hàng biết là họ ko được phép truy cập vào các trang mà k có hỗ trợ HTTPS, và nhờ vậy họ có nhiều niềm tin hơn khi sử dụng các giao dịch trên các trang web sử dụng HTTPS.
