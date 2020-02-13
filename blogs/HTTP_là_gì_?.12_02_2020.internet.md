@@ -11,7 +11,7 @@ Không trạng thái nghĩa là tất cả request tách biệt với nhau do đ
 URL(Uniform Resource Locator) có lẽ là một khái niệm rất phổ biến trên Web. Nó cũng là một khái niệm rất quan trọng và hữu ích. URL là một địa chỉ web dùng để định danh tài nguyên trên Web.
 
 > Ý tưởng của web là được cấu trúc xung quanh tài nguyên, từ khi bắt đầu, Web là một nền tảng để chia sẻ text/HTML files, documents, ảnh, vv. và nó được coi như là một tập các tài nguyên.
-[Ví dụ của URL](https://miro.medium.com/max/1000/0*DTR8JpFZo31ht-Kd)
+![Ví dụ của URL](https://miro.medium.com/max/1000/0*DTR8JpFZo31ht-Kd)
 
 **Giao thức(protocol)** - Thông thường chúng là HTTP(hoặc là HTTPS, một phiên bản bảo mật của HTTP)
 Những giao thức đáng chú ý khác:
