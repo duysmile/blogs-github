@@ -40,7 +40,7 @@ API tải file được sử dụng không thường xuyên. Ngoài ra, mong đ�
 
 Bây giờ chúng ta đã biết về cơ chế single-threaded của Nodejs, chúng ta có thể tận dụng những lợi thế này. Hãy cùng đi từng bước để cài đặt, chạy, và phân tích một bài test hiệu năng ứng dụng Nodejs của bạn để đảm bảo rằng bạn đã làm hết sức để tận dụng hết hiệu năng của Nodejs.
 
-Bước 1: Chọn một công cụ để test performance
+### Bước 1: Chọn một công cụ để test performance
 
 Đầu tiên, bạn sẽ muốn chọn một công cụ cho phép bạn chạy những performance test. Có rất nhiều công cụ, tất cả đều có ưu nhược điểm để điều chỉnh hiệu suất của Nodejs. Một điều quan trọng cần xem xét là mặc dù bạn đang test một ứng dụng Nodejs nếu bạn đang test hiệu năng trong môi trường network, thì không vấn đề gì nếu công cụ performance test của bạn được viết bằng Nodejs.
 
@@ -66,7 +66,11 @@ url: "/docs"
 
 Sau đó, chạy test, bạn chỉ cần chạy lệnh:
 > artillery run your_config.yml
-Artillery sẽ tạo nhiều request tới ứng dụng của bạn như bạn đã cài đặt cho nó. 
+Artillery sẽ tạo nhiều request tới ứng dụng của bạn như bạn đã cài đặt cho nó. Điều này rất tiện để xây dựng một performance test profile giả định giống như môi trường production.
+
+### Bước 2: Tạo một performance test profile
+
+Một performance test profile như đã nói ở trên là định nghĩa cách hoạt động của performance test. Bạn sẽ muốn mô phỏng lượng traffic giống như trên môi trường production, hoặc là giống như mong đợi, nếu như có thể điều chỉnh hiệu suất Nodejs một cách chính xác. 
 
 
 
