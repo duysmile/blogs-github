@@ -70,8 +70,30 @@ Artillery sẽ tạo nhiều request tới ứng dụng của bạn như bạn �
 
 ### Bước 2: Tạo một performance test profile
 
-Một performance test profile như đã nói ở trên là định nghĩa cách hoạt động của performance test. Bạn sẽ muốn mô phỏng lượng traffic giống như trên môi trường production, hoặc là giống như mong đợi, nếu như có thể điều chỉnh hiệu suất Nodejs một cách chính xác. 
+Một performance test profile như đã nói ở trên là định nghĩa cách hoạt động của performance test. Bạn sẽ muốn mô phỏng lượng traffic giống như trên môi trường production, hoặc là giống như mong đợi, nếu như có thể điều chỉnh hiệu suất Nodejs một cách chính xác. Ví dụ, nếu bạn đang xây dựng một website sự kiện, bạn mong đợi nhiều traffic ở thời điểm bán vé, do đó bạn sẽ xây dựng một profile để mô phỏng hành vi này. Bạn muốn test ứng dụng của bạn có khả năng mở rộng với số lượng tải lớn trong một khoảng thời gian ngắn. Thay vào nó, nếu bạn chạy một site thương mại điện tử, bạn sẽ mong đợi nhiều traffic. Ở tình huống này, performance test profile của bạn nên phản ánh việc này.
 
+#### Tận dụng nhiều test profiles
+
+Một điểm thú vị cần lưu ý là bạn có thể tạo nhiều test profiles khác nhau và chạy chúng chồng chéo nhau (overlapping fashion). Ví dụ, bạn có thể tạo một profile mô phỏng lượng traffic ở mức cơ bản - 100 requests mỗi phút, và sau đó mô phỏng điều gì sẽ xảy ra nếu có nhiều traffic tới site của bạn, giả sử nếu bạn đưa ra một số quảng cảo search engine (search engine adverts). Test nhiều kịch bản quan trọng trong việc điều chỉnh hiệu năng của Nodejs.
+
+#### Nhân rộng các hệ thống phân tán quy mô lớn
+
+Tôi muốn lưu ý vài điều: Khi một ứng dụng đạt đến một kích thước nhất định, giả lập tải trong trường hợp này ko còn đúng. Lượng traffic bạn nhận có thể rất đơn sơ (wild), khó đoán, hoặc lớn lên, rất khó để tạo ra một bài test giống thực tế cho ứng dụng của bạn trước khi release.
+
+Vậy trong trường hợp này nên làm thế nào? Chúng ta sẽ test trên production.
+
+Bạn sẽ thắc mắc là "Không phải chúng ta sẽ giả định để test trước khi release hay sao???"
+
+Đúng là vậy, nhưng mà khi hệ thống đủ lớn, chúng ta có thể tận dụng các chiến lược test hiệu năng khác nhau. Bạn có thể tận dụng các khái niệm như canary releasing để thực hiện các thay đổi đối với production và chỉ test chúng với một tỉ lệ người dùng nhất định. Nếu bạn thấy hiệu suất giảm, bạn có thể chuyển traffic về lại phần triển khai trước đó. Điều này khuyến khích thực hiện nhiều thử nghiệm, và phần tốt nhất là bạn test trên ứng dụng production, do đó ko cần lo lắng là kết quả ko phản ánh được production.
+
+Cho đến nay, chúng tôi đã quyết định công cụ sẽ sử dụng, và tạo ra các profiles tái tạo production, như traffic và workloads. Vậy chúng ta cần làm gì tiếp theo? Đó chính là đảm bảo chúng ta có đủ dữ liệu cần thiết để phân tích ứng dụng của mình, nhờ có công cụ Nodejs performance monitoring và Application Performance Management (APM).
+
+### Bước 3: Cài đặt observability/monitoring (quan sát/giám sát)
+Chúng ta ko muốn chỉ chạy những performance test cho ứng dụng rồi hi vọng và cầu nguyện. Nếu vậy, chúng ta sẽ ko thể hiểu được cách nó hoạt động và ko biết chúng có hoạt động như chúng ta nghĩ hay không. Do đó trước khi bắt đầu, chúng ta cần phải tự hỏi những câu hỏi như "Đối với ứng dụng của mình, như thế nào là tốt? SLAs và KPIs của chúng ta là gì? Những biểu đồ nào cần thiết để debug các vấn đề về hiệu năng?".
+
+Nếu ứng dụng của bạn chạy chậm, hoặc là ko giống như bạn mong đợi, bạn cần dữ liệu để hiểu lí do rồi cải thiện nó. Tất cả các ứng dụng production có giá trị đều đang sử dụng một số hình thức quan sát/giám sát. Những công cụ này, thường được gọi là APMs, cho phép bạn xem các biểu đồ hiệu năng của Nodejs trên ứng dụng đang chạy của bạn.
+
+#### Bắt đầu với một APM
 
 
 
