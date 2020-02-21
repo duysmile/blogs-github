@@ -260,103 +260,15 @@ Bằng mọi giá, tránh `eval(...)` (hay ít nhất, là `eval(...)` tạo cá
 ### Lexical Scope
 Chúng ta đã chứng minh scope của JS được xác định tại compile-time, thuật ngữ cho kiểu scope này là "lexical scope". "Lexical" liên quan với giai đoạn "lexing" của quá trình biên dịch (compilation), như đã thảo luận ở phần trước.
 
-Để thu hẹp nội dung chương trình thành một kết luận hữu ích, ý tưởng chính của "lexical scope" là nó được k
+Để thu hẹp nội dung chương trình thành một kết luận hữu ích, ý tưởng chính của "lexical scope" là nó được kiểm soát hoàn toàn bởi vị trí của các hàm, blocks, và khai báo biến, liên quan với nhau.
 
+Nếu bạn đặt khai báo biến ở trong hàm, compiler xử lí khai báo này khi nó phân tích hàm, và gắn khai báo này với function scope. Nếu một biến là được khai báo block-scope (`let/const`), sau đó nó được gắn với block gần nhất (`{ .. }`), thay vì với function gần nhất (như với var).
 
+Hơn nữa, một tham chiếu (vai trò là target hay source) cho một biến phải được giải quyết (resolved) khi đến từ một trong những scope mà tồn tại lexically với nó; ngược lại thì biến sẽ được cho là không đc khai báo (thường dẫn đến lỗi). Nếu biến không được khai báo thì tại scope hiện tại, thì scope bên ngoài/kèm theo tiếp theo sẽ được tìm kiếm. Quá trình đi từng bước ra ngoài một cấp độ của scope lồng nhau tiếp tục đến khi có một khai báo biến phù hợp được tìm thấy, hoặc là khi ra đến global scope và ko còn nơi nào để đi nữa.
 
+Điều quan trọng cần lưu ý là quá trình biên dịch không thực sự làm điều gì về bộ nhớ dữ trữ (reserving memory) cho scopes và biến cả. Chưa có chương trình nào được executed.
 
+Thay vào đó, quá trình biên dịch tạo ra một map tất cả các lexical scopes để đưa ra những gì chương trình cần khi execute. Bạn có thể hình dung việc này như là việc chèn code trong run-time, nó định nghĩa tất cả scope (còn gọi là "lexical environment") và đăng kí tất cả các định danh (biến) cho mỗi scope.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Mặt khác, trong khi scopes được xác định trong quá trình biên dịch, chúng không thực sự được tạo cho đến run-time, tại mỗi thời điểm một scope cần chạy. Trong chương tiếp thì chúng ta sẽ phát thảo nền tảng các khái niệm cho lexcial scope.
+----------------------
