@@ -271,4 +271,5 @@ Hơn nữa, một tham chiếu (vai trò là target hay source) cho một biến
 Thay vào đó, quá trình biên dịch tạo ra một map tất cả các lexical scopes để đưa ra những gì chương trình cần khi execute. Bạn có thể hình dung việc này như là việc chèn code trong run-time, nó định nghĩa tất cả scope (còn gọi là "lexical environment") và đăng kí tất cả các định danh (biến) cho mỗi scope.
 
 Mặt khác, trong khi scopes được xác định trong quá trình biên dịch, chúng không thực sự được tạo cho đến run-time, tại mỗi thời điểm một scope cần chạy. Trong chương tiếp thì chúng ta sẽ phát thảo nền tảng các khái niệm cho lexcial scope.
+
 ----------------------
