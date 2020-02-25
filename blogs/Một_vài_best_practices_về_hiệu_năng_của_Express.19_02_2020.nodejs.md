@@ -137,38 +137,261 @@ Hàm `wrap()` là một wrapper để catch rejected promises và gọi `next()`
 
 ### Những việc cần làm với môi trường/setup
 
+#### Đặt NODE_ENV là 'production'
+
+Biến môi trường NODE_ENV dùng để chỉ định môi trường chạy ứng dụng (thường thì đó là development hoặc production). Một trong những việc đơn giản nhất bạn có thể làm để cải thiện hiệu năng là đặt NODE_ENV là "production".
+
+Khi đặt NODE_ENV là "production" thì Express sẽ:
+- Cache view templates.
+- Cache CSS files được tạo bởi CSS extensions.
+- Tạo ra ít error message dài dòng.
+
+Các bài [test](https://www.dynatrace.com/news/blog/the-drastic-effects-of-omitting-node-env-in-your-express-js-applications/) chỉ ra rằng chỉ cần cải thiện hiệu năng ứng dụng theo hệ số  3 (a factor of three)!
+
+Nếu bạn cần viết code cho môi trường cụ thể, bạn có thể check giá trị của NODE_ENV với process.env.NODE_ENV. **Hãy lưu ý** là việc kiểm tra giá trị của bất kì biến môi trường sẽ đều ảnh hưởng đến hiệu suất nên hãy thực hiện một cách tiết kiệm thôi.
+
+Khi development, bạn thường đặt biến môi trường trong khi tương tác với shell, ví dụ bằng cách **export** hoặc từ file **.bash_profile**. Nhưng nhìn chung bạn không nên làm thế trên server production; thay vào đó hãy dùng OS's init system(systemd hay Upstart). Phần tiếp theo cung cấp chi tiết hơn về việc dùng init system, nhưng việc cài đặt NODE_ENV vẫn rất quan trọng cho hiệu năng (và dễ làm), cần được lưu ý nhé.
+
+Với Upstart, dùng từ khóa env trong job file của bạn. Ví dụ:
+```shell
+# /etc/init/env.conf
+env NODE_ENV=production
+```
+Để xem chi tiết hơn, bạn có thể tham khảo ở [đây](http://upstart.ubuntu.com/cookbook/#environment-variables).
+
+Với systemd, dùng **Environment** trực tiếp trong unit file của bạn. Ví dụ:
+```shell
+# /etc/systemd/system/myservice.service
+Environment=NODE_ENV=production
+```
+
+Để xem chi tiết hơn thì bạn có thể tham khảo ở [đây](https://coreos.com/os/docs/latest/using-environment-variables-in-systemd-units.html).
+
+#### Đảm bảo ứng dụng của bạn tự động restart
+
+Trên production, bạn không muốn ứng dụng của bạn offline, rõ ràng là vậy. Do đó bạn cần phải đảm bảo nó sẽ restart nếu ứng dụng crash và nếu server tự crash. Mặc dù bạn hi vọng những việc đó không xảy ra, nhưng thực tế bạn phải tính đến cả 2 việc này bằng cách:
+- Dùng một process manager để restart ứng dụng (và Node) khi nó bị crash.
+- Dùng init system được cung cấp bởi OS để restart process manager khi OS bị crash. Nó cũng có thể dùng init system thay cho process manager.
+
+Ứng dụng Node crash nếu gặp phải một uncaught exception. Điều quan trọng nhất bạn cần làm là đảm bảo ứng dụng được test kĩ càng và xử lí tất cả exceptions (xem ở phần xử lí exception ở trên nhé). Nhưng để cho an toàn thì tốt nhất bạn vẫn nên đặt một cơ chế để đảm bảo nếu ứng dụng bị crash thì nó sẽ tự động restart.
+
+**Dùng một process manager**
+
+Trong development, bạn bắt đầu ứng dụng một cách đơn giản bằng câu lệnh `node server.js` hoặc gì đó tương tự. Nhưng khi ở trên production thì việc làm vậy là một thảm họa. Nếu ứng dụng bị crash, nó sẽ offline cho đến khi bạn restart. Để đảm bảo ứng dụng restart nếu bị crash, dùng một process manager. Một process manager là một "container"  cho ứng dụng để hỗ trợ deployment, cung cấp tính sẵn sàng cao (high availability), và có phép bạn quản lí ứng khi trong runtime.
+
+Ngoài việc restart khi ứng dụng bị crash, process manager còn cho phép bạn:
+- Có được cái nhìn sâu sắc về hiệu năng runtime và tiêu thụ tài nguyên (runtime performance và resource consumption).
+- Thay đổi cài đặt động để cải thiện hiệu năng.
+- Kiểm soát clustering (StrongLoop PM và pm2).
+
+Những process manager phổ biến nhất của Node là:
+- StrongLoop Process Manager
+- PM2
+- Forever
+
+Để biết thêm chi tiết so sánh từng tính năng của 3 process manager trên có thể xem ở [đây](http://strong-pm.io/compare/). Chi tiết chỉ dẫn cho cả ba có thể xem ở [đây](https://expressjs.com/en/advanced/pm.html).
+
+Dùng bất cứ process manager nào thì cùng phải giữ cho ứng dụng luôn up, thậm chí là khi nó cứ crash mãi.
+
+Tuy nhiên, StrongLoop PM có nhiều tính năng thích hợp với production deployment. Bạn có thể dùng nó và những công cụ liên quan của StrongLoop để:
+- Xây dựng và đóng gói ứng dụng local, sau đó deploy nó một cách bảo mật lên hệ thống production.
+- Tự động restart app khi nó crash bất kể lí do gì.
+- Quản lí cluster từ xa.
+- Xem CPU profiles và heap snapshots để tối ưu hiệu năng và chẩn đoán memory leaks.
+- Xem các performance metric cho ứng dụng.
+- Để dàng mở rộng quy mô cho nhiều host với việc tích hợp điều khiển cho Nginx load balancer.
+
+Như được giải thích dưới đây, khi bạn cài đặt StrongLoop PM như một operating system service sử dụng init system, nó sẽ tự động restart khi hệ thống restart. Do đó nó sẽ giữ cho những application processes và clusters sống mãi.
+
+**Dùng init system**
+
+Lớp tin cậy tiếp theo để đảm bảo ứng dụng của bạn restart khi server restart. Hệ thống có thể go down bởi nhiều lí do. Để đảm bảo ứng dụng restart nếu server crash, sử dụng init system được xây dựng sẵn trên OS. Hai init system chính được dùng ngày nay là [systemd](https://wiki.debian.org/systemd) và [Upstart](http://upstart.ubuntu.com/).
+
+Có 2 cách để dùng init systems trong ứng dụng Express:
+- Chạy ứng dụng với một process manager, và cài đặt process manager như một service với init system. Process manager sẽ restart ứng dụng khi nó bị crash, và init system sẽ restart process manager khi OS restart. Đây là cách được đề xuất.
+
+- Chạy ứng dụng (và Node) trực tiếp với init system. Cách này đơn giản hơn, nhưng bạn sẽ không có được những lơi ích mà process manager đem lại.
+
+**Systemd**
+
+Systemd là một `Linux system and service manager`. Hầu hết các bản Linux đều chọn systemd làm init system mặc định.
+
+Một file cấu hình systemd service gọi là **unit file**, với tên file kết thúc bởi .service. Đây là một ví dụ unit file để quản lí trực tiếp ứng dụng Node (thay thế đoạn text in đậm với giá trị cho hệ thống và ứng dụng của bạn):
+```shell
+[Unit]
+Description=Awesome Express App
 
 
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/node /projects/myapp/index.js
+WorkingDirectory=/projects/myapp
+
+User=nobody
+Group=nogroup
+
+# Environment variables:
+Environment=NODE_ENV=production
+
+# Allow many incoming connections
+LimitNOFILE=infinity
+
+#Allow core dumps for debugging
+LimitCORE=infinity
+
+StandardInput=null
+StandardOutput=syslog
+StandardError=syslog
+Restart=always
 
 
+[Install]
+WantedBy=multi-user.target
+```
 
+Chi tiết về systemd có thể xem thêm ở [đây](https://www.freedesktop.org/software/systemd/man/systemd.unit.html).
 
+**StrongLoop PM as a systemd service**
 
+Bạn có thể dễ dàng cài đặt StrongLoop Process Manager như một systemd service. Sau khi cài đặt, thì khi bạn restart, nó sẽ tự động restart StrongLoop PM, và StrongLoop sẽ restart tất cả các ứng dụng nó quản lí.
 
+Để cài StrongLoop PM như một systemd service:
+> $ sudo sl-pm-install --systemd
 
+Và sau đó chạy service với lệnh sau:
+> $ sudo /usr/bin/systemctl start strong-pm
 
+Chi tiết xem thêm ở [đây](https://loopback.io/doc/#Settingupaproductionhost-RHEL7+,Ubuntu15.04or15.10).
 
+**Upstart**
 
+Upstart là một công cụ hệ thống có trên nhiều phiên bản Linux để chạy những tasks và services suốt quá trình khởi chạy hệ thống, tắt chúng khi shutdown và giám sát chúng. Bạn có thể cấu hình ứng dụng Express hoặc process manager như một service và sau đó Upstart sẽ tự động restart nó khi bị crash.
 
+Và Upstart service được định nghĩa như một file cấu hình job (cũng được gọi là một "job") với tên file kết thúc với `.conf`. Ví dụ sau đây chỉ ra cách để tạo một job gọi là "myapp" cho một ứng dụng tên "myapp" với main file nằm ở /projects/myapp/index.js.
 
+Tạo một file tên là myapp.conf ở /etc/init với nội dung sau (thay thế những từ in đậm bằng giá trị tương ứng cho hệ thống và ứng dụng của bạn):
+```shell
+# When to start the process
+start on runlevel [2345]
 
+# When to stop the process
+stop on runlevel [016]
 
+# Increase file descriptor limit to be able to handle more requests
+limit nofile 50000 50000
 
+# Use production mode
+env NODE_ENV=production
 
+# Run as www-data
+setuid www-data
+setgid www-data
 
+# Run from inside the app dir
+chdir /projects/myapp
 
+# The process to start
+exec /usr/local/bin/node /projects/myapp/index.js
 
+# Restart the process if it is down
+respawn
 
+# Limit restart attempt to 10 times within 10 seconds
+respawn limit 10 10
+```
 
+NOTE: Đoạn script này yêu cầu Upstart 1.4 hoặc mới hơn, hỗ trợ trên Ubuntu 12.04-14.10.
 
+Vì job được cấu hình để chạy khi system start, ứng dụng của bạn sẽ chạy cùng với hệ điều hành, và tự động restart nếu app bị crash hoặc system down.
 
+Bên cạnh biệc tự động restart app, Upstart cho phép bạn dùng những lệnh sau:
+- **start myapp** - Khởi chạy app
+- **restart myapp** - Restart app
+- **stop myapp** - Dừng app
 
+Chi tiết có thêm xem thêm ở [đây](http://upstart.ubuntu.com/cookbook/).
 
+**StrongLopp PM như một Upstart service**
 
+Bạn có thể dễ dàng cài đặt StrongLopp Process Manager như một Upstart service. Sau khi cài xong, khi server restart, nó sẽ tự động restart StrongLopp PM, và StrongLoop PM sẽ restart tất cả ứng dụng nó quản lí.
 
+Để cài StrongLoop PM như một Upstart 1.4 service:
+> $ sudo sl-pm-install
 
+Sau đó chạy service với lệnh:
+> $ sudo /sbin/initctl start strong-pm
 
+NOTE: Trên những hệ thống không hỗ trợ Upstart 1.4, lệnh sẽ khác một chút. Xem phần [Cài đặt production host](https://loopback.io/doc/#Settingupaproductionhost-RHELLinux5and6,Ubuntu10.04-.10,11.04-.10) để biết thêm chi tiết.
 
+#### Chạy ứng dụng trong một cluster
 
+Trong một multi-core system, bạn có thể tăng hiệu năng của ứng dụng NODE nhiều lần bằng cách chạy một cluster of processes (cụm các process). Một cluster sẽ chạy nhiều instance của ứng dụng, một instance tương ứng với một CPU core, do đó phân tải và tasks giữa các instance.
 
+![Cluster](https://expressjs.com/images/clustering.png)
 
+QUAN TRỌNG: vì những instance của ứng dụng chạy trên mỗi process riêng biệt, chúng không chia sẻ không gian bộ nhớ với nhau. Do đó, những đối tượng là local cho mỗi instance của app. Vì thế bạn không thể duy trì trạng thái trong application code được. Tuy nhiên bạn có thể dùng một in-memory datastore như Redis để lưu trữ session-related data và state. Cách này áp dụng cho tất cả các hình thức mở rộng theo chiều ngang(horizontal scaling), dù là clustering với nhiều processes hay nhiều server vật lí.
+
+Trong clustered app, worker processes có thể crash độc lập mà không ảnh hưởng tới những processes còn lại. Bên cạnh những lợi ích về performance thì việc cô lập lỗi cũng là lí do khác để chạy một cluster cho những processes app. Bất cứ khi nào một worker process crash luôn đảm bảo log lại event và spawn một process mới sử dụng cluster.fork().
+
+**Sử dụng Node cluster module**
+
+Clustering có thể được thiết lập bằng Node's cluster module. Nó cho phép master process tạo những worker processes và phân phối những kết nối đến từng workers. Tuy nhiên, thay vì sử dụng module này trực tiếp, sẽ tốt hơn nếu bạn chọn dùng một trong những công cụ thực hiện việc này tự động, ví dụ như `node-pm` hay là `cluster-service`.
+
+**Sử dụng StrongLoop PM**
+
+Nếu bạn deploy ứng dụng bằng StrongLoop PM, bạn có thể tận dụng lợi ích của clustering mà không cần chỉnh sửa code.
+
+Khi StrongLoop PM chạy ứng dụng, nó tự động chạy một cluster với số lượng worker bằng với số CPU cores trên hệ thống. Bạn có thể chỉnh tay số lượng worker processes trên cluster bằng slc command line tool mà không cần dừng app.
+
+Ví dụ, giả sử bạn deploy ứng dụng tới prod.foo.com và StrongLoop PM đang lắng nghe cổng 8701(mặc định), sau đó bạn set cluster size thành 8 sử dụng slc:
+> $ slc ctl -C http://prod.foo.com:8701 set-size my-app 8
+
+Để xem chi tiết về clustering với StrongLoop PM, thì có thể tham khảo ở [đây](https://loopback.io/doc/).
+
+**Dùng PM2**
+
+Nếu bạn deploy ứng dụng dùng PM2, bạn có thể tận dụng ích lợi của clustering mà không cần chỉnh sửa code. Bạn nên đảm bảo ứng dụng của mình là stateless trước, có nghĩa là không có local data nào được lưu trong process(ví dụ như sessions, websocket connection và những thứ tương tự).
+
+Khi chạy một ứng dụng với PM2, bạn có thể bật **cluster mode** để chạy một cluster với một số lượng instances mà bạn chọn, và tương ứng với số lượng CPUs hiện có trên máy. Bạn có thể tự thay đổi số lượng processes trong cluster sử dụng command line tool của *pm2* mà không cần dừng app.
+
+Để bật cluster mode, chạy ứng dụng của bạn như sau:
+```shell
+# Start 4 worker processes
+$ pm2 start app.js -i 4
+# Auto-detect number of available CPUs and start that many worker processes
+$ pm2 start app.js -i max
+```
+
+Có thể cấu hình những cái này trong PM2 process file(ecosystem.config.js hoặc tương tự) bằng việc cài đặt **exec_mode** thành **cluster** và **instances** thành số workers cần chạy.
+
+Một khi ứng dụng đã chạy, thì có thể mở rộng bằng cách:
+```shell
+# Add 3 more workers
+$ pm2 scale app +3
+# Scale to a specific number of workers
+$ pm2 scale app 2
+```
+
+Chi tiết xem ở phần [Cluster Mode](https://pm2.keymetrics.io/docs/usage/cluster-mode/).
+
+#### Cache kết quả của request
+
+Một chiến lược khác để cải thiện performance trên production là cache lại kết quả của request, do đó ứng dụng của bạn không phải lặp lại những tính toán để phục vụ những request giống nhau.
+
+Sử dụng một caching service như Vanish hay Nginx (có thể xem [Nginx Caching](https://serversforhackers.com/c/nginx-caching)) để cải thiện đáng kể tốc độ và hiệu năng của ứng dụng.
+
+#### Sử dụng một load balancer
+
+Dù có tối ưu ứng dụng như thế nào, thì một instance cũng chỉ có thể xử lí một số lượng giới hạn tải và traffic. Một cách để mở rộng ứng dụng là chạy nhiều instance của nó và phân phối tải thông qua một load balancer. Cài đặt một load balancer có thể cải thiện hiệu năng và tốc độ của ứng dụng, và cho phép nó mở rộng hơn là với một instance.
+
+Một load balancer thường là một reverse proxy để điều phối traffic đến và từ nhiều application instances và servers. Bạn có thể dễ dàng cài đặt ứng dụng của bạn bằng cách dùng Nginx hoặc HAProxy.
+
+Với load balancing, bạn có thể sẽ phải đảm bảo những request được liên kết với một session ID cụ thể kết nối với process nguồn gốc của chúng. Việc này được gọi là **affinity** hay **sticky sessions** và cũng có thể được giải qiueest bằng data store như Redis như ở trên cho session data(phụ thuộc vào ứng dụng của bạn). Để thảo luận thêm có thể xem ở [đây](https://socket.io/docs/using-multiple-nodes/).
+
+#### Dùng một reverse proxy
+
+Một reverse proxy ở trước một web app và thực hiện những tác vụ hỗ trợ trên request, bên cạnh đó thực hiện đưa request đến app. Nó có thể xử lí những trang lỗi, compression, caching, serving files, và load balancing.
+
+Việc đưa những tác vụ không cần yêu cầu kiến thức về state của ứng dụng cho reverse proxy giúp cho Express được giải phóng và chỉ tập trung thực hiện các tác vụ chuyên biệt của ứng dụng. Vì lí do đó, chúng tôi đề xuất việc chạy Express phía sau một reverse proxy như Nginx hay HAProxy trên production.
+
+==============
