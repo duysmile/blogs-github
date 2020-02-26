@@ -82,6 +82,42 @@ Những ý chính rút ra được từ marbles và buckets (and bubbles):
 
 -------------
 
+Một ẩn dụ hữu ích khác cho quá trình phân tích biến và scope mà chúng xuất phát là tưởng tượng các cuộc hội thoại khác nhau diễn ra bên trong engine mà code được xử lí và thực thi. Bạn có thể "lắng nghe" trên những cuộc trò chuyện này để có được một nền tảng khái niệm tốt hơn về cách scopes hoạt động.
+
+Chúng ta hãy gặp những thành viên của JS engine, sẽ có những cuộc hội thoại khi họ xử lí chương trình:
+1. *Engine*: có trách nhiệm biên dịch và thực thi từ đầu đến cuối cho chương trình JS.
+
+2. *Compiler*: một trong những người bạn của Engine, xử lí tất cả các công việc như parsing và code-generation (xem phần trước).
+
+3. *Scope Manager*: một người bạn khác của Engine; thu thập và duy trì một list look-up của tất cả các biến biến/định danh, và thi hành một tập các nguyên tắc về cách mà chúng được truy cập để thực thi code.
+
+Để bạn có thể hiểu đầy đủ về cách JS hoạt động, bạn cần bắt đầu nghĩ như Engine (và những người bạn) nghĩ, hỏi những câu hỏi mà chúng hỏi, và trả lời câu hỏi của chúng tương tự vậy.
+
+Để khám phá những cuộc trò chuyện này, nhớ lại chương trình đang chạy của chúng ta:
+
+```javascript
+var students = [
+  { id: 14, name: "Kyle" },
+  { id: 73, name: "Suzy" },
+  { id: 112, name: "Frank" },
+  { id: 6, name: "Sarah" },
+];
+
+function getStudentName(studentID) {
+  for (let student of students) {
+    if (student.id === studentID) {
+      return student.name;
+    }
+  }
+}
+
+var nextStudent = getStudentName(73);
+
+console.log(nextStudent);
+// Suzy
+```
+
+Cùng xem xét cách JS xử lí chương trình trên, cụ thể bắt đầu từ dòng lệnh đầu tiên. Mảng và nội dung của nó chỉ là các giá trị JS cơ bản (và do đó nó không bị ảnh hưởng bởi bất kỳ mối quan tâm nào với scope), do đó trọng tâm của chúng ta sẽ nằm ở khai báo `var students = [...]` và các phần khởi tạo - gán (initialization-assignment).
 
 
 
