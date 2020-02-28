@@ -232,37 +232,54 @@ typeof doesntExist; // "undefined"
 
 Hai tham chiếu biến trong tình huống này rất khác nhau, nhưng mà JS làm chúng ta hơi hoảng loạn :)) Không may là các JS developer chỉ cần phải chú ý đừng để bị lừa.
 
-**Gl
+**Global... What?**
 
+Nếu biến là một target và không bị ảnh hưởng bởi strict-mode, một hành vi khó hiểu và đáng ngạc nhiên sẽ được thực hiện. Và kết quả ko may là Scope Manager của global scope sẽ **vô tình tạo ra một biến global** để hoàn tất việc gán vào target!
 
+Xem ví dụ sau:
+```javascript
+function getStudentName() {
+  // assignment to an undeclared variable :(
+  nextStudent = 'Suzy';
+}
 
+getStudentName();
 
+console.log(nextStudent); // Suzy - oops, an accidental-global variable!
+```
 
+Đây là cách mà cuộc hội thoại diễn ra:
+> **Engine**: Này Scope Manager (cho function), tôi có một target reference cho `nextStudent`, ông nghe thấy bao giờ chưa?
 
+> **(Function) Scope Manager**: Không, chưa nghe bao giờ. Thử outer scope kế tiếp xem.
 
+> **Engine**: Này Scope Manager (cho global scope), tôi có một target reference cho `nextStudent`, ông có biết không?
 
+> **(Global) Scope Manager**: Không, nhưng vì chúng ta đang ở trong non-strict-mode nên tôi có thể giúp ông tạo ra một biến global, đây nè!
 
+Và rồi...
 
+Kiểu tai nạn này (gần như chắc chắn sẽ dẫn đến bug) là một ví dụ tuyệt vời cề sự bảo về của strict-mode, và lí giải tại sao việc sử dụng như thế này là một ý tưởng tồi. Trong strict-mode, **Global Scope Manager** thay vào đó sẽ trả lời là:
 
+> **(Global) Scope Manager**: không, chưa nghe bao giờ. Rất tiếc nhưng tôi phải ném ra một `ReferenceError`.
 
+Không bao giờ dựa vào các biến global được tình cờ tạo ra như thế này. Luôn luôn sử dụng strict-mode, và luôn khai báo rõ ràng các biến. Bạn sẽ nhận được một thông báo `ReferenceError` hữu ích nếu bạn mắc lỗi thử gán một biến không được khai báo.
 
+### Building on metaphors(Building trong phép ẩn dụ)
 
+Để minh họa nested scope, một ẩn dụ hữu ích khác là một tòa nhà văn phòng (office building), như hình sau:
+![Office building](https://i.ibb.co/khRf8zh/fig3.png)
 
+Tòa nhà thể hiện tập các nguyên tắc nested scope cho chương trình của chúng ta. Tầng đầu tiên của tòa nhà tượng trưng cho scope hiện tại đang được thực thi. Đỉnh của tòa nhà chính là global scope.
 
+Bạn giải quyết một tham chiếu biến target hay source đầu tiên là nhìn vào tầng hiện tại, nếu không tìm thấy, lên thang máy lên tầng kế tiếp, rồi tìm ở đó, cứ thế tiếp tục. Một khi bạn đến tầng thượng (global scope), bạn có thể tìm được hoặc là không. Nhưng dù thế nào thì bạn cũng phải dừng lại.
 
+### Tiếp tục cuộc hội thoại
 
+Tại thời điểm này, bạn nên cảm thấy nắm vững hơn scope là gì, và cách JS engine xác định nó từ code của bạn.
 
+Trước khi tiếp tục, hãy tìm vào đoạn code trong những projects của bạn và chạy chúng qua những đoạn hội thoại. Thật đấy, hãy làm thử đi, tìm một người bạn và thử tập vào vai chúng (compiler, engine, scope manager). Nếu bạn thấy bản thân bối rối hay vấp ngã, thì hãy dành nhiều thời gian xem lại tài liệu này.
 
+Chúng ta sẽ đến phần tiếp theo, và khám phá cách tập hợp các lexical scope trong chương trình kết nối trong một chuỗi.
 
-
-
-
-
-
-
-
-
-
-
-
-
+-------------------------------
