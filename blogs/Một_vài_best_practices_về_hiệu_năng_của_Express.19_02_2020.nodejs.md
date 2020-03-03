@@ -394,4 +394,4 @@ Một reverse proxy ở trước một web app và thực hiện những tác v�
 
 Việc đưa những tác vụ không cần yêu cầu kiến thức về state của ứng dụng cho reverse proxy giúp cho Express được giải phóng và chỉ tập trung thực hiện các tác vụ chuyên biệt của ứng dụng. Vì lí do đó, chúng tôi đề xuất việc chạy Express phía sau một reverse proxy như Nginx hay HAProxy trên production.
 
-==============
+-------------------
