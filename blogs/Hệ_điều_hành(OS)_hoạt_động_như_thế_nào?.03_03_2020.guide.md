@@ -59,20 +59,86 @@ Khi một process thực thi, nó trải qua những trạng thái khác nhau. N
 
 - **Terminated hoặc exit**: Một khi process hoàn tất quá trình thực thi, hoặc nó bị terminated bởi hệ điều hành, nó chuyển sang trạng thái terminated để đợi được removed khởi main memory.
 
+Một Process Control Block là một cấu trúc dữ liệu được duy trì bởi Hệ điều hành cho mỗi process. PCB được định danh bởi một process ID (PID) là số nguyên. Một PCB giữ tất cả các thông tin cần để theo dõi một process như list bên dưới:
+![PCB](https://miro.medium.com/max/273/1*iRRLvW9or49SYRAm9HvR0Q.jpeg)
 
+- **Process State**: trang thái hiện tại của process - có thể là ready, running, waiting, ...
 
+- **Process Privileges**: đây là bắt buộc để cho phép hoặc không cho phép truy cập vào tài nguyên hệ thống.
 
+- **Process ID**: Định danh duy nhất cho mỗi prcess trong hệ điều hành.
 
+- **Pointer**: Một con trỏ đến process cha.
 
+- **Program Counter**: Program Counter là một con trỏ tới địa chỉ cho chỉ dẫn tiếp theo được thực thi cho process. (pointer to the address of the next instruction to be executed for this process).
 
+- **CPU Registers**: Nhiều thanh ghi CPU khác nhau nơi những processes cần được lưu trữ cho quá trình thực thi ở trạng thái running.
 
+- **CPU Scheduling Information**: Ưu tiên process và những thông tin scheduling khác cần thiết để lên lịch cho process (schedule the process).
 
+- **Memory Management Information**: Bao gồm thông tin của page table, memory limits, segment table, phụ thuộc vào memory được dùng bởi hệ điều hành.
 
+- **Accounting Information**: bao gồm số lượng CPU sử dụng cho process execution, time limits, execution ID, ...
 
+- **IO Status Information**: Bao gồm một danh sách các thiết bị I/O được cấp phát cho process.
 
+### 2: Threads và Concurrency
 
+Một thread là một luồng thực thi thông qua process code. Nó có một program counter để theo dõi chỉ dẫn nào được thực thi tiếp theo. Nó cùng có thanh ghi hệ thống (system registers) để giữ những biến hiện đang hoạt động, và một stack chứa lịch sử thực thi.
 
+Một thread chia sẻ với những peer(ngang hàng) thread của nó nhiều thông tin như code segment, data segment, và mở files. Khi một thread thay đổi một bộ nhớ một item code segment thì tất cả các thread còn lại có thể thấy được.
 
+Một thread còn được gọi là một process nhẹ (**lightweight process**). Những thread giúp việc cải thiện hiệu năng của ứng dụng nhờ cơ chế song song (paralleism). Những thread đại diện cho cách tiếp cận để cải thiện hiệu năng của hệ điều hành nhờ việc giảm chi phí (overhead). Một thread tương đương với một classical process.
+
+Một thread thuộc về chính xác một process,và không có thread nào có thể tồn tại được ở ngoài process. Mỗi thread đại diện cho một luồng điều khiển tách biệt. Những thread được sử dụng thành công trong việc tạo ra các network servers và webservers. Chúng cũng cung cấp nền tảng thích hợp cho việc xử lí song song của ứng dụng trên các vi xử lí chia sẻ bộ nhớ (shared memory multiprocessors).
+
+![Threads](https://miro.medium.com/max/704/1*U3WUG21SOB1XPVj3djkZjw.jpeg)
+
+Ưu điểm của threads:
+- Chúng giảm thiểu thời gian chuyển đổi context (context switching time).
+- Sử dụng chúng cung cấp việc xử lí đồng thời trong một process (concurrency within a process).
+- Chúng cung cấp cách thức giao tiếp hiệu quả.
+- Việc này rất tiết kiêm cho việc tạo và thay đổi context threads.
+- Thread cho phép sử dụng các kiến trúc multiprocessors để tăng quy mô mở rộng cũng như hiệu quả cao hơn.
+
+Thread được implementtheo 2 cách sau:
+- **User Level Threads**: những thread được user quản lí.
+- **Kernel Level Threads**: những thread được hệ điều hành quản lí hoạt động trên một kernel, và core của hệ điều hành.
+
+#### User Level Threads
+
+Trong trường hợp này, thread management kernel không nhận thức được sự tồn tại của thread. Thư viện thread chưa code để tạo và hủy bỏ threads, gửi messages và dữ liệu giữa các thread, cho scheduling thread execution, và cho việc lưu trữ và khôi phục lại những thread contexts. ỨNg dụng này bắt đầu với một single thread.
+
+![User Level Threads](https://miro.medium.com/max/462/1*G_e42CKNsmdNmx3gOKZb1A.png)
+
+Ưu điểm: 
+- Việc chuyển đổi thread không cần dùng đến đặc quyền ở Kernel mode (kernel mode privileges).
+- User level thread có thể chạy trên bất kì hệ điều hành nào
+- Scheduling có thể là một ứng dụng cụ thể user level thread.
+- User level thread được tạo và quản lí nhanh.
+
+Nhược điểm:
+- Trong một hệ điều hành thông thường, hầu hết các cuộc gọi hệ thống (system calls) đều bị chặn.
+- Ứng dụng đa luồng không thể tận dụng lợi thế của multiprocessing.
+
+#### Kernel Level Threads
+
+Trong trường hợp này, thread management được thực hiện bởi Kernel. Không có thread management code ở khu vực ứng dụng (application area). Những kernel threads được hỗ trợ trực tiếp bởi hệ điều hành. Bắt kì ứng dụng nào cũng có thể được lập trình để chạy đa luồng. Tất cả các thread bên trong ứng dụng được hỗ trợ trong một single process.
+
+Kernel duy trì thông tin context cho toàn bộ process và cho các thread riêng lẻ trong process. Scheduling bởi Kernel được thực hiện trên cơ sở thread. Kernle thực hiện việc tạo thread, scheduling, và quản lí trên không gian Kernel. Những kernel thread thường tạo và quản lí chậm hơn user threads.
+
+![Kernel threads](https://miro.medium.com/max/461/1*I_kV4ApQKtK4Lajh79tDAg.png)
+
+Ưu điểm:
+- Kernel có thể đồng thời schedule nhiều thread từ cùng một proces trên nhiều process.
+- Nếu một thread trong một process bị chặn (blocked), Kernel có thể schedule một thread khác cuả cùng process.
+- Các kernel routines có thể được đa luồng. 
+
+Nhược điểm:
+- Những kernel thread thường được tạo và quản lí lâu hơn user threads.
+- Chuyển điều khiển từ một thread sang một thread khác trong cùng một process yêu cầu chuyển đổi chế độ sang Kernel.
+
+### 3: Scheduling
 
 
 
