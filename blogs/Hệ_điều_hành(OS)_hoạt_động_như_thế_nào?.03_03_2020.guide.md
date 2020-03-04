@@ -101,13 +101,13 @@ Một thread thuộc về chính xác một process,và không có thread nào c
 - Việc này rất tiết kiêm cho việc tạo và thay đổi context threads.
 - Thread cho phép sử dụng các kiến trúc multiprocessors để tăng quy mô mở rộng cũng như hiệu quả cao hơn.
 
-Thread được implementtheo 2 cách sau:
+Thread được implement theo 2 cách sau:
 - **User Level Threads**: những thread được user quản lí.
 - **Kernel Level Threads**: những thread được hệ điều hành quản lí hoạt động trên một kernel, và core của hệ điều hành.
 
 #### User Level Threads
 
-Trong trường hợp này, thread management kernel không nhận thức được sự tồn tại của thread. Thư viện thread chưa code để tạo và hủy bỏ threads, gửi messages và dữ liệu giữa các thread, cho scheduling thread execution, và cho việc lưu trữ và khôi phục lại những thread contexts. ỨNg dụng này bắt đầu với một single thread.
+Trong trường hợp này, thread management kernel không nhận thức được sự tồn tại của thread. Thư viện thread chứa code để tạo và hủy bỏ threads, gửi messages và dữ liệu giữa các thread, cho scheduling thread execution, và cho việc lưu trữ và khôi phục lại những thread contexts. Ứng dụng này bắt đầu với một single thread.
 
 ![User Level Threads](https://miro.medium.com/max/462/1*G_e42CKNsmdNmx3gOKZb1A.png)
 
