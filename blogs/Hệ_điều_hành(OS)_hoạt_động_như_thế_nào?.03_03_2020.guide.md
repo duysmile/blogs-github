@@ -114,7 +114,7 @@ Trong trường hợp này, thread management kernel không nhận thức đư�
 Ưu điểm: 
 - Việc chuyển đổi thread không cần dùng đến đặc quyền ở Kernel mode (kernel mode privileges).
 - User level thread có thể chạy trên bất kì hệ điều hành nào
-- Scheduling có thể là một ứng dụng cụ thể user level thread.
+- Scheduling có thể là một ứng dụng cụ thể ở user level thread.
 - User level thread được tạo và quản lí nhanh.
 
 Nhược điểm:
