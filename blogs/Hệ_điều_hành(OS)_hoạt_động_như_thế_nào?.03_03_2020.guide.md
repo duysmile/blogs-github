@@ -22,7 +22,42 @@ Tôi muốn dùng bài viết này để chia sẻ những bài học từ khóa
 
 Những thành phần chính của một hệ điều hành là file system, scheduler, và device driver. Bạn có thể là đã dùng cả hệ điều hành Desktop (Windows, Mac, Linux) và Embedded (Android, iOS) trước đây.
 
+Có 3 yếu tố chính của một hệ điều hành là (1)**Abstractions** (process, thread, file, socket, memory), (2) **Mechanisms** (create, schedule, open, write, allocate) và (3) **Policies** (LRU, EDF).
 
+Có 2 nguyên tắc thiết kế hệ điều hành, một là (1) **Separation of mechanism and policy** dùng cách implement những cơ chế linh hoạt để hỗ trợ các policies, hai là (2) **Optimization for common case**: Hệ điều hành được sử dụng ở đâu? Người dùng sẽ muốn thực thi gì trên máy tính? Những yêu cầu của workload (khối lượng công việc) là gì?
+
+Có 3 kiểu của một hệ điều hành thông dụng hiện nay. Đầu tiên là **Monolithic OS**, trong đó hệ điều hành hoàn toàn hoạt động trong không gian kerel và ở một mình trong chế độ giám sát (is alone in supervisor mode). Thứ hai là **Modular OS**, với kiểu này thì một vài phần của system core sẽ được đặt ở trong những file độc lập gọi là modules và có thể được thêm vào system tại run time. Và thứ 3 là **Micro OS**, còn ở kiểu này kernel được chia thành nhiều processes riêng biết, gọi là servers. Một vài servers chạy ở không gian kernel, một vài cái khác chạy ở không gian user.
+
+Nào hãy cùng tìm hiểu những khái niệm chính chi tiết hơn nào!
+
+### 1: Processes và Process Management
+
+Một process đơn giản là một chương trình trong quá trình thực thi. Việc thực thi của một process phải tiến hành một cách tuần tự. Để dễ hình dung, thì chún ta viết một chương trình vào một file text, và khi thực thi chương trình, nó trở thành một process sẽ thực hiện tất cả các task được mô tả trong chương trình.
+
+Khi một chương trình được tải và memory và nó trở thành một process, nó có thể được chia thành 4 phần - stack, heap, text và data. Ảnh dưới sẽ cho các bạn một bố cục đơn giản của một process bên trong main memory.
+![Process](https://miro.medium.com/max/286/1*pplsGMeRKFcc0IHr1j3YwA.jpeg)
+
+- **Stack**: Stack bao gồm những dữ liệu tạm như là tham số của method/function (method/function parameters), địa chỉ trả về (return address) và biến local (local variables).
+
+- **Heap**: đây là bộ nhớ được cấp phát động cho một process suốt run time của nó.
+
+- **Text**: bao gồm hoạt động hiện tại được biểu thị bởi giá trị của Program Counter và nội dung của các thanh ghi bộ xử lí (processor's registers).
+
+- **Data**: phần này gồm các biển global và static.
+
+Khi một process thực thi, nó trải qua những trạng thái khác nhau. Những giai đoạn có thể khác nhau ở các hệ điều hành, và tên gọi của các trạng thái cũng không phải là tên chuẩn. Nhưng nhìn chung, một process có thể có một trong 5 trạng thái tại một thời điểm:
+
+![States](https://miro.medium.com/max/600/1*KTbvb5KA501gYqsfv39k6Q.jpeg)
+
+- **Start**: trạng thái khởi tạo khi một process lần đầu được bắt đầu/ được tạo.
+
+- **Ready**: process đang đợi để được gán cho một bộ xử lí (processor). Những ready processes đang đợi để bộ xử lí (processor) được phân bổ đến chúng bởi hệ điều hành để chúng có thể chạy. Một process có thể đến trạng thái này sau trạng thái **Start**, hoặc khi đang chạy mà bị ngắt bởi scheduler để gán CPU cho những process khác.
+
+- **Running**: Một khi process được gán cho một bộ xử lí (processor) bởi scheduler của hệ điều hành, trạng thái của process được đặt là running và processor thực thi theo chỉ dẫn của nó.
+
+- **Waiting**: Một process chuyển sang trạng thái waiting nếu nó cần phải đợi một tài nguyên nào đó, hoặc là đợi user input, hoặc đợi một file đến khi available.
+
+- **Terminated hoặc exit**: Một khi process hoàn tất quá trình thực thi, hoặc nó bị terminated bởi hệ điều hành, nó chuyển sang trạng thái terminated để đợi được removed khởi main memory.
 
 
 
