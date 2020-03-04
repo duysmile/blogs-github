@@ -107,7 +107,7 @@ Thread được implement theo 2 cách sau:
 
 #### User Level Threads
 
-Trong trường hợp này, thread management kernel không nhận thức được sự tồn tại của thread. Thư viện thread chứa code để tạo và hủy bỏ threads, gửi messages và dữ liệu giữa các thread, cho scheduling thread execution, và cho việc lưu trữ và khôi phục lại những thread contexts. Ứng dụng này bắt đầu với một single thread.
+Trong trường hợp này, thread management kernel không nhận thức được sự tồn tại của thread. Thread library chứa code để tạo và hủy bỏ threads, gửi messages và dữ liệu giữa các thread, để scheduling thread execution, và để lưu trữ và khôi phục lại những thread contexts. Ứng dụng bắt đầu với một single thread.
 
 ![User Level Threads](https://miro.medium.com/max/462/1*G_e42CKNsmdNmx3gOKZb1A.png)
 
