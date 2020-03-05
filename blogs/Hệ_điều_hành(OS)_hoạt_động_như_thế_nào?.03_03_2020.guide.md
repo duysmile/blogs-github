@@ -140,6 +140,42 @@ Nhược điểm:
 
 ### 3: Scheduling
 
+Quá trình scheduling là trách nhiệm của process manager để xử lí loại bỏ các quá trình đang chạy khỏi CPU và lựa chọn một process khác trên một nền tảng chiến lược cụ thể.
+
+Process scheduling là một phần thiết yếu của một hệ điều hành multiprogramming. Những hệ điều hành này cho phép nhiều hơn một process được load vào executable memory tại một thời điểm, và process được load chia sẻ CPU sử dụng time multiplexing (ghép kênh thời gian).
+
+Hệ điều hành duy trì tất cả các Process Control Blocks (PCBs) trong **Process Scheduling Queues**. Hệ điều hành duy trì một queue tách biệt cho mỗi trạng thái process,và PCBs của tất cả các process trong cùng một trạng thái thực thi được đặt cùng một queue. Khi một trạng thái của proces thay đổi, PCB của nó cũng được gỡ ra khởi queue hiện tại và di chuyển sang một queue trạng thái mới.
+
+Hệ điều hành duy trì những những process scheduling quan trọng sau:
+- **Job queue**: queue này giữ tất cả các process trong hệ thống.
+- **Ready queue**: queue này giữ một tập tất cả các process ở trong main memory, sẵn sàng và đợi để  thực thi. Một process mới luôn được đặt trong queue này.
+- **Device queues**: những processes bị block do không có sẵn trong thiết bị I/O tạo thành trong queue này.
+![Process Scheduling Queues](https://miro.medium.com/max/960/1*9m161tRz3WesprnldVeYhw.jpeg)
+
+Hệ điều hành dùng các chính sách khác nhau để quản lí mỗi queue (FIFO, Round Robin, Priority, vv). Scheduler của hệ điều hành xác định cách chuyển process giữa ready và run queue chỉ có thể có một entry trên mỗi processor core trong hệ thống. Trong sơ đồ ở trên, nó được kết hợp với CPU.
+
+2 mô hình trạng thái process tương ứng với trạng thái running và non-running:
+- **Running**: Khi một process mới được tạo, nó vào hệ thống trong trạng thái running.
+
+- **Not Running**: Những proces không chạy được giữ trong queue, chờ đến lượt được thực thi. Mỗi entry trong queue là một con trỏ đến một process cụ thể. Queue được implement bằng cách sử dụng danh sách liên kết. Công dụng của bộ điều phối (dispatcher) là như sau: Khi một process bị ngắt, process đó được chuyển vào waiting queue. Nếu process đó được hoàn thành hoặc bị hủy bỏ, process sẽ bị bỏ đi. Trong 2 trường hợp, dispatcher sau đó sẽ chọn một process từ queue để thực thi.
+
+![Context Switch](https://miro.medium.com/max/297/1*4kcmdNBAQo-Hzo4G9L6g8Q.jpeg)
+
+Một **context switch** (chuyển đổi context) là một cơ chế để lưu trữ và khôi phục trạng thái hoặc context của một CPU trong Process Control Block. Nó cho phép một quá trình thực thi process được tiếp tục từ cùng một điểm sau đó. Sử dụng công nghệ này, một context switcher cho phép nhiều process chia sẻ một single CPU. Context switching là một tính năng thiết yếu của một hệ điều hành multitasking.
+
+Khi một scheduler chuyển CPU từ thực thi một process sang một process khác, trạng thái từ process hiện tại đang chạy được lưu trữ vào process control block. Sau đó, trạng thái của process tiếp theo được tải vào PCB của nó và được dùng để set PC, registers, vv. Tại thời điểm này, process thứ hai bắt đầu thực thi.
+
+Những context switches là những tính toán chuyên sâu, vì trạng thái register và memory phải được lưu trữ và khôi phục. Để tránh thời lượng context switching, một vài hệ thống phần cứng sử dụng 2 hoặc nhiều bộ thanh ghi bộ xử lí (sets of processor registers).
+
+Khi process được chuyển, thông tin sau được lưu trữ cho những lần dùng sau: Program Counter, Scheduling Information, Base và Limit Register Value, Currently Used Register, Changed State, I/O State Information, và Accounting Information.
+
+### 4: Memory Management
+
+
+
+
+
+
 
 
 
