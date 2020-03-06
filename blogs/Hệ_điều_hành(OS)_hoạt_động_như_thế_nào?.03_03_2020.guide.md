@@ -171,7 +171,26 @@ Khi process được chuyển, thông tin sau được lưu trữ cho những l�
 
 ### 4: Memory Management
 
+Memory Management là một tính năng của hệ điều hành để xử lí và quản lí bộ nhớ chính (primary memory). Nó chuyển những process qua lại giữa main memory và disk trong quá trình thực thi.
 
+Memory Management theo dõi từng vị trí bộ nhớ, bất kể là nó có được cấp phát cho process nào hay ko. Nó kiểm tra lượng bộ nhớ đã được cấp phát cho những processes. Nó quyết định process nào sẽ lấy bộ nhớ tại thời điểm nào. Và nó theo dõi bất cứ khi nào bộ nhớ được free hoặc không được cấp phát, và tương ứng cập nhật trạng thái.
+
+![Memory Management](https://miro.medium.com/max/1393/1*Vy54VZkKuf4zbd7WjdS75Q.png)
+
+Không gian địa chỉ của process là một tập các địa chỉ logic mà process tham chiếu trong code của nó. Ví dụ, khi địa chỉ 32 bit được dùng, những địa chỉ từ 0 đến 0x7fffffffm đó là 2^31 số có thể dùng, với tổng kích thước lí thuyết là 2 gigabytes.
+
+Hệ điều hành quan tập việc mapping địa chỉ logic đến địa chỉ vật lí tại thời điểm cấp phát bộ nhớ cho chương trình. Có 3 loại địa chỉ được sử dụng trong chương trình trước và sau khi bộ nhớ được cấp phát:
+- **Symbolic addresses**: Những địa chỉ được dùng trong source code. Tên biến, constants, và những instruction labels là những phần tử cơ bản của không gian symbolic address.
+
+- **Relative addresses**: Tại thời điểm biên dịch, một compiler chuyển đổi symbolic addresses sang relative addresses.
+
+- **Physical addresses**: Loader tạo những địa chỉ này tại thời điểm khi chương trình được load vào main memory.
+
+Địa chỉ vật lí và địa chỉ ảo giống nhau ở address binding schemes trong compile-time và load-time. Những địa chỉ vật lí và địa chỉ ảo khác ở address binding schemes trong execution-time.
+
+Tập hợp tất các các địa chỉ logic được tạo bởi một chương trình được gọi là **logical address space**. Tập hợp tất cả địa chỉ vật lí tương ứng với những địa chỉ logic này được gọi **physical address space**.
+
+### Inter-Process Communication
 
 
 
