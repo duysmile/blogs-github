@@ -190,7 +190,7 @@ Hệ điều hành quan tập việc mapping địa chỉ logic đến địa ch
 
 Tập hợp tất các các địa chỉ logic được tạo bởi một chương trình được gọi là **logical address space**. Tập hợp tất cả địa chỉ vật lí tương ứng với những địa chỉ logic này được gọi **physical address space**.
 
-### Inter-Process Communication
+### 5: Inter-Process Communication
 
 
 
