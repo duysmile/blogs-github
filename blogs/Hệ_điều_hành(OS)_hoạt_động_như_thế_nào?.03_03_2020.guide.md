@@ -192,6 +192,57 @@ Tập hợp tất các các địa chỉ logic được tạo bởi một chươ
 
 ### 5: Inter-Process Communication
 
+Có 2 loại process: độc lập (independent) và hợp tác (cooperating). Một process độc lập không bị ảnh hưởng khi một process khác thực thi, trong khi một process hợp tác có thể bị ảnh hưởng bởi việc thực thi các process khác.
+
+Bạn có thể nghĩ là chắc những process độc lập này sẽ thực thi rất hiệu quả. Nhưng thực tế, có nhiều trường hợp khi bản chất một process kết hợp có thể được sử dụng để tăng tốc độ tính toán, tiện lợi, và chia module. Inter-process communication (IPC) là một cơ chế cho phép những process giao tiếp với nhau và đồng bộ hoạt động của chúng. Giao tiếp giữa các process có thể được xem như là một phương thức hợp tác giữa chúng.
+
+Process có thể giao tiếp với nhau bằng 2 cách: Shared Memory và Message Parsing.
+
+**Shared Memory Method**
+
+Có 2 process là Producer và Consumer. Producer tạo ra các item và Consumer tiêu thụ các item đó. 2 process này chia sẻ chung một không gian hoặc vị trí bộ nhớ là "buffer", nơi mà item được sản xuất bởi Producer được lưu trữ và từ đó Consumer tiêu thụ item mà nó cần.
+
+Có 2 phiên bản của vấn đề này: đầu tiên là vấn đề không giới hạn buffer, khi đó Producer có thể tiếp tục sản xuất item và không có giới hạn kích thước của buffer. Vấn đề thứ 2 là giới hạn buffer, khi mà Producer sản xuất một số lượng nhất định các item và sau đó nó bắt đầu chờ Consumer tiêu thụ chúng.
+
+![Shared Memory](https://miro.medium.com/max/1024/1*IIsWsFK8f50jZleW3XS1Bg.png)
+
+Với vấn đề giới hạn buffer, Producer và Consumer sẽ chia sẻ chung memory. Sau đó Producer sẽ bắt đầu sản xuất item. Nếu tổng số lượng item được sản xuất bằng với kích thước của buffer, Producer sẽ chờ đến khi chúng được tiêu thụ hết bởi Consumer.
+
+Tương tự, Consumer đầu tiên kiểm tra xem thử item có chưa, nếu chưa thì Consumer sẽ đợi đến khi Producer sản xuất nó. Nếu có item ở đó thì Consumer sẽ tiêu thụ chúng.
+
+**Message Parsing Method**
+
+Trong method này, những process giao tiếp với nhau mà không cần bất kì shared memory nào. Nếu 2 process p1 và p2 muốn giao tiếp với nhau chúng sẽ tiến hành như sau:
+- Thiết lập một liên kết giao tiếp (nếu một liên kết đã tồn tại, không cần thiết lập lại).
+- Bắt đầu trao đổi message sử dụng basic primitives. Chúng ta cần ít nhất 2 primitives là: **send** (message, destination) hoặc **send** (message) và **receive** (message, host) hoặc **receive** (message).
+
+![Big Picture](https://miro.medium.com/max/960/1*YhCCa1GchPowFuKKGm2b0Q.jpeg)
+
+Kích thước message có thể cố định hoặc tùy biến. Nếu nó là kích thước cố định, thì Hệ điều hành sẽ được thiết kế dễ dàng hơn nhưng lại phức tạp cho lập trình viên. Nếu là kích thuớc tùy biến, thì nó sẽ dễ dàng cho ltv hơn nhưng lại thốn đối với người thiết kế hệ điều hành. Một chuẩn message có 2 phần: một **header** và một **body**.
+
+**Header** được dùng để lưu trữ Message type, destination id, source id, message length, và thông tin điều khiển. Thông tin điều khiển bao gồm thông tin như là phải làm gì nếu hết dung lượng buffer, số thứ tự và mức độ ưu tiên của nó. Nói chung, message được gửi bằng FIFO style.
+
+### 6: Input/Output Management
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
