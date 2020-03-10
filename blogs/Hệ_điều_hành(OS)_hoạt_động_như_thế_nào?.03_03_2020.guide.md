@@ -224,6 +224,40 @@ Kích thước message có thể cố định hoặc tùy biến. Nếu nó là 
 
 ### 6: Input/Output Management
 
+Một trong những việc quan trọng của Hệ điều hành là quản lí nhiều thiết bị input/output(I/O), bao gồm chuột, bàn phím, touch pad, disk drives, display adapters, USB devices, Bit-mapped screen, LED, Analog-to-digital converter, on/off switch, network connections, audio I/O, printers, v.v.
+
+Cần có một hệ thống I/O để nhận yêu cầu I/O của ứng dụng và gửi nó đến thiết bị vật lí, sau đó nhận bất kì response gì trở về từ thiết bị và gửi nó đến ứng dụng. Những thiết bị I/O được chia làm 2 loại:
+- **Block devices**: Một block device là một thiết bị với drivers giao tiếp bằng cách gửi toàn bộ khối dữ liệu. Ví dụ, hard disks, USB cameras, Disk-On-Key, vv.
+
+- **Character Devices**: Character device là một thiết bị mà driver giao tiếp bằng cách gửi và nhận từng kí tự đơn (bytes, octets). Ví dụ, serial ports, parallel ports, sound cards, vv.
+
+![I/O](https://miro.medium.com/max/600/1*Ynj0zqoSq5JpbdFfARgNSg.jpeg)
+
+CPU phải có cách để gửi thông từ và đến I/O device. Có 3 cách tiếp cận để giao tiếp với CPU và Device.
+
+1. **Special Instruction I/O**
+
+Cách này dùng các hướng dẫn CPU được tạo riêng để điều khiển các thiết bị I/O. Những hướng dẫn này thường cho phép dữ liệu được gửi tới một thiết bị I/O và được đọc từ một thiết bị I/O.
+
+2. **Memory-mapped I/O
+
+Khi dùng memory-mapped I/O, cùng một không gian địa chỉ được chia sẻ bởi bộ nhớ và những thiết bị I/O. Thiết bị được kết nối trực tiếp tới vị trí của main memory để thiết bị I/O có thể truyền khối dữ liệu từ/đến bộ nhớ mà không cần thông qua CPU.
+
+![Memory-mapped I/O](https://miro.medium.com/max/393/1*PcMx51Qe8R29LaXMXnHWvQ.jpeg)
+
+Khi dùng memory-mapped I/O, hệ điều hành cấp phát bộ đệm trong memory và thông báo với thiết bị I/O để sử dụng bộ đệm đó để gửi dữ liệu tới CPU. Thiết bị I/O hoạt động bất đồng bộ với CPU, và làm gián đoạn CPU khi hoàn thành.
+
+Lợi ích của phương thức này là mọi hướng dẫn có thể truy cập bộ nhớ đều có thể được sử dụng để thao tác với thiết bị I/O. Memory-based I/O được dùng hầu hết cho các thiết bị I/O tốc độ cao như disks và giao tiếp interfaces.
+
+3. **Direct memory access (DMA)**
+
+Những thiết bị chậm như bàn phím sẽ tạo ra một sự gián đoạn tới main CPU sau khi mỗi byte được truyền đi. Nếu là một thiết bị nhanh, như disk, tạo ra một gián đoạn cho mỗi bute, hệ điều hành sẽ phải dành hầu hết thời gian để xử lí các gián đoạn. Do đó một máy thông thường sử dụng phần cứng truy cập bộ nhớ trực tiếp (DMA) để giảm thiểu chi phí.
+
+DMA có nghĩa là cấp quyền cho module I/O để đọc và ghi vào memory mà không cần tham gia. DMA module tự điều khiển trao đổi dữ liệu giữa main memory và thiết bị I/O. CPU chỉ tham gia và đầu và cuối quá trình trao đổi và gián đoạn chỉ sau khi một khối dữ liệu được gửi hết.
+
+DMA cần một phần cứng đặc biệt gọi DMA controller(DMAC) để quản lí dữ liệu chuyển đi và phân xử truy cập vào system bus. Những controller được lập trình với nguồn và đích là những con trỏ (nơi để đọc và viết dữ liệu), những bộ đếm để theo dõi số lượng bytes được truyền đi, và những cài đặt khác. Chúng bao gồm loại I/O và memory và những gián đoạn, và trạng thái cho những chu kì CPU.
+
+### 7: Virtualization
 
 
 
