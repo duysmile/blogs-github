@@ -239,7 +239,7 @@ CPU phải có cách để gửi thông từ và đến I/O device. Có 3 cách 
 
 Cách này dùng các hướng dẫn CPU được tạo riêng để điều khiển các thiết bị I/O. Những hướng dẫn này thường cho phép dữ liệu được gửi tới một thiết bị I/O và được đọc từ một thiết bị I/O.
 
-2. **Memory-mapped I/O
+2. **Memory-mapped I/O**
 
 Khi dùng memory-mapped I/O, cùng một không gian địa chỉ được chia sẻ bởi bộ nhớ và những thiết bị I/O. Thiết bị được kết nối trực tiếp tới vị trí của main memory để thiết bị I/O có thể truyền khối dữ liệu từ/đến bộ nhớ mà không cần thông qua CPU.
 
