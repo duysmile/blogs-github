@@ -6,5 +6,8 @@
 
 # NODEJS
 
+# REGEX
+- https://github.com/ziishaned/learn-regex
+- https://www.hackerrank.com/challenges/js10-regexp-1/topics
 
 
