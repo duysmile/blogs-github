@@ -8,6 +8,7 @@
 
 # REGEX
 - https://github.com/ziishaned/learn-regex
+- http://regextutorials.com/
 - https://www.hackerrank.com/challenges/js10-regexp-1/topics
 
 
