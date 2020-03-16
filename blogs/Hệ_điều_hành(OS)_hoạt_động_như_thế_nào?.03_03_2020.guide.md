@@ -259,6 +259,31 @@ DMA cần một phần cứng đặc biệt gọi DMA controller(DMAC) để qu�
 
 ### 7: Virtualization
 
+Ảo hóa là một công nghệ cho phép bạn tạo nhiều môi trường giả lập hoặc những tài nguyên chuyên dụng cho một hệ thống phần cứng vật lí.
+
+Phần mềm có tên là **hypervisor** kết nối trực tiếp tới phần cứng đó và cho phép bạn chia một hệ thành thành nhiều môi trường  tách biệt, phân biệt, và bảo mật được biết đến với tên là máy ảo (virtual machines VMs). Những máy ảo phụ thuộc vào khả năng của hypervisor để chia tài nguyên máy từ phần cứng và phân phối chúng thích hợp.
+
+Thông thường thì máy tính vật lí được trang bị hypervisor được gọi là **host**, trong khi những máy ảo khác sử dụng tài nguyên của nó được gọi là **guest**. Những guests này sử dụng tài nguyên máy - như CPU, memory, và storage - dễ dàng. Operators có thể quản lí những thực thể ảo của CPU, memory, storage và những tài nguyên khác để những guests nhận được tài nguyên chúng cần.
+
+Ý tưởng là tất cả các máy ảo liên quản được quản lí thông qua một bảng điều khiển quản lí ảo hóa trên nền web, để làm tăng tốc chúng. Ảo hóa cho phép bạn đưa ra mức độ xử lí, dung lượng lưu trữ, và bộ nhớ để cung cấp cho máy ảo, và những môi trường được bảo vệ tốt hơn do các máy ảo được tách biệt ra khỏi phần cứng hỗ trợ chúng và tách biệt với nhau.
+
+Nói một cách đơn giản, ảo hóa tạo ra các môi trường và tài nguyên bạn cần từ những tài nguyên chưa được sử dụng.
+
+Những loại ảo hóa:
+1. **Data virtualization**: Dữ liệu được truyền khắp nơi có thể được tập hợp thành một nguồn duy nhất. Ảo hóa dữ liệu cho phép những công ty có thể coi dữ liệu là nguồn cung cấp động - cung cấp khả năng xử lí có thể kết hợp dữ liệu từ nhiều nguồn lại với nhau, dễ dàng cung cấp nguồn dữ liệu mới và chuyển đổi dữ liệu theo nhu cầu người dùng. Những công cụ ảo hóa dữ liệu cài đặt ở nhiều nguồn dữ liệu và cho phép chúng được coi như là một nguồn duy nhất. Chúng vận chuyển những dữ liệu cần thiết - từ mẫu yêu cầu - tại đúng thời điểm đến với bất kì ứng dụng hoặc người dùng nào.
+
+2. **Desktop Virtualization**: Rất dễ bị nhầm lẫn với operating system virtualization - cho phép bạn triển khai nhiều hệ điều hành trên một máy tính vật lí - desktop virtualization cho phép một admin trung tâm (hoặc một công chuyện admin tự động) triển khai những mỗi trường giả lập như hàng trăm máy tính vật lí cùng lúc. Không giống như những môi trường desktop truyền thống được cài đặt, cấu hình, và cập nhật một cách vật lí trên mỗi máy tính, desktop virtualization cho phép những admin thực hiện cấu hình, cập nhật, kiểm tra bảo mật hàng loạt trên tất cả các máy ảo.
+
+3. **Server Virtualization**: Những servers là những máy tính được thiết kế để xử lí lượng lớn những yêu cầu cụ thể thực sự tốt để những máy tính khác như laptops hay desktop có thể thực hiện những công việc khác. Ảo hóa một server cho phép nó có thể làm được nhiều  tính năng cụ thể hơn và liên quna đến việc phân vùng nó để các thành phần có thể được sử dụng để phục vụ cho nhiều chức năng.
+
+4. **Operating System Virtualization**: Ảo hóa hệ điều hành xảy ra tại kernel - bộ quản lí tác vụ trung tâm của hệ điều hành. Nó là cách hữu ích để chạy Linux và Window song song. Doanh nghiệp cũng có thể đẩy hệ điều hành ảo vào máy tính, qua đó: (1) giảm phần lớn chi phí phần cứng, vì các máy tính không yêu cầu những khả năng vượt trội như vậy, (2) tăng bảo mật, vì tất cả các thực thể ảo có thể được quan sát và cô lập, và (3) giới hạn thời gian dành cho những dịch vụ IT như cập nhật phần mềm.
+
+5. **Networks Functions Virtualization**: Ảo hóa chức năng mạng (NFV) chia những chức năng chính của mạng (như dịch vụ thư mục, chia sẻ file, và cầu hình IP) để chúng có thể được phân phối giữa các môi trường. Một khi những chức năng phần mềm độc lập với các máy vật lí chứa chúng, những tính năng cụ thể có thể được đóng gói với nhau vào một mạng mới và gán vào một môi trường. Ảo hóa mạng làm giảm số lượng thành phần vật lí - như switches, routers, servers, cables, và hubs - những thứ cần thiết để có thể tạo ra nhiều mạng độc lập, và nó đặc biệt phổ biến trong ngành công nghiệp viễn thông.
+
+### 8 - Distributes File Systems
+
+
+
 
 
 
