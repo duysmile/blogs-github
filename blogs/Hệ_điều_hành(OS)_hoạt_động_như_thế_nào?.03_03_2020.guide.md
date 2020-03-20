@@ -282,10 +282,55 @@ Những loại ảo hóa:
 
 ### 8 - Distributes File Systems
 
+Những hệ thống tập tin phân tán là một ứng dụng dựa trên client/server cho phép client truy cập và xử lí dữ liệu trên server như là nó nằm trên chính máy tính của họ. Khi một user truy cập vào một file trên server, server sẽ gửi cho user một bản sao của file, nó được cached trên máy tính của user trong khi dữ liệu được xử lí và trả về cho server.
 
+Ý tưởng là một hệ thống tập tin phân tán tổ chức các dịch vụ file và thư mục của những server riêng thành một thư mục global theo cái cách truy cập dữ liệu từ xa là không được đặt ở một vị trí cụ thể nhưng giống hệt nhau đối vs bất kì clients nào. Tất cả các file có thể được truy cập bởi tất cả user của hệ thống và tổ chức global file system được phân cấp và dựa trên thư mục.
 
+![Distributed File System](https://miro.medium.com/max/1963/1*_PoxQY_lgEFwXsoxkpYrOw.png)
 
+Vì nhiều hơn một client có thể truy cập đồng thời cùng một dữ liệu, server phải có một cơ chế tại chỗ (chằng hạn như việc duy trì thông tin về thời gian truy cập) để tổ chức các cập nhật để cho client luôn nhận được phiên bản mới nhất của dữ liệu, và dữ liệu không bị conflict. Hệ thống file phân tán thường sử dụng file hoặc database replication(nhân rộng) (phân phối bản sao của dữ liệu đến nhiều servers) để tránh việc truy cập không được dữ liệu.
 
+Sun Microsystems’ Network File System (NFS), Novell NetWare, Microsoft’s Distributed File System, và IBM’s DFS là một vài ví dụ về hệ thống file phân tán.
+
+### 9 - Distributed Shared Memory (DSM)
+Bộ nhớ chia sẻ phân tán là một thành phần quản lí tài nguyên của một hệ điều hành phân tán thực hiện việc implement shared memory model trong những hệ thống phân tán không có shared memory vật lí. Shared memory cung cấp một không gian địa chỉ ảo được chia sẻ cho tất cả các máy trong hệ phân tán.
+
+Trong DSM, dữ liệu được truy cập từ cùng một không gian được chia sẻ giống như cách mà bộ nhớ ảo được truy cập. Dữ liệu được di chuyển giữa secondary và main memory, và giữ distributed main memories của các nodes khác nhau. Quyền sở hữu các trang trong bộ nhớ bắt đầu ở một số trạng thái được xác định trước nhưng thay đổi trong quá trình hoạt động. Việc thay đổi quyền sở hữu diễn ra khi dữ liệu di chuyển từ một node này sang node khác bởi một quá trình truy cập cụ thể.
+
+![Distributed shared memory](https://miro.medium.com/max/1058/1*UZAEpx8VAcEVr_AZGzrkpQ.jpeg)
+
+Ưu điểm của distributed shared memory: 
+- Ẩn đường đi của dữ liệu và cung cấp một abstraction đơn giản hơn để chia sẻ dữ liệu. Những lập trình viên không cần quan tâm đến việc truyền dữ liệu giữa các máy như khi sử dụng message passing model.
+
+- Cho phép gửi đi các cấu trúc phức tạp như tham chiếu, đơn giản hóa các thuật toán phát triển của các ứng dụng phân tán.
+
+- Tận dụng lợi thế của "locality of reference" (tham chiếu local) bằng việc di chuyển toàn bộ page chứa dữ liệu thay vị một phần dữ liệu.
+
+- Rẻ hơn việc xây dựng một hệ thống đa nhân xử lí. Ý tưởng này có thể được thực hiện trên các phần cứng thông thường và không yêu cầu bất cứ thứ gì phức tạp để kết nối shared memory tới processors.
+
+- Dung lượng bộ nhớ lớn hơn cho các chương trình, bằng cách kết hợp tất các bộ nhớ vật lí của các nodes. Bộ nhớ lớn này không phát sinh độ trễ khi hoán đổi đĩa như trong hệ thống phân tán truyền thống.
+
+- Không giới hạn các node được sử dụng. Không giống như hệ thống multiprocessors mà main memory được truy cập thông qua common bus, do đó giới hạn kích thước của hệ thống multiprocessors.
+
+- Chương trình được viết cho shared memory của multiprocessor có thể chạy được trên những hệ thống DSM.
+
+Có 2 cách khác nhau để thông báo cho các node về ai là chủ sở hữu của page: invalidation và broadcast. Invalidation là một phương thức để vô hiệu hóa một page khi một vài process yêu cầu quyền write page đó và trở thành chủ sở hữu mới. Bằng cách này, lần tới, những process khác cố gắng read hoặc write tới một bản sao của trang mà nó nghĩ là có quyền, page sẽ không available và process sẽ phải yêu cầu lại để truy cập tới trang đó. Broadcasting sẽ tự động cập nhật tất cả các bản sao của một memory page khi một process write nó. Nó cũng được gọi là write-update. Phương thức này khó thực hiện hơn bởi vì giá trị mới cần được gửi đến thay vì một thông báo không hợp lệ.
+
+### 10 - Cloud Computing
+
+Càng ngày chúng ta càng thấy công nghệ càng chuyển dần sang cloud. Nó không chỉ là một mốt nhất thời - Sự dịch chuyển từ mô hình phần mềm truyền thống sang internet đã tăng đều trong 10 năm qua. Nhìn về tương lai, thập kỉ tiếp theo của cloud computing hứa hẹn những cách mới để cộng tác ở khắp mọi nơi, thông qua các thiết bị di động.
+
+Vậy cloud computing là gì ? Bản chất, cloud computing là một loại outsourcing của các chương trình phần mềm. Sử dụng cloud computing, những người dùng có thể truy cập phần mềm và ứng dụng ở bất cứ đâu họ cần, vì nó được hosted ở một bên khác - trên "cloud". Điều này có nghĩa là họ không cần quan tâm về những thứ như storage, power, chỉ cần tận hưởng kết quả cuối cùng.
+
+Những ứng dụng business truyền thống vẫn luôn rất phức tạp và đắt đỏ. Số lượng và sự đa dạng phần cứng để chạy chúng rất đáng lo ngại. Bạn cần một team chuyên gia để cài dặt, cấu hình, kiểm tra, chạy, bảo mật và cập nhật chúng. Khi bạn nhân rộng effort này lên theo hàng trăm ứng dụng, không dễ để thấy vì sao những công ty với đội ngũ IT tốt nhất không có được ứng dụng họ cần. Những doanh nghiệp vừa và nhỏ thì không có cơ hội.
+
+Với cloud computing, bạn có thể loại bỏ những đau đầu đến từ việc lưu trữ dữ liệu của bạn, bởi vì bạn không quản lí phần cứng và phần mềm - nó trở thành trách nhiệm cuả một nhà cung cấp có kinh nghiệm như Salesforce và AWS. Cơ sơ hạ tầng chia sẻ nghĩa là nó hoạt động như một tiện ích: bạn trả tiền cho cái bạn cần, nâng cấp là tự động, và việc scaling up hoặc down là rất đơn giản.
+
+Những ứng dụng cloud-based có thể up và chạy trong nhiều ngày hoặc nhiều tuần, và chúng tốn ít chi phí hơn. Với một cloud app, bạn chỉ cần mở một trình duyệt, đăng nhập, tùy chỉnh ứng dụng, và bắt đầu dùng nó. Các doanh nghiệp đang chạy tất cả các ứng dụng trên cloud như quản lí quan hệ khách hàng (CRM), HR, accounting và hơn nữa.
+
+Khi cloud computing phát triển phổ biến, hàng ngàn công ty dễ dàng đổi thương hiệu của họ từ sản phẩm và dịch vụ non-cloud sang "cloud computing". Luôn đào sâu hơn khi đánh giá các dịch vụ cloud và lưu ý nếu bạn phải mua và quản lí phần cứng và phần mềm, thì cái bạn đang thấy không hẳn là cloud computing mà là một false cloud.
+
+----------------------
 
 
 
