@@ -57,7 +57,7 @@ Khi một process thực thi, nó trải qua những trạng thái khác nhau. N
 
 - **Waiting**: Một process chuyển sang trạng thái waiting nếu nó cần phải đợi một tài nguyên nào đó, hoặc là đợi user input, hoặc đợi một file đến khi available.
 
-- **Terminated hoặc exit**: Một khi process hoàn tất quá trình thực thi, hoặc nó bị terminated bởi hệ điều hành, nó chuyển sang trạng thái terminated để đợi được removed khởi main memory.
+- **Terminated hoặc exit**: Một khi process hoàn tất quá trình thực thi, hoặc nó bị terminated bởi hệ điều hành, nó chuyển sang trạng thái terminated để đợi được removed khỏi main memory.
 
 Một Process Control Block là một cấu trúc dữ liệu được duy trì bởi Hệ điều hành cho mỗi process. PCB được định danh bởi một process ID (PID) là số nguyên. Một PCB giữ tất cả các thông tin cần để theo dõi một process như list bên dưới:
 ![PCB](https://miro.medium.com/max/273/1*iRRLvW9or49SYRAm9HvR0Q.jpeg)
