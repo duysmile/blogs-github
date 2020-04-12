@@ -95,46 +95,110 @@ Bạn cũng có thể sử dụng `Ctrl + Z` để gửi process đến backgrou
 ![Result](https://www.tecmint.com/wp-content/uploads/2017/03/Linux-Background-Process-Jobs.png)
 
 ### Những trạng thái của một process trong Linux
+Trong suốt quá trình thực thi, một process thay đổi từ trạng thái này sang trạng thái khác phụ thuộc vào môi trường và hoàn cảnh của nó. Trong Linux, một process có những trạng thái sau:
+- Running - tại đây nó hoặc là đang chạy (nó là process hiện tại trong hệ thống) hoặc nó sẵn sàng để chạy (nó đang đợi được gán cho một trong những CPUs).
 
+- Waiting - ở trạng thái này, một process đang đợi một sự kiện xảy ra hoặc đợi một tài nguyên hệ thống. Ngoài ra, kernel cũng phân biệt 2 loại waiting processes: interruptible waiting process - có thể bị ngắt bởi tín hiệu và uninterruptible waiting processes - đang chờ trực tiếp trên điều kiện phần cứng và không thể bị ngắt bởi bất kì sự kiện/tín hiệu nào.
 
+- Stopped - ở trạng thái này thì một process đã dừng, thường là khi nhận một tín hiệu. Ví dụ như khi một process đang được debug.
 
+- Zombie - tại trạng thái này, một process đã chết, nó bị dừng lại nhưng vẫn có một entry trong process table.
 
+### Làm sao để xem các process đang active trên Linux
+Có một vài công cụ Linux phục vụ việc xem/liệt kê những processes đang chạy trên hệ thống, 2 lệnh thường dùng cho việc này là `ps` và `top`.
+1. ps Command
+Nó hiển thị thông tin về các active proceses trên hệ thống như dưới đây:
+```shell
+# ps
+# ps -e | head
+```
 
+![ps](https://www.tecmint.com/wp-content/uploads/2017/03/ps-command.png)
 
+2. top - System monitoring tool
+top là một công cụ rất mạnh mẽ để giúp bạn theo dõi real-time trên một hệ thống đang chạy.
+```shell
+# top
+```
 
+![top](https://www.tecmint.com/wp-content/uploads/2017/03/top-command.png)
 
+3. glances - System monitoring tool
+`glances` là một công cụ giám sát hệ thống tương đối mới với nhiều tính năng nâng cao:
+```shell
+# glances
+```
 
+![glances](https://www.tecmint.com/wp-content/uploads/2017/03/glances.png)
 
+### Làm sao để điều khiển processes trong Linux
+Linux cũng có một vài lệnh để điều khiển process như kill, pkill, pgrep và killall, dưới đây là một vài ví dụ cơ bản về cách sử dụng chúng:
+```shell
+$ pgrep -u techmint top
+$ kill 2308
+$ pgrep -u techmint glances
+$ pkill glances
+```
 
+![controling process](https://www.tecmint.com/wp-content/uploads/2017/03/Control-Linux-Processes.png)
 
+### Gửi tín hiệu đến processes
+Cách cơ bản để điều khiển process là gửi tín hiệu đến chúng. Có nhiều tín hiệu mà bạn có thể gửi đến một process, để xem hết các loại này thì dùng lệnh sau:
+```shell
+# kill -l
+```
 
+![kill list](https://www.tecmint.com/wp-content/uploads/2017/03/list-all-signals.png)
 
+Để gửi một tín hiệu đến một process, sử dụng lệnh `kill`, `pkill` hoặc `pgrep` như đã mô tả ở trên. Nhưng những chương trình chỉ có thể phản hồi lại những tín hiệu nếu chúng được lập trình để nhận diện được các tín hiệu đó.
 
+Và hầu hết các tín hiệu được dùng nội bộ bởi hệ thống, hoặc cho lập trình viên khi họ viết code. Những tín hiệu sau khá hữu ích cho người dùng hệ thống:
+- SIGHUP 1 - gửi đến process khi terminal kiểm soát nó đóng lại.
 
+- SIGINT 2 - gửi đến process bởi terminal kiểm soát nó khi một người dùng ngắt process bằng tổ hợp phím `Ctrl+C`
 
+- SIGQUIT 3 - gửi đến process nếu người dùng gửi một tín hiệu thoát `Crtl+D`
 
+- SIGKILL 9 - tín hiệu này lập tức terminates(kill) một process và process sẽ không thực hiện bất kì hành động dọn dẹp nào luôn.
 
+- SIGTERM 15 - đây là một tín hiệu chấm dứt chương trình (lệnh `kill` sẽ gửi tín hiệu này mặc định)
 
+- SIGTSIP 20 - gửi đến một process bởi terminal điều khiển nó để yêu cầu nó dùng lại (terminal stop) khi người dùng nhấn `Ctrl+Z`
 
+Những lệnh kill dưới đây là ví dụ để kill ứng dụng Firefox sử dụng PID của nó sau khi nó freezes:
+```shell
+$ pidof firefox
+$ kill -9 2687
+OR
+$ kill -KILL 2687
+OR
+$ kill -SIGKILL 2687
+```
 
+Để kill một ứng dụng bằng tên, dùng pkill hoặc killall như sau:
+```shell
+$ pkill firefox
+$ killall firefox
+```
 
+### Thay đổi độ ưu tiên process trong Linux
+Trong hệ thống Linux, tất cả các active process có một ưu tiên và một giá trị nice nhất định. Những process với ưu tiên cao hơn sẽ thường lấy nhiều CPU time hơn những process ưu tiên thấp.
 
+Tuy nhiên, một người dùng hệ thống với quyền root có thể thay đổi nó với lệnh nice và renice.
 
+Từ output của lệnh top thì cột NI hiển thị giá trị nice của process.
+```shell
+$ top
+```
 
+![top](https://www.tecmint.com/wp-content/uploads/2017/03/top-command.png)
 
+Dùng lệnh `nice` để đặt giá trị nice cho một process. Ghi nhớ rằng người dùng bình thường có thể đặt giá trị nice từ giá trị từ 0 đến 20 cho những process của họ. Chỉ có root user mới có thể sử dụng giá trị âm cho nice.
 
+Để `renice` độ ưu tiên cho một process, sử dụng `renice` như sau:
+```shell
+$ renice +8 2687
+$ renice +8 2103
+```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+----------------
