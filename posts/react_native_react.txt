@@ -1,0 +1,33 @@
+Bí tịch: "High Performance React Native" và "So sánh Vue vs React"
+
+Nhân diệp dọn dẹp ổ cứng, mình chia sẻ lại 2 slides tâm huyết 1 thời lăn lộn cùng React Native, ReactJS và Vue. (Xem thêm để thấy link)
+
+Có một sự thật là rất nhiều người code RN nhưng không biết cách tối ưu đẻ có hiệu năng tốt nhất. Đó là lý do thôi thúc mình làm các buổi chia sẻ này gần 2 năm trước.
+
+Tóm lược nội dung:
+
+1. High Performance React Native
+- Hiểu về cơ chế render UI, main thread, scheduler, frame per second.
+
+- Điều gì sẽ làm cho ứng dụng chạy chậm đi (khía cạnh UI).
+
+- Những lỗi sai thường gặp và cách làm đúng: leak memory, massive call api, heavy computation, double/multiple render,...
+
+- Các thư viện hỗ trợ cả thiện hiệu năng cho RN.
+
+* Hầu hết các kỹ thuật trong slide này bên RN có thể xài qua bên ReactJS.
+
+2. Vue vs ReactJS by example
+- Tìm hiểu lịch sử phát triển, tốc độ tăng trưởng và performance của cả 2.
+
+- Xây dựng website giai đoạn trước và sau khi trước khi có Vue và React.
+
+- So sánh các component cả 2, các thư viện và cũng như state management.
+
+Lưu ý: cả 2 slides này đã gần 2 năm tuổi, có khả năng bị outdate vài chỗ.
+
+Link xem:
+https://www.slideshare.net/VietTran65/high-performance-in-react-native?fbclid=IwAR2ypnhvzx1JElEXV86IRnnI9ZZu799Xj4sXPdUcnO9JaZQA-fPoQT-S_9w
+https://www.slideshare.net/VietTran65/vue-and-react-comparison?fbclid=IwAR2MGbdfxwbxRK_WdeA456kCXe3RLEhKIfRTq15yN0rqf3VIjP-tlChs2jA
+
+Link down full HD: https://drive.google.com/drive/folders/1i2ZUO_kAFxJOWAHy_GSQbZdDfGRLt2ak?fbclid=IwAR33hhdYhNhA7Zt3tLE_npHtSVENdzPx-XCxePgBVPkUAVubqcqlEW4Z6GY
