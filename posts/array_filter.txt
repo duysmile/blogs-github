@@ -1,0 +1,55 @@
+Map và Filter có thật sự gây ảnh hưởng hiệu năng??
+
+Lâu quá không dùng JS mà nay vào group làm mấy ae hoang mang quá =)).
+
+TLDR: CÓ. Nhưng ở hầu hết các trường hợp thông thường là không đáng kể. Các bạn có thể bỏ qua, đừng care chi cho mệt.
+
+Map và Filter bản chất là tạo mảng mới, append từng phần từ đúng điều kiện rồi trả về chứ ko thay đổi array ban đầu.
+
+Thật ra với sự phát triển functional / declarative programming như hiện nay thì các hàm này là công cụ rất đắc lực. Cái lợi ích lớn nhất là rất dễ đọc và maintain. Chưa kể về sau các bạn đi nhánh Front-end (React/Vue/ReactNative) sẽ thấy cái lợi của immutable. Nói nôm na cho dễ hiểu là KHÔNG SỬA biến và chỉ TẠO MỚI nếu cần thay đổi.
+
+Thêm nữa là ở front-end, cấu hình máy thường rất cao nên việc này gần như cũng chả có vấn đề gì phải lo cả. Code cho team dễ maintain là ưu tiên hàng đầu ở cấp độ application.
+
+Nhưng nếu các bạn viết lib hay dùng cho NodeJS (phía back-end) thì lắm lúc cần care đến hiệu năng của chúng.  Vì backend thì tư duy 1 server "làm nô lệ" cho rất nhiều client nên sẽ khác một chút. Khi đó những bạn vững giải thuật sẽ có lợi thế hơn, vì các bạn có cách tiếp cận dùng ít memory hơn và cũng ít time hơn (cái được gọi là độ phức tạp thuật toán).
+
+VÍ DỤ 1
+Ở bài toán cho một mảng arr các số nguyên. Viết hàm để loại bỏ các phần tử bị trùng.
+[1,2,3,2,3] => [1,2,3]
+
+Đáp án rất đơn giản với 1 dòng code:
+arr.filter((n,i) => arr.indexOf(n) === i)
+=> Diễn giải là ta đi check lại index của phần tử "n". Nếu nó không phải "i" thì nghĩa là đã tìm thấy phần tử y chang ở vị trí khác. Từ đó cứ đúng index là đúng phần tử mình cần lấy. Rất nhanh và dễ hiểu.
+
+Cái cần lưu ý ở đây là: indexOf bản chất sẽ cần đi for qua từng phần tử để tìm ra được index. Vì thế bản chất dùng filter (là 1 vòng for) bên trong indexOf là một for nữa là 2 for lồng. Độ phức tạp là n^2. Nếu n = 1000 thì worst case tổng số step là 1.000.000. "n" ở đây là arr.length
+
+Vì thế một cách giải khác dài dòng hơn là đi sort cái array, sau đó dùng for để check vị trí "i" và "i+1". Tổng số step trở thành (nlog2n + n), nghĩa là nhanh hơn đáng kể khi n càng lớn.
+
+VÍ DỤ 2
+Cho một mảng số nguyên, trong đây các số đều có đôi có cặp, duy có 1 số lẻ (như bị FA vậy). Hãy viết hàm tìm ra số này.
+[1,2,2,3,3] => 1
+[2,1,3,1,3] => 2
+
+Bài này thú vị hơn. Lúc này đúng là xài cách sort() rồi check sẽ ổn hơn là đi for 2 cấp để so sánh. Ngoài ra còn 1 cách nữa cho những ai biết bitwise (phép XOR. Ký hiệu "^"):
+a ^ 0 = a
+a ^ a = 0
+b ^ a ^ b = a ^ b ^ b = a
+Nghĩa là 2 bit giống nhau sẽ 0, khác nhau sẽ ra 1.
+
+Từ đó mình chỉ cần:
+var rs = 0;
+for (var i in array) { rs ^= arrray[i]; }
+
+Hoặc xài với reduce: array.reduce((rs, n) => rs ^ n, 0)
+
+Sau 1 vòng duy nhất mình có rs là số không trùng (bị lẻ). O(n) và bitwise nên siêu nhanh.
+
+OK do lễ mình rảnh rỗi post chơi giải trí thôi. Nên chốt lại là... bài này dài và xàm vãi =))
+
+PS:
+
+Thật ra phép XOR là một phép toán mình rất yêu thích, và cũng là phép toán chủ lực của mã hoá.
+
+a: là dữ liệu ban đầu
+b: được xem như là key mã hoá
+
+Từ đó 2 đầu gởi mã hoá c = a ^ b và đầu nhận chỉ cần biết key b để mang ra XOR lại là giải mã (vì c ^ b = a). Đây là một trong những cách mã hoá rất cơ bản, là nền tảng cho mấy cái cao siêu về sau.
