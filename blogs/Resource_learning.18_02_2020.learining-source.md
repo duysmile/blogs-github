@@ -7,6 +7,9 @@
 # NODEJS
 - Hash password: https://www.martinstoeckli.ch/hash/en/
 
+# LINUX
+- Guide: https://github.com/ErikHorus1249/Guide-Documents?fbclid=IwAR0T1CXtmVfzS3RXWNx03G4DKJg1uba-AT5XdKQiDb3Gdet_H9UMSLfCvsU
+
 # REGEX
 - https://github.com/ziishaned/learn-regex: lí thuyết dễ hiểu (có tiếng việt)
 - http://regextutorials.com/: vừa lí thuyết,vừa có bài tập bài test để dễ hiểu
