@@ -22,3 +22,10 @@
 - https://thefullsnack.com/
 - https://toidicodedao.com/
 - https://200lab.io/category/blogs
+
+# English
+1. List 3000
+https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-5000/The%20Oxford%203000_by%20CEFR%20level.pdf
+
+2. List 5000
+https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-5000/The%20Oxford%205000_by%20CEFR%20level.pdf
