@@ -1,0 +1,35 @@
+JS ROADMAP cho người mới
+
+Chào các anh em, mình là mem mới. Mình biết group cũng rất lâu rồi, chắc phải hồi group mới lập, anh Nguyen Quang Hung viết toàn tut hay và seed khắp nơi =)). Mà hồi đó cũng không biết tại sao ảnh lập group này, "JS Land", thật ra cái tên này không khác với "everything land" là bao vì JS hiện diện gần như ở mọi ngóc ngách.
+
+Nếu bạn đã không có người chỉ đường bên cạnh, tốt nhất là hãy có bản đồ.
+
+Link full roadmap: https://github.com/adam-golab/react-developer-roadmap/blob/master/roadmap.png
+
+JS với bản chất là một scripting language, như một cô gái 18 sexy gợi cảm, đẹp nhưng khó chiều, dễ cưa nhưng cũng cực khó để nắm bắt. Lúc tưởng như cô ấy đã làm của mình nhưng không... đó là lúc mọi rắc rối bắt đầu ập đến.
+
+Vì thế lời khuyên của mình (khi đã theo đuổi cô nàng này 10 năm rồi, bị đá đít vài trăm lần) là:
+Đừng vội. JS dễ học nhưng không nên vì thế mà vội vàng. Sẽ không hề uổng phí thời gian để tìm hiểu cô nàng này kỹ lưỡng một chút. Vững cơ bản là nền tảng vững chắc để bước lên cao hơn.
+Lúc thấy cô nàng khó hiểu nhất chính là lúc cô ấy cần bạn quan tâm nhất. Lúc đó chắc chắn rằng bạn đã bỏ qua điều gì đó. Nên nhớ rằng cô nàng này luôn "lộ thiên" và có đến hàng chục triệu người khác cũng đang tìm hiểu như bạn. Tin vui là họ chia sẻ cực kì nhiều.
+Xác định chiến lược, dùng em này cho việc gì? Kì thực cô em này rất đa năng. Nhưng vì vậy mà cũng rối, theo tâm lý học thì nếu bạn có càng nhiều sự lựa chọn thì khả năng rất lớn là bạn không thể chọn được. Nếu bạn đa chọn được: front-end hoặc back-end hoặc mobile app thì tốt thôi, con đường sẽ rõ ràng hơn. Còn nếu chưa chọn được thì cũng đừng nên quá lo lắng. Những mảng đó như là là "hành vi", cái gốc là "tâm tính" (mình thường ví như là tâm pháp trong truyện Kim Dung).
+Đừng bao giờ xem JS là tất cả!! Nhiều ban đang si mê cô nàng này quá nên "hoá rồ". Bạn có quyền giữ 1 lòng thuỷ chung, nhưng không thể ép người khác theo bạn. Cũng càng không có nghĩa những "cô gái" khác là đồ bỏ hay hết thời. Mình thấy chính những người "hoá rồ" này vô tình góp phần làm xấu đi hình ảnh cô nàng JS này, và đương nhiên họ khôngg phải là những người hiểu em ấy nhất. Yêu thương nhưng tỉnh táo và có trách nhiệm nó rất khác.
+
+VÀI CÂU HỎI THƯỜNG GẶP:
+Javascript và Java có khác nhau không?
+Câu này ai cũng biết rồi, chỉ là hỏi để xem bạn có phải là thanh niên nghiêm túc hay hài hước thôi.
+
+Học JS ở đâu?
+Nói câu này thì các trung tâm dạy JS có thể ko vui. Thật sự là bạn nên tự học thử một thời gian rồi hãy quyết định đi học. Tại sao ư? Bạn có thấy chỗ nào dạy cua gái ko?!
+
+Cách học hiệu quả?
+Tuỳ lực học mỗi người nên không trả lời được. Tuy nhiên mình khuyến khích theo thứ tự các phương pháp sau: đọc document > xem blog > video youtube > khoá học online (videos).
+
+Để tăng động lực, các bạn nên lập group học và có 1 side project để làm. Qua mỗi project như vậy, ít nhiều thì exp thực chiến cũng gia tăng đáng kể.
+
+Chọn mảng nào để bắt đầu?
+Mình hỏi bạn thế này: búa, kéo, dao mình nên xài cái nào? Câu trả lời của bạn cũng sẽ chính là của mình. Chính bạn sẽ biết bạn đang cần gì. Nếu bạn vẫn chưa chọn được, hãy để ý trong roadmap có 1 đoạn đường chung trước khi rẽ nhánh. Ít nhất đoạn đó bạn có thể đi thật kỹ.
+
+Cần học C trước hay giải thuật và cấu trúc dữ liệu không?
+Trả lời thật lòng là... không. Tuy nhiên đến 1 lúc nào đó bạn sẽ biết sự lợi hại của một dev giỏi giải thuật. Đây là ranh giới phân định developer/editor và engineer/programmer.
+
+Chúc toàn thể group có kì nghỉ lễ vui vẻ.
