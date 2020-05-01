@@ -22,6 +22,7 @@
 - https://thefullsnack.com/
 - https://toidicodedao.com/
 - https://200lab.io/category/blogs
+- https://devnow.vn/
 
 # English
 1. List 3000
