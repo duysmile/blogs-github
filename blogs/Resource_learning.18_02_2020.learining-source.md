@@ -5,6 +5,7 @@
 - https://exercism.io/my/tracks: Hỗ trợ việc học ngôn ngữ và các best practice từ các mentor
 
 # NODEJS
+- Hash password: https://www.martinstoeckli.ch/hash/en/
 
 # REGEX
 - https://github.com/ziishaned/learn-regex: lí thuyết dễ hiểu (có tiếng việt)
