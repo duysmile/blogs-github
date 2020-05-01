@@ -16,3 +16,9 @@
 - goodui.org
 - themeforest
 - invisionApp
+
+# Blog
+- https://viettranx.com/blog/
+- https://thefullsnack.com/
+- https://toidicodedao.com/
+- https://200lab.io/category/blogs
