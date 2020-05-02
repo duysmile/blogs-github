@@ -7,6 +7,9 @@
 # NODEJS
 - Hash password: https://www.martinstoeckli.ch/hash/en/
 
+# React native
+- https://www.youtube.com/channel/UCPal0d6hhitCzcvJ130ngbg?fbclid=IwAR2X3IFSBVairMEOOH6Dwim4s5W-t37RH97io_Dh4HL70FrXimsf6ZDpnC0
+
 # LINUX
 - Guide: https://github.com/ErikHorus1249/Guide-Documents?fbclid=IwAR0T1CXtmVfzS3RXWNx03G4DKJg1uba-AT5XdKQiDb3Gdet_H9UMSLfCvsU
 
