@@ -42,6 +42,7 @@ https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-50
 1. 99 điều mọi lập trình viên nên biết: https://drive.google.com/file/d/1-7hbWCvzzCvRw8XDFja6YU2N2UR1WpAb/view?fbclid=IwAR2zXymLJ5jCQ7YLvOVBh4S0_x_UeCvDuGZfjmu1tKN5XyQTD3JxX-ZUi4g
 2. You don't know JS: https://github.com/getify/You-Dont-Know-JS/blob
 3. Eloquent Javascript: https://eloquentjavascript.net/01_values.html
+4. Functional Light Javascript: https://github.com/getify/Functional-Light-JS
 
 # Product management
 - https://ngochieu.com/coroference-pm-for-manager/
