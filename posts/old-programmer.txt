@@ -1,0 +1,27 @@
+Lớn tuổi là không lập trình được nữa ?! Lập trình vs cuộc sống
+
+Do là JS mình không giỏi lắm với bị cái tánh nhiều chuyện và thích khẩu nghiệp nên share tiếp 1 quan điểm nữa về chuyện 3x/4x tuổi rồi còn code được nữa không, hay bắt đầu code được không?
+
+Mọi người cho em hỏi vấn đề này với ạ . Em năm nay 31 tuổi , đang làm công nhân nhà nước . Em có học qua html và css cơ bản , giờ đang học js cơ bản . Em muốn học để chuyển nghề khác nhưng em nghe nói nghề lập trình tuổi nghề ngắn lắm phải ko ạ ( em nghe nói tầm 40 tuổi là ko code dc nữa). Vậy giờ em xin mọi người tư vấn , nếu giờ mà e mới học thì có trễ quá không ạ . Xin cảm ơn !!!
+
+4x tuổi rồi nên làm quản lý, chứ còn code thì nên bỏ nghề.
+
+Quan điểm cá nhân của mình là: còn ngồi nhìn màn hình được, gõ phím được, suy nghĩ được là còn code được. Chuyện lên quản lý hay không là do lựa chọn career path chứ không liên quan gì cả.
+
+Linux Toward (51 tuổi) vẫn đang code và maintain cho Linux OS, Git. Rob Pike (64 tuổi) vẫn đang code và phát triển ngôn ngữ Golang. Và còn nhiều nhân vật nữa trong làng đại thụ programmer. Hầu hết những anh/chú/bác ở tuổi 35 trở lên là viết ngôn ngữ và framework nhiều, họ có bề dày exp và domain knowledge rất cứng.
+
+Mình thấy rằng càng lập trình nhiều, biết thêm nhiều ngôn ngữ thì tính gắn kết với đời sống càng cao. VD như có thể kể đến ngôn ngữ Erlang, có hẵn 1 ebook nói về Erlang như các triết lý cuộc sống (mình quên mất tên). Phổ biến hơn thì có Design Pattern, kiến trúc,... mấy này cũng từ cuộc sống đời thường mà ra.
+
+VÀI VÍ DỤ ĐỂ MAKE COLOR CHO BÀI VIẾT NHÀM CHÁN
+
+Hồi đó khi được hỏi về thread/connection pool là gì, mình hay trả lời kiểu kỹ thuật như là một cách quản lý các thread được thực thi đồng thời với số lượng nhất định. Khi một thread này xong thì nó sẽ quay về pool để xài cho job tiếp theo...
+
+=> Nó là cơ chế quản lý nhân viên phục vụ nhà hàng. Nếu có 100 bàn thì không nhất thiết phải cần 100 nhân viên. Và nó chính là hiện thân thread pool ngoài đời thực.
+
+Rồi tiếp, nói về Mutex Lock, một dạng lock all concurrent threads để đảm bảo chỉ có 1 thread duy nhất được thực thi, khi hoàn tất nó sẽ thả (release) cái lock ra. Cơ chế này hay gặp trong singleton mà cần load API để có kết quả xài chung.
+
+=> Trong đời sống thì này dễ thấy quá rồi. Mình hay dùng hình ảnh tàu lửa chạy giao cắt một đại lộ 12 làn xe.
+
+SOLID trong lập trình chắc nhiều ae biết, nhưng để vận dụng tốt thường là mấy bạn giỏi EQ , có năng lực quản lý tốt. Đôi khi biết nhiều quá về người được giao task cũng không hay, bạn chỉ cần tin là người đó có năng lực làm được cái bạn cần. Hoặc tốt hơn bạn có thể không cần biết người đó là ai, đã delegate rồi thì cứ đợi result thôi.
+
+...và còn nhiều nhiều nữa, các ae có thể chia sẻ thêm trong phần bình luận nhé.
