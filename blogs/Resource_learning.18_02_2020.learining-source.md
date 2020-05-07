@@ -4,6 +4,9 @@
 # LEARNING NEW LANGUAGE
 - https://exercism.io/my/tracks: Hỗ trợ việc học ngôn ngữ và các best practice từ các mentor
 
+# NPM Packages
+- DI: https://github.com/jeffijoe/awilix
+
 # NODEJS
 - Domain Driven Design: 
   - github: https://github.com/duysmile/node-ddd-boilerplate/blob/master
