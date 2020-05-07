@@ -7,6 +7,9 @@
 # NPM Packages
 - DI: https://github.com/jeffijoe/awilix
 
+# Javascript
+- Questions: https://github.com/duysmile/javascript-questions/blob/master
+
 # NODEJS
 - Domain Driven Design: 
   - github: https://github.com/duysmile/node-ddd-boilerplate/blob/master
