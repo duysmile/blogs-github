@@ -43,6 +43,7 @@
 - https://200lab.io/category/blogs
 - https://devnow.vn/
 - https://ngochieu.com/
+- https://vnhacker.blogspot.com/
 
 # English
 1. List 3000
