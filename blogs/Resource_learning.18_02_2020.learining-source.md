@@ -42,6 +42,7 @@
 - https://toidicodedao.com/
 - https://200lab.io/category/blogs
 - https://devnow.vn/
+- https://ngochieu.com/
 
 # English
 1. List 3000
