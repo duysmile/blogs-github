@@ -60,3 +60,8 @@ https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-50
 
 # Product management
 - https://ngochieu.com/coroference-pm-for-manager/
+
+# Articles:
+- Git và github: https://medium.com/got-it-vietnam/git-v%C3%A0-github-li%E1%BB%87u-b%E1%BA%A1n-%C4%91%C3%A3-th%E1%BA%ADt-s%E1%BB%B1-bi%E1%BA%BFt-c%C3%A1ch-s%E1%BB%AD-d%E1%BB%A5ng-ff5cc723edfd
+- Dùng LinkedIn hiệu quả: https://medium.com/got-it-vietnam/linkedin-v%C5%A9-kh%C3%AD-b%C3%AD-m%E1%BA%ADt-khi-t%C3%ACm-vi%E1%BB%87c-online-aec9663e52d6
+- 
