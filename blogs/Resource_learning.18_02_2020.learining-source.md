@@ -47,6 +47,7 @@
 - https://devnow.vn/
 - https://ngochieu.com/
 - https://vnhacker.blogspot.com/
+- https://online.grokking.org/
 
 # English
 1. List 3000
