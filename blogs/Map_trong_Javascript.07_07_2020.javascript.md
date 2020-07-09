@@ -1,4 +1,4 @@
-### Dùng Map trong Javascript
+### Anh Thanh Dùng Map trong Javascript
 
 Sau khi hiểu về hashmap thì bạn có thể dễ dàng nhận thấy là trong Javascript, chúng ta đang sử dụng plain object như là một hashmap, để lưu trữ dạng key pair, key-value. **Như vậy có thật sự tốt và tối ưu hay không ?** 
 
