@@ -33,6 +33,7 @@
 - http://regextutorials.com/: vừa lí thuyết,vừa có bài tập bài test để dễ hiểu
 - https://www.hackerrank.com/challenges/js10-regexp-1/topics: một vài lí thuyết căn bản và bài tập áp dụng
 - http://play.inginf.units.it/#/: 12 challenge để luyện regex
+- http://www.regular-expressions.info/atomic.html: Atomic group
 
 # UI
 - goodui.org
