@@ -18,6 +18,7 @@
   - github: https://github.com/duysmile/node-ddd-boilerplate/blob/master
   - docs: https://joshuaalpuerto.github.io/node-ddd-boilerplate/#/
 - Hash password: https://www.martinstoeckli.ch/hash/en/
+- Event Loop: https://blog.insiderattack.net/event-loop-and-the-big-picture-nodejs-event-loop-part-1-1cb67a182810
 
 # React native
 - https://www.youtube.com/channel/UCPal0d6hhitCzcvJ130ngbg?fbclid=IwAR2X3IFSBVairMEOOH6Dwim4s5W-t37RH97io_Dh4HL70FrXimsf6ZDpnC0
