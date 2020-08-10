@@ -51,6 +51,7 @@
 - https://vnhacker.blogspot.com/
 - https://online.grokking.org/
 - https://wasabi.spiderum.com/
+- https://dev.to/
 
 # English
 1. List 3000
