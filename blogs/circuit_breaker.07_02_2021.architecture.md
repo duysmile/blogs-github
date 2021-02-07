@@ -8,3 +8,12 @@ Một trong những vấn đề này là việc giao tiếp giữa các service 
 ![https://comdy.vn/content/images/2020/11/circuit-breaker.png](https://comdy.vn/content/images/2020/11/circuit-breaker.png)
 
 Circuit Breaker là một design pattern cho phép service 1 sẽ tự động trả về một phản hồi dự phòng khi nhận thấy service 2 đang gặp lỗi hoặc timeout thay vì thử đi thử lại việc gọi request đến service 2. Và nên đặc biệt chú ý ghi log đầy đủ để có thể phục vụ việc alert cũng như điều tra nguyên nhân lỗi sau này.
+
+Khi nào nên sử dụng Circuit Breaker:
+
+- Khi hệ thống phụ thuộc vào các dịch vụ từ xa (remote service) và chúng có thể gặp lỗi trong một số trường hợp
+- Khi một service có mức độ phụ thuộc cao
+
+Khi nào không nên dùng:
+
+- Khi chúng ta đang xử lí các phụ thuộc nội bộ, việc dùng Circuit Breaker có thể làm tăng chi phí.
