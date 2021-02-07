@@ -9,6 +9,8 @@ Một trong những vấn đề này là việc giao tiếp giữa các service 
 
 Circuit Breaker là một design pattern cho phép service 1 sẽ tự động trả về một phản hồi dự phòng khi nhận thấy service 2 đang gặp lỗi hoặc timeout thay vì thử đi thử lại việc gọi request đến service 2. Và nên đặc biệt chú ý ghi log đầy đủ để có thể phục vụ việc alert cũng như điều tra nguyên nhân lỗi sau này.
 
+Có những thư viện nguồn mở phổ biến được sử dụng để triển khai mẫu này rất dễ dàng như `Hystrix` của Netflix hoặc `Reselience4J`. Hoặc có thể sử dụng Circuit Breaker trên một dịch vụ Proxy như `Envoy`.
+
 Khi nào nên sử dụng Circuit Breaker:
 
 - Khi hệ thống phụ thuộc vào các dịch vụ từ xa (remote service) và chúng có thể gặp lỗi trong một số trường hợp
