@@ -1,7 +1,5 @@
 # Circuit Breaker
 
-# Circuit Breaker
-
 Trong những hệ thống micro-services thì ngoài việc được tách biệt về logic, tài nguyên, dễ quản lí từng service cũng như mở rộng, thì nó cũng đem lại rất nhiều những vấn đề phức tạp. 
 Một trong những vấn đề này là việc giao tiếp giữa các service có thể bị ảnh hưởng bởi nhiều yếu tố như đường truyền mạng, tải của ứng dụng (service), ... có thể dẫn đến việc các service không thể giao tiếp được với nhau, khi đó cơ chế tự kết nối lại (hoặc tự động gửi yêu cầu lại) có thể giải quyết được vấn đề, tuy nhiên trong một vài trường hợp nếu như dịch vụ đó bị dừng hoàn toàn hoặc sự cố không thể khắc phục ngay được thì chúng ta cần phải có một phương án khác để giúp hệ thống tiếp tục vận hành. Đó chính là Circuit Breaker.
 
