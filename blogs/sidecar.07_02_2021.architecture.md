@@ -33,7 +33,31 @@ Vấn đề đặt ra:
     - Ngay cả với những ứng dụng không cung cấp cơ chế mở rộng, bạn vẫn có thể dùng sidecar để mở rộng tính năng bằng việc gắn nó với một process riêng trên cùng host hoặc sub-container như ứng dụng chính.
 
     Sidecar pattern thường được dùng với những containers và thường được gọi là sidecar container hoặc sidekick container.
+    
+**Những vấn đề và cân nhắc**
 
-    **Những vấn đề và cân nhắc**
+- Xem xét định dạng deploy và đóng gói bạn sẽ dùng để deploy các services, processes, hoặc containers. Trong đó containers đặc biệt phù hợp với sidecar pattern.
+- Khi thiết kế sidecar services, cẩn trọng trong việc quyết định cơ chế giao tiếp giữa các process. Cố gắng sử dụng các ngôn ngữ hay framework trừ khi những yêu cầu về hiệu suất làm cho điều này bất khả thi.
+- Trước khi đặt những tính năng vào sidecar, xem xét xem nó sẽ hoạt động tốt như là một service riêng hoặc một daemon gắn thêm.
+- Chúng ta cũng xem xét tính năng có thể được implement như một thư viện hoặc sử dụng như một cơ chế extension truyền thống. Những thư viện chuyên biết cho từng ngôn ngữ có thể được tích hợp ở tầng sâu hơn và ít chi phí network hơn.
 
-    -
+**Khi nào nên sử dụng pattern này?**
+
+- Khi ứng dụng của bạn sử dụng một tập hợp các ngôn ngữ hoặc framework không đồng nhất. Một thành phần nằm ở sidecar có thể được dùng bởi những ứng dụng viết bằng những ngôn ngữ hay framework khác.
+- Một thành phần thuộc sở hữu của một remote team hoặc một tổ chức khác.
+- Một thành phần hoặc chức năng phải cùng được đặt trên cùng host với ứng dụng.
+- Bạn cần một service có cùng vòng đời với ứng dụng chính, những có thể được cập nhật độc lập.
+- Bạn cần kiểm soát chi tiết nhưng giới hạn tài nguyên cho một tài nguyên hoặc thành phần cụ thể. Ví dụ bạn muốn chỉ định dung lượng memory mà một thành phần cụ thể được sử dụng. Bạn cần deploy một thành phần như một sidecar và quản lí việc sử dụng bộ nhớ độc lập với ứng dụng chính.
+
+**Khi nào không nên sử dụng pattern này?**
+
+- Khi việc giao tiếp giữa các process cần được tối ưu. Giao tiếp giữa ứng dụng cha và những service sidecar sẽ có thêm chi phí, đặc biệt là độ trễ khi gọi qua lại. Điều này có thể là một trade-off không thể chấp nhận cho những ứng dụng chat.
+- Đối với những ứng dụng nhỏ thì những chi phí tài nguyên cho việc deploy sidecar service trên mỗi instance không có nhiều quá trị về tính cô lập (isolation).
+- Khi service cần scale khác hoặc độc lập với ứng dụng chính. Nếu vậy thì có thể deploy thành một service riêng biệt.
+
+**Ví dụ**
+
+- Infrastructure API. Infrastructure development team tạo ra một service được deploy cùng với mỗi ứng dụng, thay vì là một thư viện client của ngôn ngữ đó để truy cập vào cơ sở hạ tầng (infrastructure). Service được tải lên như một sidecar và cung cấp một common layer cho những infrastructure service, bao gồm logging, dữ liệu environment, lưu trữ cấu hình, discovery, health checks, và những service watchdog. Sidecar còn monitor môi trường host và process (hoặc container) của ứng dụng cha và log thông tin đến một service trung tâm.
+- Quản lí NGINX/HAProxy. Deploy NGINX với một sidecar service để monitor trạng thái môi trường, sau đó cập nhật file cấu hình NGINX và tái tạo lại process khi cần một thay đổi trong trạng thái.
+- Ambassador (đại sứ) sidecar. Deploy một ambassador service như một sidecar. Ứng dụng gọi qua ambassador, nơi xử lí request logging, routing, circuit breaking, và những tính năng liên quan đến kết nối khác.
+- Offload proxy. Đặt NGINX proxy trước instance của nodejs service, để xử lí các file static cho service.
