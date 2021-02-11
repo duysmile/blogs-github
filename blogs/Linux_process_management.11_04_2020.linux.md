@@ -202,3 +202,19 @@ $ renice +8 2103
 ```
 
 ----------------
+
+
+Reference: https://viblo.asia/p/process-may-tinh-va-nhung-dieu-co-the-chua-biet-phan-i-4P856A9alY3?fbclid=IwAR16JM7Xi7E8vtfwXFUBkvsvfenIOsDWAjdWP7s2BYV1Mh0bm9VvBnDWOCI
+Một process sẽ bao gồm các thành phần sau:
+- Stack là nơi để chứa các dữ liệu tạm thời ví dụ như params của method/function, local variables (biến cục bộ), địa chỉ trả về
+- Heap là bộ nhớ được cấp phát động cho Process trong thời gian chạy (runtime)
+- Text là nơi chứa thông tin các hoạt động hiện tại thể hiện bằng giá trị của bộ đếm chương trình (Program Counter) và nội dung các thanh ghi của bộ xử lý (Processor's Registers)
+- Data là nơi chứa các biến toàn cục (Global variable) và biến tĩnh (Static variable)
+
+1 tiến trình bao gồm nhiều thread xử lý thì việc xử lý các thread trong 1 Core(CPU) là concurrent không phải parallel. Việc xử lý parallel sẽ xảy ra khi các thread được phân bổ ra nhiều Core và việc xử lý này không dùng chung resource giữa các thread và ngược lại.
+Link: http://tutorials.jenkov.com/java-concurrency/concurrency-vs-parallelism.html#:~:text=It is possible to have,CPUs are executed in parallel.
+
+---------------
+
+
+
