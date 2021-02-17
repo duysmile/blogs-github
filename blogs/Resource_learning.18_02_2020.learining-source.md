@@ -78,3 +78,7 @@ https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-50
 
 # HTTP:
 - Http và Tcp/Ip: http://notes.viphat.work/tong-quan-ve-tcp-ip-va-http
+
+# MIT:
+- https://missing-semester-vn.github.io/
+- https://hacker-tools.github.io/lectures/
