@@ -82,3 +82,6 @@ https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-50
 # MIT:
 - https://missing-semester-vn.github.io/
 - https://hacker-tools.github.io/lectures/
+
+# Tokenization payment information
+- https://medium0.com/@nstung/%E1%BB%A9ng-d%E1%BB%A5ng-tokenization-trong-thanh-to%C3%A1n-th%E1%BA%BB-t%25C3%25ADn-d%E1%BB%A5ng-69ae3f73d233
