@@ -88,3 +88,6 @@ https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-50
 
 # Authentication in micro-services
 - https://medium0.com/m/global-identity?redirectUrl=https%3A%2F%2Fengineering.tiki.vn%2Fx%25C3%25A1c-th%25E1%25BB%25B1c-v%25C3%25A0-ph%25C3%25A2n-quy%25E1%25BB%2581n-trong-microservices-37689e53c082
+
+# Architecture:
+- https://www.slideshare.net/InfoQ/scaling-pinterest/1
