@@ -1,5 +1,10 @@
 # CHEATSHEET
 - https://devhints.io/
+- https://devdocs.io/
+
+# Courses:
+- https://missing.csail.mit.edu/2020
+- 
 
 # GIT
 - [Learning Git](https://github.com/pcottle/learnGitBranching), nếu mà ko muốn clone repo thì bạn có thể học online ở [đây](https://learngitbranching.js.org/?NODEMO)
@@ -20,6 +25,11 @@
   - docs: https://joshuaalpuerto.github.io/node-ddd-boilerplate/#/
 - Hash password: https://www.martinstoeckli.ch/hash/en/
 - Event Loop: https://blog.insiderattack.net/event-loop-and-the-big-picture-nodejs-event-loop-part-1-1cb67a182810
+
+# Go
+- https://github.com/ardanlabs/gotraining/blob/master/topics/go/README.md
+- https://golang.org/doc/effective_go
+- https://tour.golang.org
 
 # React native
 - https://www.youtube.com/channel/UCPal0d6hhitCzcvJ130ngbg?fbclid=IwAR2X3IFSBVairMEOOH6Dwim4s5W-t37RH97io_Dh4HL70FrXimsf6ZDpnC0
@@ -75,6 +85,7 @@ https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-50
 - Dùng LinkedIn hiệu quả: https://medium.com/got-it-vietnam/linkedin-v%C5%A9-kh%C3%AD-b%C3%AD-m%E1%BA%ADt-khi-t%C3%ACm-vi%E1%BB%87c-online-aec9663e52d6
 - Giải thích về hashmap: https://www.notion.so/Hashmap-97db653183804a2690560525b55d8f59
 - Naming cheatsheat: https://viblo.asia/p/naming-rules-cac-quy-tac-vang-trong-lang-dat-ten-ByEZkMXE5Q0?fbclid=IwAR0MVEAVVRb7q2EpGQDp67M3NiT2uU4KODPUKwkFHsHH3eS6PtsIltMICkg
+- Xác thực và phân quyền: https://medium0.com/m/global-identity?redirectUrl=https%3A%2F%2Fengineering.tiki.vn%2Fx%25C3%25A1c-th%25E1%25BB%25B1c-v%25C3%25A0-ph%25C3%25A2n-quy%25E1%25BB%2581n-trong-microservices-37689e53c082
 
 # HTTP:
 - Http và Tcp/Ip: http://notes.viphat.work/tong-quan-ve-tcp-ip-va-http
@@ -91,3 +102,13 @@ https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-50
 
 # Architecture:
 - https://www.slideshare.net/InfoQ/scaling-pinterest/1
+- https://about.gitlab.com/handbook/engineering/infrastructure/
+- 
+
+# UI:
+- Link references: https://dev.to/surajondev/40-useful-resources-for-mastering-web-1i0h
+- Image: https://storytale.io/
+
+
+# Untools:
+- https://untools.co/
