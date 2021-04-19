@@ -14,3 +14,6 @@ Nếu 1 triệu user lưu thành 1 triệu collection thì có sao không nhỉ?
 -> để ko bị locking table/collection
 
 thì có làm sao? khi ấy càng dễ sharding mà, cũng tương đương sharding key là user_id thôi
+
+
+Việc tạo nhiều collection: https://developer.mongodb.com/article/schema-design-anti-pattern-massive-number-collections/
