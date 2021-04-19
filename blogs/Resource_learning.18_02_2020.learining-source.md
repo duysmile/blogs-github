@@ -29,6 +29,7 @@
 - https://github.com/ardanlabs/gotraining/blob/master/topics/go/README.md
 - https://golang.org/doc/effective_go
 - https://tour.golang.org
+- https://talks.golang.org/2013/bestpractices.slide#1
 
 # MongoDB
 - https://developer.mongodb.com/article/schema-design-anti-pattern-massive-number-collections/
