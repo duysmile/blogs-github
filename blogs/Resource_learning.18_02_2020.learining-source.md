@@ -31,6 +31,7 @@
 - https://tour.golang.org
 - https://talks.golang.org/2013/bestpractices.slide#1
 
+
 # MongoDB
 - https://developer.mongodb.com/article/schema-design-anti-pattern-massive-number-collections/
 
@@ -108,6 +109,7 @@ https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-50
 - https://about.gitlab.com/handbook/engineering/infrastructure/
 - https://medium.com/pinterest-engineering/sharding-pinterest-how-we-scaled-our-mysql-fleet-3f341e96ca6f
 - https://blog.jayway.com/2015/04/13/600k-concurrent-websocket-connections-on-aws-using-node-js/
+- https://dropbox.tech/infrastructure/reintroducing-edgestore?fbclid=IwAR1cZt6vor2u7dSZ-iva5gdSO1KPJ3r7uI8DdADFmIyxYCKPF2HpHKx69cw
 
 # UI:
 - Link references: https://dev.to/surajondev/40-useful-resources-for-mastering-web-1i0h
