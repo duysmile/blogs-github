@@ -4,7 +4,6 @@
 
 # Courses:
 - https://missing.csail.mit.edu/2020
-- 
 
 # GIT
 - [Learning Git](https://github.com/pcottle/learnGitBranching), nếu mà ko muốn clone repo thì bạn có thể học online ở [đây](https://learngitbranching.js.org/?NODEMO)
@@ -30,6 +29,9 @@
 - https://github.com/ardanlabs/gotraining/blob/master/topics/go/README.md
 - https://golang.org/doc/effective_go
 - https://tour.golang.org
+
+# MongoDB
+- https://developer.mongodb.com/article/schema-design-anti-pattern-massive-number-collections/
 
 # React native
 - https://www.youtube.com/channel/UCPal0d6hhitCzcvJ130ngbg?fbclid=IwAR2X3IFSBVairMEOOH6Dwim4s5W-t37RH97io_Dh4HL70FrXimsf6ZDpnC0
@@ -103,7 +105,8 @@ https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-50
 # Architecture:
 - https://www.slideshare.net/InfoQ/scaling-pinterest/1
 - https://about.gitlab.com/handbook/engineering/infrastructure/
-- 
+- https://medium.com/pinterest-engineering/sharding-pinterest-how-we-scaled-our-mysql-fleet-3f341e96ca6f
+- https://blog.jayway.com/2015/04/13/600k-concurrent-websocket-connections-on-aws-using-node-js/
 
 # UI:
 - Link references: https://dev.to/surajondev/40-useful-resources-for-mastering-web-1i0h
