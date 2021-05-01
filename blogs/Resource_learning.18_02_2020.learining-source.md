@@ -118,3 +118,6 @@ https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-50
 
 # Untools:
 - https://untools.co/
+
+#K8s
+- Sidecar pattern: https://medium0.com/bb-tutorials-and-thoughts/kubernetes-learn-sidecar-container-pattern-6d8c21f873d
