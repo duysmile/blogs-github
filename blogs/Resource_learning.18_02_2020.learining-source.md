@@ -35,6 +35,9 @@
 # MongoDB
 - https://developer.mongodb.com/article/schema-design-anti-pattern-massive-number-collections/
 
+# Database
+- Sharding: https://medium.com/pinterest-engineering/sharding-pinterest-how-we-scaled-our-mysql-fleet-3f341e96ca6f
+
 # React native
 - https://www.youtube.com/channel/UCPal0d6hhitCzcvJ130ngbg?fbclid=IwAR2X3IFSBVairMEOOH6Dwim4s5W-t37RH97io_Dh4HL70FrXimsf6ZDpnC0
 
@@ -119,5 +122,5 @@ https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-50
 # Untools:
 - https://untools.co/
 
-#K8s
+# K8s
 - Sidecar pattern: https://medium0.com/bb-tutorials-and-thoughts/kubernetes-learn-sidecar-container-pattern-6d8c21f873d
