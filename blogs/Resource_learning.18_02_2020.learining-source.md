@@ -26,10 +26,10 @@
 - Event Loop: https://blog.insiderattack.net/event-loop-and-the-big-picture-nodejs-event-loop-part-1-1cb67a182810
 
 # Go
-- https://github.com/ardanlabs/gotraining/blob/master/topics/go/README.md
-- https://golang.org/doc/effective_go
-- https://tour.golang.org
-- https://talks.golang.org/2013/bestpractices.slide#1
+- Go training: https://github.com/ardanlabs/gotraining/blob/master/topics/go/README.md
+- Effective go: https://golang.org/doc/effective_go
+- Tour: https://tour.golang.org
+- Best practices: https://talks.golang.org/2013/bestpractices.slide#1
 
 
 # MongoDB
