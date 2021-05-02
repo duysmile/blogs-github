@@ -37,6 +37,7 @@
 
 # Database
 - Sharding: https://medium.com/pinterest-engineering/sharding-pinterest-how-we-scaled-our-mysql-fleet-3f341e96ca6f
+- EdgeStore Dropbox: https://dropbox.tech/infrastructure/reintroducing-edgestore
 
 # React native
 - https://www.youtube.com/channel/UCPal0d6hhitCzcvJ130ngbg?fbclid=IwAR2X3IFSBVairMEOOH6Dwim4s5W-t37RH97io_Dh4HL70FrXimsf6ZDpnC0
