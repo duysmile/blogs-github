@@ -31,6 +31,8 @@
 - Tour: https://tour.golang.org
 - Best practices: https://talks.golang.org/2013/bestpractices.slide#1
 
+# Network
+- Basic network and AWS network: https://viblo.asia/p/aws-basic-networking-structure-3Q75wVWGlWb?fbclid=IwAR3CK2rCCsBWabx-cLMLNPVIjayI0KfKjzj57KergWEAJ4paLeJh6JSi0YM
 
 # MongoDB
 - https://developer.mongodb.com/article/schema-design-anti-pattern-massive-number-collections/
