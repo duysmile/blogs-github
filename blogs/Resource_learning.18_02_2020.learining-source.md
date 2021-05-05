@@ -135,3 +135,7 @@ https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-50
 
 # Docker:
 - Reduce docker image size: https://phoenixnap.com/kb/docker-image-size
+
+# Design patter:
+- Singleton: https://batnamv.medium.com/design-pattern-li%E1%BB%87u-b%E1%BA%A1n-c%C3%B3-th%E1%BB%B1c-s%E1%BB%B1-hi%E1%BB%83u-v%E1%BB%81-singleton-pattern-a88aede760f6
+- 
