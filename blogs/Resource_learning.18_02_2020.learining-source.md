@@ -8,6 +8,8 @@
 # Algorithm
 - Doc: https://vnoi.info/wiki/algo/basic/Tai-Lieu-Thuat-Toan.md
 
+# Redis
+- Pipeline: https://rafaeleyng.github.io/redis-pipelining-transactions-and-lua-scripts
 
 # GIT
 - [Learning Git](https://github.com/pcottle/learnGitBranching), nếu mà ko muốn clone repo thì bạn có thể học online ở [đây](https://learngitbranching.js.org/?NODEMO)
@@ -137,6 +139,6 @@ https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-50
 # Docker:
 - Reduce docker image size: https://phoenixnap.com/kb/docker-image-size
 
-# Design patter:
+# Design pattern:
 - Singleton: https://batnamv.medium.com/design-pattern-li%E1%BB%87u-b%E1%BA%A1n-c%C3%B3-th%E1%BB%B1c-s%E1%BB%B1-hi%E1%BB%83u-v%E1%BB%81-singleton-pattern-a88aede760f6
 - 
