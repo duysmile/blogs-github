@@ -103,6 +103,8 @@ https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-50
 - Naming cheatsheat: https://viblo.asia/p/naming-rules-cac-quy-tac-vang-trong-lang-dat-ten-ByEZkMXE5Q0?fbclid=IwAR0MVEAVVRb7q2EpGQDp67M3NiT2uU4KODPUKwkFHsHH3eS6PtsIltMICkg
 - Xác thực và phân quyền: https://medium0.com/m/global-identity?redirectUrl=https%3A%2F%2Fengineering.tiki.vn%2Fx%25C3%25A1c-th%25E1%25BB%25B1c-v%25C3%25A0-ph%25C3%25A2n-quy%25E1%25BB%2581n-trong-microservices-37689e53c082
 - How fb encode your videos: https://engineering.fb.com/2021/04/05/video-engineering/how-facebook-encodes-your-videos/
+- Tokenization payment information: https://medium0.com/@nstung/%E1%BB%A9ng-d%E1%BB%A5ng-tokenization-trong-thanh-to%C3%A1n-th%E1%BA%BB-t%25C3%25ADn-d%E1%BB%A5ng-69ae3f73d233
+- Authentication in micro-services: https://medium0.com/m/global-identity?redirectUrl=https%3A%2F%2Fengineering.tiki.vn%2Fx%25C3%25A1c-th%25E1%25BB%25B1c-v%25C3%25A0-ph%25C3%25A2n-quy%25E1%25BB%2581n-trong-microservices-37689e53c082
 
 # HTTP:
 - Http và Tcp/Ip: http://notes.viphat.work/tong-quan-ve-tcp-ip-va-http
@@ -111,11 +113,6 @@ https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-50
 - https://missing-semester-vn.github.io/
 - https://hacker-tools.github.io/lectures/
 
-# Tokenization payment information
-- https://medium0.com/@nstung/%E1%BB%A9ng-d%E1%BB%A5ng-tokenization-trong-thanh-to%C3%A1n-th%E1%BA%BB-t%25C3%25ADn-d%E1%BB%A5ng-69ae3f73d233
-
-# Authentication in micro-services
-- https://medium0.com/m/global-identity?redirectUrl=https%3A%2F%2Fengineering.tiki.vn%2Fx%25C3%25A1c-th%25E1%25BB%25B1c-v%25C3%25A0-ph%25C3%25A2n-quy%25E1%25BB%2581n-trong-microservices-37689e53c082
 
 # Architecture:
 - https://www.slideshare.net/InfoQ/scaling-pinterest/1
