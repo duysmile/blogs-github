@@ -141,4 +141,6 @@
 
 # Design pattern:
 - Singleton: https://batnamv.medium.com/design-pattern-li%E1%BB%87u-b%E1%BA%A1n-c%C3%B3-th%E1%BB%B1c-s%E1%BB%B1-hi%E1%BB%83u-v%E1%BB%81-singleton-pattern-a88aede760f6
-- 
+
+# AWS:
+- Begin tut: https://beginaws.awsstudygroup.com/vi/
