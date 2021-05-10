@@ -81,11 +81,8 @@
 - https://dev.to/
 
 # English
-1. List 3000
-https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-5000/The%20Oxford%203000_by%20CEFR%20level.pdf
-
-2. List 5000
-https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-5000/The%20Oxford%205000_by%20CEFR%20level.pdf
+- List 3000: https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-5000/The%20Oxford%203000_by%20CEFR%20level.pdf
+- List 5000: https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-5000/The%20Oxford%205000_by%20CEFR%20level.pdf
 
 # Books
 1. 99 điều mọi lập trình viên nên biết: https://drive.google.com/file/d/1-7hbWCvzzCvRw8XDFja6YU2N2UR1WpAb/view?fbclid=IwAR2zXymLJ5jCQ7YLvOVBh4S0_x_UeCvDuGZfjmu1tKN5XyQTD3JxX-ZUi4g
@@ -105,6 +102,11 @@ https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-50
 - How fb encode your videos: https://engineering.fb.com/2021/04/05/video-engineering/how-facebook-encodes-your-videos/
 - Tokenization payment information: https://medium0.com/@nstung/%E1%BB%A9ng-d%E1%BB%A5ng-tokenization-trong-thanh-to%C3%A1n-th%E1%BA%BB-t%25C3%25ADn-d%E1%BB%A5ng-69ae3f73d233
 - Authentication in micro-services: https://medium0.com/m/global-identity?redirectUrl=https%3A%2F%2Fengineering.tiki.vn%2Fx%25C3%25A1c-th%25E1%25BB%25B1c-v%25C3%25A0-ph%25C3%25A2n-quy%25E1%25BB%2581n-trong-microservices-37689e53c082
+- Hash func: https://valerieaurora.org/hash.html
+
+# Tools:
+- Sync cloud to local: https://rclone.org/s3/
+- Automation in MacOS: https://www.hammerspoon.org/go/
 
 # HTTP:
 - Http và Tcp/Ip: http://notes.viphat.work/tong-quan-ve-tcp-ip-va-http
@@ -121,6 +123,7 @@ https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-50
 - https://blog.jayway.com/2015/04/13/600k-concurrent-websocket-connections-on-aws-using-node-js/
 - https://dropbox.tech/infrastructure/reintroducing-edgestore?fbclid=IwAR1cZt6vor2u7dSZ-iva5gdSO1KPJ3r7uI8DdADFmIyxYCKPF2HpHKx69cw
 - https://batnamv.medium.com/t%C3%ACm-hi%E1%BB%83u-v%E1%BB%81-kh%C3%A1i-ni%E1%BB%87m-mechanical-sympathy-v%C3%A0-b%E1%BB%99-th%C6%B0-vi%E1%BB%87n-lmax-disruptor-4d553dc7fa55
+
 
 # UI:
 - Link references: https://dev.to/surajondev/40-useful-resources-for-mastering-web-1i0h
