@@ -105,6 +105,7 @@
 - Hash func: https://valerieaurora.org/hash.html
 - RabbitMQ và Kafka: https://betterprogramming.pub/rabbitmq-vs-kafka-1ef22a041793, https://www.confluent.io/blog/kafka-fastest-messaging-system/?utm_medium=sem&utm_source=google&utm_campaign=ch.sem_br.nonbrand_tp.prs_tgt.kafka_mt.xct_rgn.apac_lng.eng_dv.all&utm_term=kafka%20vs%20rabbitmq&creative=&device=c&placement=&gclid=CjwKCAjwkN6EBhBNEiwADVfyazJ47oA5W1pILffEynm6IsQbHzUatR06y8kJDdrYL2hQ0MWQjZH1mhoC1pIQAvD_BwE
 - Refactor Angular Source: https://indepth.dev/posts/1425/how-to-refactor-an-angular-codebase?fbclid=IwAR2nlBHFyc6CexTV2ePG05BObumnzcyrUWzp2653ZfHp0xUe8g2SXt2202I
+- Generate unique id: https://medium.com/@gideonarom/the-right-amount-of-randomness-creating-unique-identifiers-e62820a574c2
 
 # Tools:
 - Sync cloud to local: https://rclone.org/s3/
