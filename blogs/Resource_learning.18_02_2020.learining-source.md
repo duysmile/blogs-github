@@ -147,3 +147,4 @@
 
 # AWS:
 - Begin tut: https://beginaws.awsstudygroup.com/vi/
+- https://www.wellarchitectedlabs.com/operational-excellence/
