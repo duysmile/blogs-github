@@ -148,3 +148,4 @@
 # AWS:
 - Begin tut: https://beginaws.awsstudygroup.com/vi/
 - https://www.wellarchitectedlabs.com/operational-excellence/
+- SageMaker & MLOps: https://github.com/apac-ml-tfc
