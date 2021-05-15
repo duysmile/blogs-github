@@ -42,6 +42,7 @@
 
 # MongoDB
 - https://developer.mongodb.com/article/schema-design-anti-pattern-massive-number-collections/
+- Troubleshoot 100%CPU: https://medium.com/mongodb-cowboys/troubleshooting-mongodb-100-cpu-load-and-slow-queries-da622c6e1339
 
 # Database
 - Sharding: https://medium.com/pinterest-engineering/sharding-pinterest-how-we-scaled-our-mysql-fleet-3f341e96ca6f
