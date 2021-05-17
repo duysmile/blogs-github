@@ -44,6 +44,7 @@
 - https://developer.mongodb.com/article/schema-design-anti-pattern-massive-number-collections/
 - Troubleshoot 100%CPU: https://medium.com/mongodb-cowboys/troubleshooting-mongodb-100-cpu-load-and-slow-queries-da622c6e1339
 - Performance tuning: https://stackify.com/mongodb-performance-tuning/
+- Tuning memory usage: https://www.percona.com/blog/2021/01/08/mongodb-101-how-to-tune-your-mongodb-configuration-after-upgrading-to-more-memory/
 
 # Database
 - Sharding: https://medium.com/pinterest-engineering/sharding-pinterest-how-we-scaled-our-mysql-fleet-3f341e96ca6f
