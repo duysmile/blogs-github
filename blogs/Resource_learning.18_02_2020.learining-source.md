@@ -155,6 +155,7 @@
 - Begin tut: https://beginaws.awsstudygroup.com/vi/
 - https://www.wellarchitectedlabs.com/operational-excellence/
 - SageMaker & MLOps: https://github.com/apac-ml-tfc
+- Design: https://app.altostra.com/projects/vnlp-yu00k5x/designer
 
 # Network:
 - Understanding socket and port in TCP: https://medium.com/fantageek/understanding-socket-and-port-in-tcp-2213dc2e9b0c
