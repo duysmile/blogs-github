@@ -133,6 +133,7 @@
 - https://blog.jayway.com/2015/04/13/600k-concurrent-websocket-connections-on-aws-using-node-js/
 - https://dropbox.tech/infrastructure/reintroducing-edgestore?fbclid=IwAR1cZt6vor2u7dSZ-iva5gdSO1KPJ3r7uI8DdADFmIyxYCKPF2HpHKx69cw
 - https://batnamv.medium.com/t%C3%ACm-hi%E1%BB%83u-v%E1%BB%81-kh%C3%A1i-ni%E1%BB%87m-mechanical-sympathy-v%C3%A0-b%E1%BB%99-th%C6%B0-vi%E1%BB%87n-lmax-disruptor-4d553dc7fa55
+- Tinder system: https://medium.com/system-design-concepts/dating-application-system-design-aae411412267
 
 
 # UI:
