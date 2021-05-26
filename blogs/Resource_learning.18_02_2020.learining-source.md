@@ -40,6 +40,7 @@
 - Effective go: https://golang.org/doc/effective_go
 - Tour: https://tour.golang.org
 - Best practices: https://talks.golang.org/2013/bestpractices.slide#1
+- Build mininal image: https://medium.com/@viettx/minimize-go-application-container-and-deploy-with-nginx-reverse-proxy-d8805a842883
 
 # Network
 - Basic network and AWS network: https://viblo.asia/p/aws-basic-networking-structure-3Q75wVWGlWb?fbclid=IwAR3CK2rCCsBWabx-cLMLNPVIjayI0KfKjzj57KergWEAJ4paLeJh6JSi0YM
