@@ -171,3 +171,6 @@
 
 # ML:
 - Practical: https://mlpro.io/problems
+
+# Monitor:
+- Datadog blog: https://github.com/DataDog/the-monitor
