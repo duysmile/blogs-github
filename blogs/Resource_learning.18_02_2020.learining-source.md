@@ -52,6 +52,7 @@
 - Tuning memory usage: https://www.percona.com/blog/2021/01/08/mongodb-101-how-to-tune-your-mongodb-configuration-after-upgrading-to-more-memory/
 - Best practice settings: https://www.percona.com/blog/2020/04/17/mongodb-best-practices-2020-edition/
 - Monitor: https://www.datadoghq.com/blog/monitoring-mongodb-performance-metrics-wiredtiger/#resource-utilization
+- Mongo pattern design: https://developer.mongodb.com/how-to/attribute-pattern/
 
 # Database
 - Sharding: https://medium.com/pinterest-engineering/sharding-pinterest-how-we-scaled-our-mysql-fleet-3f341e96ca6f
