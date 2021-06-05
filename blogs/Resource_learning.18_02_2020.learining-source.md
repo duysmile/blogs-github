@@ -120,6 +120,7 @@
 - Cold cache with promise: https://instagram-engineering.com/thundering-herds-promises-82191c8af57d
 - Avoid duplicate paymnents: https://medium.com/airbnb-engineering/avoiding-double-payments-in-a-distributed-payments-system-2981f6b070bb
 - Data model Notion: https://www.notion.so/blog/data-model-behind-notion
+- LMAX Architecture for financial: https://martinfowler.com/articles/lmax.html
 
 # Tools:
 - Sync cloud to local: https://rclone.org/s3/
