@@ -34,6 +34,7 @@
 - Why should use Reverse Proxy for NodeJS app: https://medium.com/intrinsic/why-should-i-use-a-reverse-proxy-if-node-js-is-production-ready-5a079408b2ca
 - Series Nodejs: https://viblo.asia/s/nodejs-va-nhung-cau-chuyen-toi-uu-performance-RNZqg86G50n
 - NODE_ENV: https://www.dynatrace.com/news/blog/the-drastic-effects-of-omitting-node-env-in-your-express-js-applications
+- Network io - epoll: https://tuhuynh.com/nio-under-the-hood/
 
 # Go
 - Go training: https://github.com/ardanlabs/gotraining/blob/master/topics/go/README.md
