@@ -68,6 +68,7 @@
 
 # LINUX
 - Guide: https://github.com/ErikHorus1249/Guide-Documents?fbclid=IwAR0T1CXtmVfzS3RXWNx03G4DKJg1uba-AT5XdKQiDb3Gdet_H9UMSLfCvsU
+- Book and course: https://man7.org/tlpi/
 
 # REGEX
 - https://github.com/ziishaned/learn-regex: lí thuyết dễ hiểu (có tiếng việt)
