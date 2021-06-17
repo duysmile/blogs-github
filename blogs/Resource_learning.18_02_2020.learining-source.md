@@ -24,6 +24,7 @@
 # Javascript
 - Prototype: https://js.edu.vn/7-ke-thua-prototype-ngang-va-doc.html
 - Questions: https://github.com/duysmile/javascript-questions/blob/master
+- Event loop: https://javascript.info/event-loop
 
 # NODEJS
 - Domain Driven Design: 
