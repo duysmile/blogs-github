@@ -148,6 +148,7 @@
 - https://batnamv.medium.com/t%C3%ACm-hi%E1%BB%83u-v%E1%BB%81-kh%C3%A1i-ni%E1%BB%87m-mechanical-sympathy-v%C3%A0-b%E1%BB%99-th%C6%B0-vi%E1%BB%87n-lmax-disruptor-4d553dc7fa55
 - Tinder system: https://medium.com/system-design-concepts/dating-application-system-design-aae411412267
 - CQRS: https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/
+- TAO - Facebook: https://engineering.fb.com/2013/06/25/core-data/tao-the-power-of-the-graph/
 
 
 # UI:
