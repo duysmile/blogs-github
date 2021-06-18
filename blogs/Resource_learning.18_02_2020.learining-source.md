@@ -149,6 +149,7 @@
 - Tinder system: https://medium.com/system-design-concepts/dating-application-system-design-aae411412267
 - CQRS: https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/
 - TAO - Facebook: https://engineering.fb.com/2013/06/25/core-data/tao-the-power-of-the-graph/
+- Understanding Kafka: https://www.gentlydownthe.stream
 
 
 # UI:
