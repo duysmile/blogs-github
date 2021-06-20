@@ -127,6 +127,7 @@
 - Data model Notion: https://www.notion.so/blog/data-model-behind-notion
 - LMAX Architecture for financial: https://martinfowler.com/articles/lmax.html
 - Transactions in microservices: https://medium.com/@milan.brankovic/transactions-in-microservices-49bdefdfb869
+- Monitoring in microservices: https://medium.com/@milan.brankovic/monitoring-microservices-e0f89496fa9e
 
 # Tools:
 - Sync cloud to local: https://rclone.org/s3/
