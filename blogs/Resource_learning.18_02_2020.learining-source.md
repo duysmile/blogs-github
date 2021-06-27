@@ -188,3 +188,7 @@
 # Monitor:
 - Datadog blog: https://github.com/DataDog/the-monitor
 - Monitor 101: https://www.datadoghq.com/blog/monitoring-101-collecting-data/
+
+# gRPC:
+- Error code: https://cloud.google.com/apis/design/errors#error_model
+- Middleware: https://github.com/grpc-ecosystem/go-grpc-middleware
