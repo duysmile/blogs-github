@@ -130,6 +130,7 @@
 - Transactions in microservices: https://medium.com/@milan.brankovic/transactions-in-microservices-49bdefdfb869
 - Monitoring in microservices: https://medium.com/@milan.brankovic/monitoring-microservices-e0f89496fa9e
 - Time complexity: https://www.hackerearth.com/practice/basic-programming/complexity-analysis/time-and-space-complexity/tutorial/
+- Inheritance vs Composition: https://betterprogramming.pub/inheritance-vs-composition-2fa0cdd2f939
 
 # Tools:
 - Sync cloud to local: https://rclone.org/s3/
