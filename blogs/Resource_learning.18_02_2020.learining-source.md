@@ -140,6 +140,7 @@
 - Monitoring in microservices: https://medium.com/@milan.brankovic/monitoring-microservices-e0f89496fa9e
 - Time complexity: https://www.hackerearth.com/practice/basic-programming/complexity-analysis/time-and-space-complexity/tutorial/
 - Inheritance vs Composition: https://betterprogramming.pub/inheritance-vs-composition-2fa0cdd2f939
+- Instagram redis 1000.000 key values: https://instagram-engineering.com/storing-hundreds-of-millions-of-simple-key-value-pairs-in-redis-1091ae80f74c
 
 # Tools:
 - Sync cloud to local: https://rclone.org/s3/
