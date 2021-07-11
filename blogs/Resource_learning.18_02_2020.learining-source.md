@@ -168,6 +168,7 @@
 - TAO - Facebook: https://engineering.fb.com/2013/06/25/core-data/tao-the-power-of-the-graph/
 - Understanding Kafka: https://www.gentlydownthe.stream
 - CQRS Overview: https://labs.flinters.vn/technote/tong-quan-ve-kien-truc-cqrs/
+- Circuit Breaker: https://martinfowler.com/bliki/CircuitBreaker.html
 
 
 # UI:
