@@ -117,6 +117,7 @@
 2. You don't know JS: https://github.com/getify/You-Dont-Know-JS/blob
 3. Eloquent Javascript: https://eloquentjavascript.net/01_values.html
 4. Functional Light Javascript: https://github.com/getify/Functional-Light-JS
+5. 500 lines or less: http://aosabook.org/en/index.html
 
 # Product management
 - https://ngochieu.com/coroference-pm-for-manager/
@@ -148,6 +149,7 @@
 # Tools:
 - Sync cloud to local: https://rclone.org/s3/
 - Automation in MacOS: https://www.hammerspoon.org/go/
+- Design DB: https://diagramplus.com/
 
 # HTTP:
 - Http và Tcp/Ip: http://notes.viphat.work/tong-quan-ve-tcp-ip-va-http
