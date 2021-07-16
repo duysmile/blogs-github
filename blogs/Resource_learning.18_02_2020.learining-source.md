@@ -172,6 +172,7 @@
 - Understanding Kafka: https://www.gentlydownthe.stream
 - CQRS Overview: https://labs.flinters.vn/technote/tong-quan-ve-kien-truc-cqrs/
 - Circuit Breaker: https://martinfowler.com/bliki/CircuitBreaker.html
+- Events not webhooks: https://blog.syncinc.so/events-not-webhooks
 
 
 # UI:
