@@ -67,6 +67,7 @@
 - Monitor: https://www.datadoghq.com/blog/monitoring-mongodb-performance-metrics-wiredtiger/#resource-utilization
 - Mongo pattern design: https://developer.mongodb.com/how-to/attribute-pattern/
 - Operation Checklist: https://docs.mongodb.com/manual/administration/production-checklist-operations/#monitoring
+- Lock document: https://www.mongodb.com/blog/post/how-to-select--for-update-inside-mongodb-transactions
 
 # Database
 - Sharding: https://medium.com/pinterest-engineering/sharding-pinterest-how-we-scaled-our-mysql-fleet-3f341e96ca6f
