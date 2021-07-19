@@ -54,6 +54,7 @@
 - Build mininal image: https://medium.com/@viettx/minimize-go-application-container-and-deploy-with-nginx-reverse-proxy-d8805a842883
 - RBAC by Casbin: https://medium.com/wesionary-team/authorization-in-golang-projects-using-casbin-f8fad744dae5
 - Goroutines and os thread and cpu: https://medium.com/a-journey-with-go/go-goroutine-os-thread-and-cpu-management-2f5a5eaf518a
+- Memory in Go: https://research.swtch.com/gomm
 
 # Network
 - Basic network and AWS network: https://viblo.asia/p/aws-basic-networking-structure-3Q75wVWGlWb?fbclid=IwAR3CK2rCCsBWabx-cLMLNPVIjayI0KfKjzj57KergWEAJ4paLeJh6JSi0YM
