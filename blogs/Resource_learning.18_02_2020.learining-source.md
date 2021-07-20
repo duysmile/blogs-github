@@ -92,6 +92,7 @@
 - https://www.hackerrank.com/challenges/js10-regexp-1/topics: một vài lí thuyết căn bản và bài tập áp dụng
 - http://play.inginf.units.it/#/: 12 challenge để luyện regex
 - http://www.regular-expressions.info/atomic.html: Atomic group
+- Backtracking issue: https://medium.com/textmaster-engineering/performance-of-regular-expressions-81371f569698
 
 # UI
 - goodui.org
