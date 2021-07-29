@@ -148,6 +148,7 @@
 - Inheritance vs Composition: https://betterprogramming.pub/inheritance-vs-composition-2fa0cdd2f939
 - Instagram redis 1000.000 key values: https://instagram-engineering.com/storing-hundreds-of-millions-of-simple-key-value-pairs-in-redis-1091ae80f74c
 - Design dashboard: https://dataschool.com/how-to-design-a-dashboard/
+- Store password in the right way: https://xluffy.github.io/post/how-to-hash-store-password/
 
 # Tools:
 - Sync cloud to local: https://rclone.org/s3/
