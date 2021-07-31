@@ -17,6 +17,7 @@
 - Pipeline: https://rafaeleyng.github.io/redis-pipelining-transactions-and-lua-scripts
 - MemoLocks: https://redislabs.com/blog/caches-promises-locks/
 - Memory optimization: https://redis.io/topics/memory-optimization
+- Tối ưu redis: https://kipalog.com/posts/Ky-an-toc-do--Noi-oan-cua-chang-Redis
 
 # GIT
 - [Learning Git](https://github.com/pcottle/learnGitBranching), nếu mà ko muốn clone repo thì bạn có thể học online ở [đây](https://learngitbranching.js.org/?NODEMO
