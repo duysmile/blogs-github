@@ -157,6 +157,7 @@
 - Automation in MacOS: https://www.hammerspoon.org/go/
 - Design DB: https://diagramplus.com/
 - 10 tools opensource: https://dev.to/alex_barashkov/top-10-open-source-saas-that-could-help-you-build-the-next-big-thing-2eai
+- Sync file: https://docs.syncthing.net/intro/gui.html
 
 # HTTP:
 - Http và Tcp/Ip: http://notes.viphat.work/tong-quan-ve-tcp-ip-va-http
