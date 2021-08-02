@@ -70,6 +70,7 @@
 - Mongo pattern design: https://developer.mongodb.com/how-to/attribute-pattern/
 - Operation Checklist: https://docs.mongodb.com/manual/administration/production-checklist-operations/#monitoring
 - Lock document: https://www.mongodb.com/blog/post/how-to-select--for-update-inside-mongodb-transactions
+- Patterns: https://www.mongodb.com/developer/how-to/outlier-pattern/
 
 # Database
 - Sharding: https://medium.com/pinterest-engineering/sharding-pinterest-how-we-scaled-our-mysql-fleet-3f341e96ca6f
