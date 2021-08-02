@@ -150,6 +150,7 @@
 - Instagram redis 1000.000 key values: https://instagram-engineering.com/storing-hundreds-of-millions-of-simple-key-value-pairs-in-redis-1091ae80f74c
 - Design dashboard: https://dataschool.com/how-to-design-a-dashboard/
 - Store password in the right way: https://xluffy.github.io/post/how-to-hash-store-password/
+- Wix microservices: https://medium.com/wix-engineering/leader-election-and-sharding-practices-at-wix-microservices-6e6b853e4852
 
 # Tools:
 - Sync cloud to local: https://rclone.org/s3/
