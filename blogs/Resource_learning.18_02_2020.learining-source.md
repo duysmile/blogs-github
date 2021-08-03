@@ -227,4 +227,5 @@
 - k6: https://k6.io/docs/using-k6/protocols/websockets/
 
 # Talk:
+- Understanding Go channels: https://www.youtube.com/watch?v=KBZlN0izeiY
 - Tiki high concurrency: https://www.youtube.com/watch?v=Jc-lGeDuphg
