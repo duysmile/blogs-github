@@ -123,6 +123,7 @@
 3. Eloquent Javascript: https://eloquentjavascript.net/01_values.html
 4. Functional Light Javascript: https://github.com/getify/Functional-Light-JS
 5. 500 lines or less: http://aosabook.org/en/index.html
+6. Learn Go: http://www.gopl.io/
 
 # Product management
 - https://ngochieu.com/coroference-pm-for-manager/
