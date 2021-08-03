@@ -225,3 +225,6 @@
 
 # Load test:
 - k6: https://k6.io/docs/using-k6/protocols/websockets/
+
+# Talk:
+- Tiki high concurrency: https://www.youtube.com/watch?v=Jc-lGeDuphg
