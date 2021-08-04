@@ -227,6 +227,9 @@
 # Load test:
 - k6: https://k6.io/docs/using-k6/protocols/websockets/
 
+# Blockchain:
+- Build simple blockchain: https://huwng.wordpress.com/2017/10/19/tu-xay-dung-mot-he-thong-blockchain-don-gian/?utm_source=j2team&utm_medium=url_shortener
+
 # Talk:
 - Understanding Go channels: https://www.youtube.com/watch?v=KBZlN0izeiY
 - Tiki high concurrency: https://www.youtube.com/watch?v=Jc-lGeDuphg
