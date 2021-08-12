@@ -186,6 +186,9 @@
 - Events not webhooks: https://blog.syncinc.so/events-not-webhooks
 
 
+# System:
+- Why free and top not show correct memory limit for container: https://ops.tips/blog/why-top-inside-container-wrong-memory/
+
 # UI:
 - Link references: https://dev.to/surajondev/40-useful-resources-for-mastering-web-1i0h
 - Image: https://storytale.io/
