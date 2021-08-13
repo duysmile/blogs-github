@@ -200,6 +200,7 @@
 
 # K8s
 - Sidecar pattern: https://medium0.com/bb-tutorials-and-thoughts/kubernetes-learn-sidecar-container-pattern-6d8c21f873d
+- gRPC load balancing: https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/
 
 # Docker:
 - Reduce docker image size: https://phoenixnap.com/kb/docker-image-size
