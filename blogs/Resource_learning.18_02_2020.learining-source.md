@@ -154,6 +154,7 @@
 - Design dashboard: https://dataschool.com/how-to-design-a-dashboard/
 - Store password in the right way: https://xluffy.github.io/post/how-to-hash-store-password/
 - Wix microservices: https://medium.com/wix-engineering/leader-election-and-sharding-practices-at-wix-microservices-6e6b853e4852
+- OAuth and OpenID Connect: https://truongnmt.medium.com/nh%E1%BA%ADp-m%C3%B4n-oauth-v%C3%A0-openid-connect-e7875e60dda0?p=e7875e60dda0
 
 # Tools:
 - Sync cloud to local: https://rclone.org/s3/
