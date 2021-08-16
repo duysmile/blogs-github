@@ -186,6 +186,7 @@
 - Circuit Breaker: https://martinfowler.com/bliki/CircuitBreaker.html
 - Events not webhooks: https://blog.syncinc.so/events-not-webhooks
 - Backpressure: https://medium.com/@jayphelps/backpressure-explained-the-flow-of-data-through-software-2350b3e77ce7
+- Clean Architecture: https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
 
 
 # System:
