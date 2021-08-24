@@ -23,6 +23,7 @@
 - [Learning Git](https://github.com/pcottle/learnGitBranching), nếu mà ko muốn clone repo thì bạn có thể học online ở [đây](https://learngitbranching.js.org/?NODEMO
 - Merge vs Rebase: https://hackernoon.com/git-merge-vs-rebase-whats-the-diff-76413c117333
 - Merge vs Rebase (Atlassian): https://www.atlassian.com/git/tutorials/merging-vs-rebasing#the-golden-rule-of-rebasing
+- Sparse checkout: https://thefullsnack.com/posts/git-sparse-checkout.html
 
 # LEARNING NEW LANGUAGE
 - https://exercism.io/my/tracks: Hỗ trợ việc học ngôn ngữ và các best practice từ các mentor
