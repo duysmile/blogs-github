@@ -158,6 +158,7 @@
 - OAuth and OpenID Connect: https://truongnmt.medium.com/nh%E1%BA%ADp-m%C3%B4n-oauth-v%C3%A0-openid-connect-e7875e60dda0?p=e7875e60dda0
 - Chaos Monkey - Failure injection testing: https://www.gremlin.com/chaos-monkey/the-origin-of-chaos-monkey/
 - Visualize Kafka: https://timothystepro.medium.com/visualizing-kafka-20bc384803e7
+- Big load anti-pattern: https://lemire.me/blog/2021/08/21/the-big-load-anti-pattern/
 
 # Tools:
 - Sync cloud to local: https://rclone.org/s3/
