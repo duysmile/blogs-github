@@ -243,6 +243,9 @@
 - Error code: https://cloud.google.com/apis/design/errors#error_model
 - Middleware: https://github.com/grpc-ecosystem/go-grpc-middleware
 
+# Socket:
+- Socket data flow: https://tvd12.com/socket-data-flow/
+
 # Load test:
 - k6: https://k6.io/docs/using-k6/protocols/websockets/
 
