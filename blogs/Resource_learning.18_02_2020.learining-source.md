@@ -229,6 +229,8 @@
 # Network:
 - Understanding socket and port in TCP: https://medium.com/fantageek/understanding-socket-and-port-in-tcp-2213dc2e9b0c
 
+# Functional programming:
+- 8 benefits: https://qvault.io/clean-code/benefits-of-functional-programming
 
 # ML:
 - Practical: https://mlpro.io/problems
