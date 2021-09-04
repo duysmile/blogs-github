@@ -81,6 +81,7 @@
 - Design multi language: https://belvg.com/blog/eav-in-magento-2.html
 - ACID: https://database.guide/what-is-acid-in-databases/
 - Postgres network and cursors effect perf: https://www.percona.com/blog/impact-of-network-and-cursor-on-query-performance-of-postgresql/?utm_campaign=Grokking%20Newsletter&utm_medium=email&utm_source=Revue%20newsletter
+- Store data tree in SQL: https://viblo.asia/p/ban-dang-luu-du-lieu-dang-cay-vao-csdl-theo-cach-nao-LzD5dM6YKjY
 
 # React native
 - https://www.youtube.com/channel/UCPal0d6hhitCzcvJ130ngbg?fbclid=IwAR2X3IFSBVairMEOOH6Dwim4s5W-t37RH97io_Dh4HL70FrXimsf6ZDpnC0
