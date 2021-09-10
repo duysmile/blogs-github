@@ -48,6 +48,7 @@
 - Network io - epoll: https://tuhuynh.com/nio-under-the-hood/
 - Visualize stream: https://blog.insiderattack.net/a-visual-guide-to-nodejs-streams-9d2d594a9bf5
 - setTimeout: https://levelup.gitconnected.com/understanding-settimeout-15c7de9e5fd6
+- Decorators: https://medium.com/google-developers/exploring-es7-decorators-76ecb65fb841
 
 # Go
 - Go training: https://github.com/ardanlabs/gotraining/blob/master/topics/go/README.md
