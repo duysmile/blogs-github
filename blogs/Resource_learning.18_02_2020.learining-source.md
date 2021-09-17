@@ -197,6 +197,7 @@
 - Backpressure: https://medium.com/@jayphelps/backpressure-explained-the-flow-of-data-through-software-2350b3e77ce7
 - Clean Architecture: https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
 - Saga pattern: https://medium.com/tech-cubyn/keep-consistent-state-across-micro-services-thanks-to-saga-pattern-2c0288bcad5e
+- Distributed Tracing: https://medium.com/nikeengineering/hit-the-ground-running-with-distributed-tracing-core-concepts-ff5ad47c7058
 
 
 # System:
