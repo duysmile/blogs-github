@@ -12,6 +12,7 @@
 
 # Algorithm
 - Doc: https://vnoi.info/wiki/algo/basic/Tai-Lieu-Thuat-Toan.md
+- Visualizer Algo: https://algorithm-visualizer.org/dynamic-programming/longest-common-subsequence
 
 # Redis
 - Pipeline: https://rafaeleyng.github.io/redis-pipelining-transactions-and-lua-scripts
