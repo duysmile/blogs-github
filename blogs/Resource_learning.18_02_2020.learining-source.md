@@ -172,6 +172,7 @@
 - 10 tools opensource: https://dev.to/alex_barashkov/top-10-open-source-saas-that-could-help-you-build-the-next-big-thing-2eai
 - Sync file: https://docs.syncthing.net/intro/gui.html
 - Instance calculator k8s: https://learnk8s.io/kubernetes-instance-calculator
+- VSCode Productive: https://dev.to/codevault/faster-code-editing-in-visual-studio-code-lge
 
 # HTTP:
 - Http và Tcp/Ip: http://notes.viphat.work/tong-quan-ve-tcp-ip-va-http
