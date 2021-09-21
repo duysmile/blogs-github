@@ -62,8 +62,6 @@
 - Memory in Go: https://research.swtch.com/gomm
 - Resources: https://golang.org.vn/resources/
 
-# Network
-- Basic network and AWS network: https://viblo.asia/p/aws-basic-networking-structure-3Q75wVWGlWb?fbclid=IwAR3CK2rCCsBWabx-cLMLNPVIjayI0KfKjzj57KergWEAJ4paLeJh6JSi0YM
 
 # MongoDB
 - https://developer.mongodb.com/article/schema-design-anti-pattern-massive-number-collections/
@@ -237,6 +235,7 @@
 # Network:
 - Understanding Cloudflare: https://xluffy.github.io/post/cloudflare-101/
 - Understanding socket and port in TCP: https://medium.com/fantageek/understanding-socket-and-port-in-tcp-2213dc2e9b0c
+- Basic network and AWS network: https://viblo.asia/p/aws-basic-networking-structure-3Q75wVWGlWb?fbclid=IwAR3CK2rCCsBWabx-cLMLNPVIjayI0KfKjzj57KergWEAJ4paLeJh6JSi0YM
 
 # Functional programming:
 - 8 benefits: https://qvault.io/clean-code/benefits-of-functional-programming
