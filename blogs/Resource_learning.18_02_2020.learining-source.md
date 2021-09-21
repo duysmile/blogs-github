@@ -250,6 +250,7 @@
 # gRPC:
 - Error code: https://cloud.google.com/apis/design/errors#error_model
 - Middleware: https://github.com/grpc-ecosystem/go-grpc-middleware
+- Load balancer: https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/
 
 # Socket:
 - Socket data flow: https://tvd12.com/socket-data-flow/
