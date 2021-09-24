@@ -264,3 +264,6 @@
 # Talk:
 - Understanding Go channels: https://www.youtube.com/watch?v=KBZlN0izeiY
 - Tiki high concurrency: https://www.youtube.com/watch?v=Jc-lGeDuphg
+
+# Utils:
+- set noclobber : https://securitronlinux.com/debian-testing/how-to-prevent-a-file-from-being-overwritten-using-the-tcsh-shell-on-linux/
