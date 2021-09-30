@@ -163,6 +163,7 @@
 - Visualize Kafka: https://timothystepro.medium.com/visualizing-kafka-20bc384803e7
 - Series Kafka: https://viblo.asia/s/apache-kafka-tu-zero-den-one-aGK7jPbA5j2
 - Big load anti-pattern: https://lemire.me/blog/2021/08/21/the-big-load-anti-pattern/
+- Design high load write application: https://kipalog.com/posts/Chuyen-anh-tho-xay-P1--BUILD-a-write-heavy-application
 
 # Tools:
 - Sync cloud to local: https://rclone.org/s3/
