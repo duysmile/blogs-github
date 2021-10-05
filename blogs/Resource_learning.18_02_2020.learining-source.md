@@ -26,8 +26,9 @@
 - Merge vs Rebase (Atlassian): https://www.atlassian.com/git/tutorials/merging-vs-rebasing#the-golden-rule-of-rebasing
 - Sparse checkout: https://thefullsnack.com/posts/git-sparse-checkout.html
 
-# LEARNING NEW LANGUAGE
+# LEARNING
 - https://exercism.io/my/tracks: Hỗ trợ việc học ngôn ngữ và các best practice từ các mentor
+- https://www.cloudflare.com/learning/: Network, security
 
 # NPM Packages
 - DI: https://github.com/jeffijoe/awilix
