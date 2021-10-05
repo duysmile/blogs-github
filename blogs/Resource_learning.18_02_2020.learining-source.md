@@ -138,7 +138,7 @@
 - Git và github: https://medium.com/got-it-vietnam/git-v%C3%A0-github-li%E1%BB%87u-b%E1%BA%A1n-%C4%91%C3%A3-th%E1%BA%ADt-s%E1%BB%B1-bi%E1%BA%BFt-c%C3%A1ch-s%E1%BB%AD-d%E1%BB%A5ng-ff5cc723edfd
 - Dùng LinkedIn hiệu quả: https://medium.com/got-it-vietnam/linkedin-v%C5%A9-kh%C3%AD-b%C3%AD-m%E1%BA%ADt-khi-t%C3%ACm-vi%E1%BB%87c-online-aec9663e52d6
 - Giải thích về hashmap: https://www.notion.so/Hashmap-97db653183804a2690560525b55d8f59
-- Naming cheatsheat: https://viblo.asia/p/naming-rules-cac-quy-tac-vang-trong-lang-dat-ten-ByEZkMXE5Q0?fbclid=IwAR0MVEAVVRb7q2EpGQDp67M3NiT2uU4KODPUKwkFHsHH3eS6PtsIltMICkg
+- Naming cheatsheat: https://viblo.asia/p/naming-rules-cac-quy-tac-vang-trong-lang-dat-ten-ByEZkMXE5Q0
 - Xác thực và phân quyền: https://medium0.com/m/global-identity?redirectUrl=https%3A%2F%2Fengineering.tiki.vn%2Fx%25C3%25A1c-th%25E1%25BB%25B1c-v%25C3%25A0-ph%25C3%25A2n-quy%25E1%25BB%2581n-trong-microservices-37689e53c082
 - How fb encode your videos: https://engineering.fb.com/2021/04/05/video-engineering/how-facebook-encodes-your-videos/
 - Tokenization payment information: https://medium0.com/@nstung/%E1%BB%A9ng-d%E1%BB%A5ng-tokenization-trong-thanh-to%C3%A1n-th%E1%BA%BB-t%25C3%25ADn-d%E1%BB%A5ng-69ae3f73d233
