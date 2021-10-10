@@ -166,6 +166,7 @@
 - Big load anti-pattern: https://lemire.me/blog/2021/08/21/the-big-load-anti-pattern/
 - Design high load write application: https://kipalog.com/posts/Chuyen-anh-tho-xay-P1--BUILD-a-write-heavy-application
 - REST API: https://www.ibm.com/cloud/learn/rest-apis
+- 20 things about software engineer: https://www.simplethread.com/20-things-ive-learned-in-my-20-years-as-a-software-engineer/
 
 # Tools:
 - Sync cloud to local: https://rclone.org/s3/
