@@ -1,3 +1,6 @@
+# Great for microservice
+- Uber Micro-services: https://eng.uber.com/microservice-architecture/?utm_campaign=Grokking%20Newsletter&utm_medium=email&utm_source=Revue%20newsletter
+
 # CHEATSHEET
 - https://devhints.io/
 - https://devdocs.io/
