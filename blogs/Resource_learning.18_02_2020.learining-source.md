@@ -171,6 +171,7 @@
 - Design high load write application: https://kipalog.com/posts/Chuyen-anh-tho-xay-P1--BUILD-a-write-heavy-application
 - REST API: https://www.ibm.com/cloud/learn/rest-apis
 - 20 things about software engineer: https://www.simplethread.com/20-things-ive-learned-in-my-20-years-as-a-software-engineer/
+- Streaming data-platform: https://engineering.tiki.vn/how-to-deal-with-cross-device-sessions-in-realtime-at-scale
 
 # Tools:
 - Sync cloud to local: https://rclone.org/s3/
