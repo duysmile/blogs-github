@@ -172,6 +172,7 @@
 - REST API: https://www.ibm.com/cloud/learn/rest-apis
 - 20 things about software engineer: https://www.simplethread.com/20-things-ive-learned-in-my-20-years-as-a-software-engineer/
 - Streaming data-platform: https://engineering.tiki.vn/how-to-deal-with-cross-device-sessions-in-realtime-at-scale
+- API performance: https://abdulrwahab.medium.com/api-architecture-performance-best-practices-for-rest-apis-1d4a5922dae1
 
 # Tools:
 - Sync cloud to local: https://rclone.org/s3/
