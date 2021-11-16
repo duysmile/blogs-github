@@ -175,6 +175,7 @@
 - Streaming data-platform: https://engineering.tiki.vn/how-to-deal-with-cross-device-sessions-in-realtime-at-scale
 - API performance: https://abdulrwahab.medium.com/api-architecture-performance-best-practices-for-rest-apis-1d4a5922dae1
 - Design RESTful API: https://abdulrwahab.medium.com/api-architecture-best-practices-for-designing-rest-apis-bf907025f5f
+- Spotify codes: https://boonepeter.github.io/posts/spotify-codes-part-2/
 
 # Tools:
 - Sync cloud to local: https://rclone.org/s3/
