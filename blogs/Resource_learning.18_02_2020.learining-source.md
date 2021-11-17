@@ -177,6 +177,7 @@
 - Design RESTful API: https://abdulrwahab.medium.com/api-architecture-best-practices-for-designing-rest-apis-bf907025f5f
 - Spotify codes: https://boonepeter.github.io/posts/spotify-codes-part-2/
 - Stack and Heap: https://medium.com/@mmoshikoo/stack-heap-dont-start-to-code-without-understanding-them-b182313bdf24
+- Redesign wishlist: https://medium.com/myntra-engineering/wishlist-redesign-how-we-reduced-the-latency-by-75-to-under-100ms-cc5880fcec19
 
 # Tools:
 - Sync cloud to local: https://rclone.org/s3/
