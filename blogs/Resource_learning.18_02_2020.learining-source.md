@@ -67,6 +67,7 @@
 - Goroutines and os thread and cpu: https://medium.com/a-journey-with-go/go-goroutine-os-thread-and-cpu-management-2f5a5eaf518a
 - Memory in Go: https://research.swtch.com/gomm
 - Resources: https://golang.org.vn/resources/
+- Struct field ordering affect memory usage: https://qvault.io/golang/struct-field-ordering-memory/
 
 
 # MongoDB
