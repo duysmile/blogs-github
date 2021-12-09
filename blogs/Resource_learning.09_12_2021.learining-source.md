@@ -4,6 +4,7 @@
 # CHEATSHEET
 - https://devhints.io/
 - https://devdocs.io/
+- Guides: https://roadmap.sh/guides
 
 # Interview questions
 - GotIt: https://docs.google.com/spreadsheets/d/1shzzlw35JNi_yswccAlPQicmCZfkA37MX9loxE4MgqM/edit#gid=0
