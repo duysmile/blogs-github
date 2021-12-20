@@ -34,6 +34,7 @@
 # LEARNING
 - https://exercism.io/my/tracks: Hỗ trợ việc học ngôn ngữ và các best practice từ các mentor
 - https://www.cloudflare.com/learning/: Network, security
+- Redis learning: https://regexlearn.com/learn
 
 # NPM Packages
 - DI: https://github.com/jeffijoe/awilix
