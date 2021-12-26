@@ -35,6 +35,7 @@
 - https://exercism.io/my/tracks: Hỗ trợ việc học ngôn ngữ và các best practice từ các mentor
 - https://www.cloudflare.com/learning/: Network, security
 - Redis learning: https://regexlearn.com/learn
+- UDP vs TCP: https://gafferongames.com/post/udp_vs_tcp/
 
 # NPM Packages
 - DI: https://github.com/jeffijoe/awilix
