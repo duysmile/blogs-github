@@ -182,6 +182,7 @@
 - Spotify codes: https://boonepeter.github.io/posts/spotify-codes-part-2/
 - Stack and Heap: https://medium.com/@mmoshikoo/stack-heap-dont-start-to-code-without-understanding-them-b182313bdf24
 - Redesign wishlist: https://medium.com/myntra-engineering/wishlist-redesign-how-we-reduced-the-latency-by-75-to-under-100ms-cc5880fcec19
+- Copy 1 milion key Redis in Go: https://medium.com/amboss/copy-redis-keys-in-minutes-with-golang-3c06f3cd3af8
 
 # Tools:
 - Sync cloud to local: https://rclone.org/s3/
