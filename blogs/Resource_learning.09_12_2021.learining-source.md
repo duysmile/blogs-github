@@ -239,6 +239,8 @@
 - gRPC load balancing: https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/
 - Learn k8s: https://www.katacoda.com/courses/kubernetes
 - Playground: https://labs.play-with-k8s.com/
+- AKS Checklist: https://www.the-aks-checklist.com
+- K8s best practices: https://learnk8s.io/production-best-practices
 
 # Docker:
 - Reduce docker image size: https://phoenixnap.com/kb/docker-image-size
