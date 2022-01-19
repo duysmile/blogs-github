@@ -295,3 +295,4 @@
 
 # Devops
 - SLIs, SLOs, SLAs: https://roadmap.sh/guides/what-is-sli-slo-sla
+- Security: https://web.stanford.edu/class/cs253/?fbclid=IwAR1kysqIatqzJwgd4hKyX1GP-LJuWhVNlUyL__Q32dK3HhiUNaf1d3LEhNo
