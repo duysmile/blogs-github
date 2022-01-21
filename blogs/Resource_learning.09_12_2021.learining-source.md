@@ -219,6 +219,7 @@
 - Clean Architecture: https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
 - Saga pattern: https://medium.com/tech-cubyn/keep-consistent-state-across-micro-services-thanks-to-saga-pattern-2c0288bcad5e
 - Distributed Tracing: https://medium.com/nikeengineering/hit-the-ground-running-with-distributed-tracing-core-concepts-ff5ad47c7058
+- Great day with Kafka: https://a-great-day-out-with.github.io/kafka.html
 
 
 # System:
