@@ -300,3 +300,4 @@
 
 # Game:
 - Sync state in Game: https://medium.com/@qingweilim/how-do-multiplayer-games-sync-their-state-part-1-ab72d6a54043?p=d746fa303950
+- Networking in Game: https://gafferongames.com/post/what_every_programmer_needs_to_know_about_game_networking/
