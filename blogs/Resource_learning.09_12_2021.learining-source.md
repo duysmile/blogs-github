@@ -183,6 +183,7 @@
 - Stack and Heap: https://medium.com/@mmoshikoo/stack-heap-dont-start-to-code-without-understanding-them-b182313bdf24
 - Redesign wishlist: https://medium.com/myntra-engineering/wishlist-redesign-how-we-reduced-the-latency-by-75-to-under-100ms-cc5880fcec19
 - Copy 1 milion key Redis in Go: https://medium.com/amboss/copy-redis-keys-in-minutes-with-golang-3c06f3cd3af8
+- Discord handle voice: https://blog.discord.com/how-discord-handles-two-and-half-million-concurrent-voice-users-using-webrtc-ce01c3187429
 
 # Tools:
 - Sync cloud to local: https://rclone.org/s3/
