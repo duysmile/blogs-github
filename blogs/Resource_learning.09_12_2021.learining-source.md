@@ -314,6 +314,7 @@
 - Flow Diagram: https://bloggeek.me/media-signaling-flows-look-like-webrtc/
 - Media Server MCU vs SFU: https://webrtc.ventures/2020/12/webrtc-media-servers-sfus-vs-mcus/
 - MCU vs SFU in video: https://www.youtube.com/watch?v=tHHpLraJKpQ
+- Connectivity: https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Connectivity
 
 # Data:
 - CDC: https://luminousmen.com/post/change-data-capture
