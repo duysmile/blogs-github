@@ -298,6 +298,7 @@
 
 # Utils:
 - set noclobber : https://securitronlinux.com/debian-testing/how-to-prevent-a-file-from-being-overwritten-using-the-tcsh-shell-on-linux/
+- Benchmark tool: https://github.com/codesenberg/bombardier
 
 # Devops
 - SLIs, SLOs, SLAs: https://roadmap.sh/guides/what-is-sli-slo-sla
