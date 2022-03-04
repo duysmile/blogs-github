@@ -95,6 +95,7 @@
 - Store data tree in SQL: https://viblo.asia/p/ban-dang-luu-du-lieu-dang-cay-vao-csdl-theo-cach-nao-LzD5dM6YKjY
 - Compare SQL, NoSQL and Graph: https://betterprogramming.pub/sql-nosql-graph-a-commentary-on-databases-1f0861624eb4
 - Optimize Perf: https://betterprogramming.pub/understanding-postgresql-how-bad-query-practices-are-hurting-your-backend-1d3a966af4cb
+- SQL Optimize: https://demtv.hashnode.dev/sql-performance
 
 # React native
 - https://www.youtube.com/channel/UCPal0d6hhitCzcvJ130ngbg?fbclid=IwAR2X3IFSBVairMEOOH6Dwim4s5W-t37RH97io_Dh4HL70FrXimsf6ZDpnC0
