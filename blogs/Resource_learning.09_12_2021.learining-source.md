@@ -71,6 +71,7 @@
 - Memory in Go: https://research.swtch.com/gomm
 - Resources: https://golang.org.vn/resources/
 - Struct field ordering affect memory usage: https://qvault.io/golang/struct-field-ordering-memory/
+- Validate zero enum value in Protocol Buffer: https://olvrng.github.io/w/proto.enum/
 
 
 # MongoDB
