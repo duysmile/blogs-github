@@ -326,3 +326,4 @@
 
 # Data:
 - CDC: https://luminousmen.com/post/change-data-capture
+- Probability vs Likelihood: https://www.youtube.com/watch?v=pYxNSUDSFH4
