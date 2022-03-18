@@ -260,6 +260,7 @@
 # Design pattern:
 - Singleton: https://batnamv.medium.com/design-pattern-li%E1%BB%87u-b%E1%BA%A1n-c%C3%B3-th%E1%BB%B1c-s%E1%BB%B1-hi%E1%BB%83u-v%E1%BB%81-singleton-pattern-a88aede760f6
 - Architecture pattern: https://orkhanscience.medium.com/software-architecture-patterns-5-mins-read-e9e3c8eb47d2
+- Open/Closed Principles: https://maksimivanov.com/posts/open-closed-principle/
 
 # AWS:
 - Begin tut: https://beginaws.awsstudygroup.com/vi/
