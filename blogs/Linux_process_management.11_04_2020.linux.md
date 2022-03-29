@@ -15,7 +15,7 @@ Có 2 loại cơ bản của process trong Linux:
 
 ### Daemons là gì?
 
-Là những loại background processes đặc biệt được khởi chạy khi khởi động hệ thống và chạy mãi như một services; chúng không tắt (die). Chúng được khởi chạy như những system tasks (run as services), tự phát. Tuy nhiên, chúng có thể được điều khiển bởi một user thông quan init process.
+Là những loại background processes đặc biệt được khởi chạy khi khởi động hệ thống và chạy mãi như một services; chúng không tắt (die). Chúng được khởi chạy như những system tasks (run as services), tự phát. Tuy nhiên, chúng có thể được điều khiển bởi một user thông qua init process.
 
 ![Process State](https://www.tecmint.com/wp-content/uploads/2017/03/ProcessState.png)
 
