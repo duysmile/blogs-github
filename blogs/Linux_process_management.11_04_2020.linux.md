@@ -36,7 +36,7 @@ Và một chương tình được định danh bởi process ID(PID) và process
 - Child processes: là những process được tạo bởi những processes khác trong suốt run-time.
 
 ### Init Process
-Init process là mẹ (cha) của tất cả các process trong hệ thống, nó là chương trình đầu tiên được thực thi khi Linux system boots up; nó quản lí tất cả những process khác trên hệ thống. Nó được bởi tạo bởi chính kernel, do đó về nguyên tắc thì nó không có một parent process nào.
+Init process là mẹ (cha) của tất cả các process trong hệ thống, nó là chương trình đầu tiên được thực thi khi Linux system boots up; nó quản lí tất cả những process khác trên hệ thống. Nó được tạo bởi chính kernel, do đó về nguyên tắc thì nó không có một parent process nào.
 
 Init process luôn có process ID là 1. Nó hoạt động như một cha mẹ nuôi cho tất cả các processes "mồ côi".
 
