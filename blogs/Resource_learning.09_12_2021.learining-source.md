@@ -160,7 +160,7 @@
 - Authentication in micro-services: https://medium0.com/m/global-identity?redirectUrl=https%3A%2F%2Fengineering.tiki.vn%2Fx%25C3%25A1c-th%25E1%25BB%25B1c-v%25C3%25A0-ph%25C3%25A2n-quy%25E1%25BB%2581n-trong-microservices-37689e53c082
 - Hash func: https://valerieaurora.org/hash.html
 - RabbitMQ và Kafka: https://betterprogramming.pub/rabbitmq-vs-kafka-1ef22a041793, https://www.confluent.io/blog/kafka-fastest-messaging-system
-- Refactor Angular Source: https://indepth.dev/posts/1425/how-to-refactor-an-angular-codebase?fbclid=IwAR2nlBHFyc6CexTV2ePG05BObumnzcyrUWzp2653ZfHp0xUe8g2SXt2202I
+- Refactor Angular Source: https://indepth.dev/posts/1425/how-to-refactor-an-angular-codebase
 - Generate unique id: https://medium.com/@gideonarom/the-right-amount-of-randomness-creating-unique-identifiers-e62820a574c2
 - Cold cache with promise: https://instagram-engineering.com/thundering-herds-promises-82191c8af57d
 - Avoid duplicate paymnents: https://medium.com/airbnb-engineering/avoiding-double-payments-in-a-distributed-payments-system-2981f6b070bb
@@ -190,6 +190,7 @@
 - Redesign wishlist: https://medium.com/myntra-engineering/wishlist-redesign-how-we-reduced-the-latency-by-75-to-under-100ms-cc5880fcec19
 - Copy 1 milion key Redis in Go: https://medium.com/amboss/copy-redis-keys-in-minutes-with-golang-3c06f3cd3af8
 - Discord handle voice: https://blog.discord.com/how-discord-handles-two-and-half-million-concurrent-voice-users-using-webrtc-ce01c3187429
+- Wrong abstraction problem: https://sandimetz.com/blog/2016/1/20/the-wrong-abstraction
 
 # Tools:
 - Sync cloud to local: https://rclone.org/s3/
