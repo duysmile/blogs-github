@@ -191,6 +191,7 @@
 - Copy 1 milion key Redis in Go: https://medium.com/amboss/copy-redis-keys-in-minutes-with-golang-3c06f3cd3af8
 - Discord handle voice: https://blog.discord.com/how-discord-handles-two-and-half-million-concurrent-voice-users-using-webrtc-ce01c3187429
 - Wrong abstraction problem: https://sandimetz.com/blog/2016/1/20/the-wrong-abstraction
+- Compare and swap in Redis in distributed system: https://olvrng.github.io/w/redis.cas/
 
 # Tools:
 - Sync cloud to local: https://rclone.org/s3/
