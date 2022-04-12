@@ -248,6 +248,7 @@
 - AIP Google: https://google.aip.dev/1
 - Remote handbook: https://www.notion.so/remotecom/Remote-Handbook-a3439c6ccaac4d5f8c7515c357345c11
 - PSTD: https://banhtieu.medium.com/the-ptsd-method-in-software-development-1c1cdafb4c62
+- Shame.css: https://csswizardry.com/2013/04/shame-css/
 
 # K8s
 - Sidecar pattern: https://medium0.com/bb-tutorials-and-thoughts/kubernetes-learn-sidecar-container-pattern-6d8c21f873d
