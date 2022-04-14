@@ -192,6 +192,7 @@
 - Discord handle voice: https://blog.discord.com/how-discord-handles-two-and-half-million-concurrent-voice-users-using-webrtc-ce01c3187429
 - Wrong abstraction problem: https://sandimetz.com/blog/2016/1/20/the-wrong-abstraction
 - Compare and swap in Redis in distributed system: https://olvrng.github.io/w/redis.cas/
+- Wall-clock and Monotonic-clock: https://blog.codeminer42.com/the-monotonic-clock-and-why-you-should-care-about-it/
 
 # Tools:
 - Sync cloud to local: https://rclone.org/s3/
