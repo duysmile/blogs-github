@@ -194,6 +194,7 @@
 - Wrong abstraction problem: https://sandimetz.com/blog/2016/1/20/the-wrong-abstraction
 - Compare and swap in Redis in distributed system: https://olvrng.github.io/w/redis.cas/
 - Wall-clock and Monotonic-clock: https://blog.codeminer42.com/the-monotonic-clock-and-why-you-should-care-about-it/
+- Histogram Prometheus: https://stackoverflow.com/questions/55162093/understanding-histogram-quantile-based-on-rate-in-prometheus
 
 # Tools:
 - Sync cloud to local: https://rclone.org/s3/
