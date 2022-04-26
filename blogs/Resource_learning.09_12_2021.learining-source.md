@@ -9,6 +9,7 @@
 
 # Interview questions
 - GotIt: https://docs.google.com/spreadsheets/d/1shzzlw35JNi_yswccAlPQicmCZfkA37MX9loxE4MgqM/edit#gid=0
+- Practical interview: https://quuxplusone.github.io/blog/2022/01/06/memcached-interview/
 
 # Courses:
 - https://missing.csail.mit.edu/2020
