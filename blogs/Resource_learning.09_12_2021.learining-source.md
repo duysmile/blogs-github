@@ -74,6 +74,7 @@
 - Resources: https://golang.org.vn/resources/
 - Struct field ordering affect memory usage: https://qvault.io/golang/struct-field-ordering-memory/
 - Validate zero enum value in Protocol Buffer: https://olvrng.github.io/w/proto.enum/
+- Low latency GC improvement: https://blog.twitch.tv/en/2016/07/05/gos-march-to-low-latency-gc-a6fa96f06eb7/
 
 
 # MongoDB
