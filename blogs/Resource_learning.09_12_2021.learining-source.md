@@ -325,6 +325,7 @@
 - Security: https://web.stanford.edu/class/cs253/?fbclid=IwAR1kysqIatqzJwgd4hKyX1GP-LJuWhVNlUyL__Q32dK3HhiUNaf1d3LEhNo
 - Learn Nginx basics: https://dev.to/ajayv1/learn-nginx-and-its-basics-in-2022-4ddb
 - Migrations: https://blog.pragmaticengineer.com/typical-migration-approaches/
+- Shipping to production: https://newsletter.pragmaticengineer.com/p/shipping-to-production
 
 # Game:
 - Sync state in Game: https://medium.com/@qingweilim/how-do-multiplayer-games-sync-their-state-part-1-ab72d6a54043?p=d746fa303950
