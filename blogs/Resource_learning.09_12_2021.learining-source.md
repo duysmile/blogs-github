@@ -77,6 +77,7 @@
 - Low latency GC improvement: https://blog.twitch.tv/en/2016/07/05/gos-march-to-low-latency-gc-a6fa96f06eb7/
 - Tuning GC: https://eng.uber.com/how-we-saved-70k-cores-across-30-mission-critical-services/
 - Go concurrent with GoSched(): https://200lab.io/blog/goroutines-la-gi/
+- Go interface: https://200lab.io/blog/interface-trong-golang-cach-dung-chinh-xac/
 
 
 # MongoDB
