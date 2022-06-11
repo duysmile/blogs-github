@@ -78,6 +78,7 @@
 - Tuning GC: https://eng.uber.com/how-we-saved-70k-cores-across-30-mission-critical-services/
 - Go concurrent with GoSched(): https://200lab.io/blog/goroutines-la-gi/
 - Go interface: https://200lab.io/blog/interface-trong-golang-cach-dung-chinh-xac/
+- Goroutine under the hood: https://osmh.dev/posts/goroutines-under-the-hood
 
 
 # MongoDB
