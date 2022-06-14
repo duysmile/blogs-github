@@ -246,6 +246,7 @@
 # System:
 - Why free and top not show correct memory limit for container: https://ops.tips/blog/why-top-inside-container-wrong-memory/
 - Why threads bad: https://web.stanford.edu/~ouster/cgi-bin/papers/threads.pdf?utm_source=thenewstack&utm_medium=website&utm_campaign=platform
+- Jump table: https://thuc.space/posts/jump_table/
 
 # UI:
 - Link references: https://dev.to/surajondev/40-useful-resources-for-mastering-web-1i0h
