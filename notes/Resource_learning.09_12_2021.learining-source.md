@@ -202,6 +202,7 @@
 - Compare and swap in Redis in distributed system: https://olvrng.github.io/w/redis.cas/
 - Wall-clock and Monotonic-clock: https://blog.codeminer42.com/the-monotonic-clock-and-why-you-should-care-about-it/
 - Histogram Prometheus: https://stackoverflow.com/questions/55162093/understanding-histogram-quantile-based-on-rate-in-prometheus
+- Dead letter queue: https://www.ksolves.com/blog/big-data/apache-kafka/reprocessing-and-dead-letter-queue-defining-the-event-delivery-in-kafka#:~:text=A%20dead%20letter%20queue%20is,destination%20due%20to%20an%20error.
 
 # Tools:
 - Sync cloud to local: https://rclone.org/s3/
