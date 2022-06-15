@@ -116,6 +116,7 @@
 # LINUX
 - Guide: https://github.com/ErikHorus1249/Guide-Documents?fbclid=IwAR0T1CXtmVfzS3RXWNx03G4DKJg1uba-AT5XdKQiDb3Gdet_H9UMSLfCvsU
 - Book and course: https://man7.org/tlpi/
+- /dev/null: https://viblo.asia/p/su-khac-nhau-giua-devnull-21-va-21-devnull-OeVKB4QMlkW
 
 # REGEX
 - https://github.com/ziishaned/learn-regex: lí thuyết dễ hiểu (có tiếng việt)
