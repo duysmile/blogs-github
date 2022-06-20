@@ -106,6 +106,7 @@
 - SQL Optimize: https://demtv.hashnode.dev/sql-performance
 - SQL vs NoSQL: https://viblo.asia/p/cau-chuyen-muon-thuo-cua-sql-va-nosql-Do754OXelM6
 - Transaction in MySQL: https://shirleysong.life/skills/skill-learning-mysql-transactions-concurrency-problems/
+- Compare MySQL and Postgres: https://developer.okta.com/blog/2019/07/19/mysql-vs-postgres
 
 # React native
 - https://www.youtube.com/channel/UCPal0d6hhitCzcvJ130ngbg?fbclid=IwAR2X3IFSBVairMEOOH6Dwim4s5W-t37RH97io_Dh4HL70FrXimsf6ZDpnC0
