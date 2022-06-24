@@ -1,0 +1,206 @@
+# Week 1
+
+## Keys
+- Unique
+- Binary safe: có thể là string, number, binary -> một day byte liên tục
+- Size up to 512MB cho 1 key
+- Trade off giữa việc đặt tên key có nghĩa và bộ nhớ sử dụng
+- Redis ko dùng database mà dùng namespace
+- Key spaces: nơi lưu trữ keys
+    - Logical databases: được xác định bởi việc ko dựa trên index
+        - Database zero
+        - Key spaces within a database
+        - Phù hợp với hầu hết tool và framework
+    - Flat key space: nghĩa là tất cả key name nằm trên cùng một space
+    - No automatic name spacing
+    - Cần quan tâm tới naming conventions
+- Cách đặt trên key, phân cách bằng dấu “:”, ví dụ
+    - user:id:followers -> user:1000:followers
+        - user: object name
+        - 1000: là unique id của thực thể
+        - followers: là composed object
+    - Key ko phân biệt hoa thường
+- Command: Get and set
+    - SET key value [EX seconds] [PX milliseconds] [NX|XX]: để tạo 1 giá trị một key value -> trả về “OK” nếu sét thành công, nil nếu k tạo key mới
+        - EX và PX dùng để set TTL
+        - NX: not exists -> set value key nếu key chưa tồn tại -> Create
+        - XX: exists -> set value key nếu key đã tồn tại -> Update
+    - GET key: trả về giá trị của key
+    - SCAN slot [MATCH pattern][COUNT count] -> trả về slot id và key cần tìm
+        - bắt đầu gọi vs slot = 0 sau đó lấy kết quả slot trả về để chạy scan tiếp
+        - Để scan chạy nhanh hơn, tìm nhiều keys hơn trong mỗi lần gọi thì ta xài thêm count
+        - Count càng lớn thì càng block lâu hơn và ảnh hưởng tới những client khác
+        - Khi nào scan trả về slot id = 0 thì ko còn key nào để lặp nữa và scan xong.
+    - KEYS và SCAN:
+        - KEYS
+            - Block tới khi chạy xong
+            - Không bao giờ nên sử dụng trên production
+            - Dùng để debug
+        - SCAN:
+            - Dùng cursor để lặp
+            - Trả về một slot reference
+	        - Có thể trả về 0 hoặc nhiều keys mỗi lần gọi
+            - An toàn cho production
+    - DEL key [key…]: xóa key và bộ nhớ liên kết với nó -> là một blocking operation
+    - UNLINK key [key…]: key name sẽ bị xóa và bộ nhớ liên kết với nó được giải phóng bởi một process bất đồng bộ -> là một non-blocking command -> trả về số key bị xóa
+    - EXISTS key [key…]: kiểm tra một key có tồn tại, trả về 1 -> đã có, 0 -> chưa có
+- Key expiration:
+    - Có thể set hoặc xóa thời gian hết hạn cho một key
+    - Có thể set TTL(time to live) luck mới tạo hoặc sau khi tạo
+    - Set:
+        - EXPIRE key seconds
+        - EXPIREAT key timestamps
+        - PEXPIRE key milliseconds
+        - PEXPIREAT key milliseconds-timestamps
+    - Kiểm tra:
+        - TTL key -> trả về -1 nghĩa là key đã hết hạn
+        - PTTL key
+    - Xóa TTL:
+        - PERSIST key
+
+## Strings
+- Có thể lưu string, giá trị số, serialized JSON hoặc binary
+- Mỗi giá trị string có giới hạn 512MB
+- Dùng để caching:
+    - API responses
+    - Session storage
+    - HTML pages
+- Dùng làm counter
+    - INCR key -> tăng 1 đơn vị
+    - INCRBY key value -> increment by 30, dùng số âm để làm decrement
+    - DECR key
+    - DECRBY key value
+    - INCREBYFLOAT key float-value
+    - APPEND key value -> nối chuỗi value vào gis trị của key
+- Có thể lưu JSON string
+- Dùng lệnh: TYPE key -> để lấy kiểu dữ liệu của value
+- Kiểm tra kiểu dữ liệu được encoding của value: OBJECT ENCODING key -> “int”, “embstr”
+
+## Hashes
+- Giống như object trong javascript
+- Dùng để lưu và lấy giá trị object
+- Single level
+- Sử dụng memory để lưu trữ hiệu quả và cấu trúc nhỏ gọn
+- Giá trị lưu trữ trong value là string chứ k thể là một nest object như lists, …
+- Command:
+    - HSET key field value field value …
+    - HSETNX key field value field value …
+    - HGETALL key -> O(n), n is number of fields
+    - HSCAN key cursor [MATCH pattern] [COUNT count]
+    - HMGET key field [field …]
+    - HKEYS key -> dùng để dev thôi
+    - HVALS key -> dùng để dev thôi
+    - HEXISTS key field
+    - HDEL key field …
+    - HGET key field
+    - HINCRBY key field value-increment
+    - HINCRBYFLOAT key field value-increment
+- Hash ko phải là cách duy nhất để store object trong redis
+- Có thể dùng RedisJSON để lưu JSON data type
+- Use cases cho hashes:
+    - Rate limiting: vd
+        - hmset ep-20180210 “/pet/{petid}” 100 “/booking/{petid}” 100
+        - hincrby ep-20180210 “/pet/{petid}” -1
+        - expire ep-20180210 86400
+    - Session cache
+## Lists
+- Là collection có thứ tự chứa String
+- Có thể chứa phần tử có cùng giá trị
+- Elements có thể được thêm hoặc xóa ở đầu hoặc cuối (Left or Right)
+- Có thể insert một element dựa trên 1 element khác
+- Có thể dùng để implement Stacks và Queues.
+- Element chỉ có thể là String, ko thể nested
+- Redis implement list bằng một doubly linked list ko phải là 1 array
+- Commands:
+    - LPUSH key value [value …] -> thêm vào đầu list
+    - RPUSH key value [value …] -> them vào cuối lis
+    - LPOP key -> lấy ở đầu list
+    - RPOP key -> lấy ở cuối list
+    - PUSH, POP đều có độ phức tạp là O[1]
+    - LLEN key -> lấy độ dài của lít
+    - LRANGE key start stop -> lấy phần tử từ vị try start -> stop (có thể dùng -1 để chỉ cuối list, dùng tương tự python) -> để ý khi số lượng phần tử list lớn thì sẽ ảnh hưởng tới performance.
+    - LINDEX key index -> trả về element ở vị trí index
+    - LINSERT key BEFORE|AFTER pivot value ->thêm element trước hoặc sau 1 element
+    - LSET key index value -> set giá trị tại index
+    - LREM key count value -> xóa n phần tử có giá trị tương ứng
+    -
+- Use cases:
+    - Activity stream -> giống như những post gần đây trong luồng hoạt động như trên Facebook:
+        - lpush stream one two three four five -> to add item to list
+        - lrange stream 0 2 -> lấy phần tử mới nhất (3 phần từ)
+        - ltrim stream 0 3 -> xóa những phần tử cũ đi (4 phần tử)
+    - Inter process communication: -> implement cơ chế producer consumer -> đảm bảo thực thiện đúng thứ tự event
+            - Produce: rpush queue “event1”
+            - Consume: lpop queue
+- Redis luôn kiểm tra data type của key trước khi thực thi command
+
+## Sets
+    - Là một tập các phần tử string ko trùng nhau, ko theo thứ tự
+    - Có thể thực hiện các phép giao, hợp, … (difference, intersection, union)
+        - A union B -> lấy hết phần tử của A và B
+        - A intersection B -> lấy phần giao của A và B
+        - A difference B -> lấy phần thuộc A nhưng ko thuộc B
+    - Command:
+        - SADD key value -> thêm phần tử vào 1 set
+        - SMEMBERS key -> lấy tất cả member của set
+        - SSCAN key cursor [MATCH pattern] [COUNT count] -> tương tự như scan, lấy member của set theo cursor
+        - SCARD key -> lấy số member có trong 1 set
+        - SISMEMBER -> kiểm tra một member có trong set ko
+        - SREM key member [member …] -> xóa member Theo value
+        - SPOP key [count] -> Xóa random và trả về những phần tử đã xóa
+        - ——————————
+        - SINTER keyA keyB-> thực hiện lấy giao (intersection) của 1 hoặc nhiều set
+        - SINTERSTORE ->
+        - SDIFF -> lấy difference
+        - SDIFFSTORE ->
+        - SUNION ->
+        - SUNIONSTORE
+    - Use cases:
+        - Tag Cloud: tạp tag cloud, mỗi objet có 1 tag, một danh sách list cần được duy trì
+            - SADD wrench tool metal
+            - SADD coin currency metal
+            - SSCAN wrench match* -> lấy tất cả tag ứng với 1 object
+            - SINTER wrench coin -> xem Thử 2 object này có tag chung nào
+            - SUNION wrench coin -> lấy hết tag của cả 2 object
+        - Unique visitors: só người truy cập trên website
+            - URL + time period
+            - SADD about.html:20180210 Jim jain John
+            - SSCAN about.html:20180210 match *
+            - EXPIRE about.html:20180210 86400 -> tự xóa sau 1 ngày
+        - Có thể tận dụng để xây dựng cơ chế kiểm tra số lượng user online
+            - Dùng SREM để xóa ra khỏi set nếu user logout
+            - Trong trường hợp máy của user bị rớt mạng, … -> ko có event logout để xóa member
+                - Chúng ta sẽ dùng `time-scoped keys` để tạo key, ví dụ: player:online:1005 -> để lấy danh sách online lúc 10h05, sau 5 phút sẽ tạo một set với key mới là `player:online:1010`
+            - Key expiration để tự động xóa những key có thời gian đã cũ `expireat player:online:1005 <time>`
+## Sorted Set
+    - Là set được sắp xếp theo thứ tự score, nếu 2 element cùng score thì sắp xếp theo thứ tự lexical
+    - Chỉ có union và intersection
+    - Commands:
+        - ZADD key [NX|XX] [CH] [INCR] SCORE MEMBER [SCORE MEMBER …] -> add 1 member vào sorted set với score tương ứng -> mặc định return về value của member, nếu thêm option CH thì trả về số element thay đổi bởi command, INCR dùng để tăng giá trị score đơn vị cho element
+            - Redis accepts the string constants "-inf" and "+inf" in addition to floating points numbers represented as strings.
+        - ZINCRBY key score member -> tăng score của member lên score đơn vị
+        - ZRANGE key start stop [WITHSCORES] -> lấy các member theo giá trị score từ nhỏ tới lớn
+        - ZREVRANGE key start stop [WITHSCORES] -> lấy các member theo giá trị score từ lớn tới nhỏ, WITHSCORES dùng để trả về element kèm theo score.
+        - ZRANK key member -> trả về vị trí của member
+        - ZREVRANK key member
+        - ZSCORE key member -> trả về score của member
+        - ZCOUNT key min max -> trả về số member trong khoảng score min -> max
+        - ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset count] -> lấy số member trong Khoảng score. Vd: zrangebyscore hw1-8 (3 6 - lấy member có gía trị lớn 3 và nhỏ hơn hoặc bằng 6
+        - ZRANGEBYLEX key min max [LIMIT offset count] -> lấy số member trong Khoảng lexical
+        - ZREM key member -> xóa member bằng giá trị member -> Xáo Theo value
+        - ZREMRANGEBYLEX -> xóa theo lex
+        - ZREMRANGEBYRANK -> xóa theo position
+        - ZREMRANGEBYSCORE -> xóa theo  score
+        - ———————
+        - ZINTERSTORE destination numkeys key [key …] [WEIGHTS weight [weight]] [AGGREGATE SUM | MIN | MAX]
+        - ZUNIONSTORE destination numkeys key [key …] [WEIGHTS weight [weight]] [AGGREGATE SUM | MIN | MAX]
+    - Use case:
+        - Leaderboards:
+            - ZADD lb 1 jane 2 duy 3 anh 5 bao 4 hang 6 trang
+            - ZINCRBY lb 2 duy
+            - ZREVRANGE lb 0 2 withscores
+            - ZREMRANGEBYRANK lb 0 -4 -> xóa những ai ngoài top 3
+        - Priority queue:
+            - ZADD pq 1 p1-item1 2 p2-item1 3 p3-item1 1 p1-item2
+            - ZRANGE pq 0 0
+            - ZREM pq p1-item1

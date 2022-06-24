@@ -1,0 +1,90 @@
+# Week 4
+
+## Bit data
+- BITFIELDs
+    - Bit data được lưu trong redis ko có data type riêng, mà vẫn dùng string datatype, khi dùng OBJECT encoding key -> “raw”
+    - Commands:
+        - BITFIELD key
+            - [GET type offset]
+            - [SET type offset value]
+            - [INCRBY type offset increment]
+            - [OVERFLOW WRAP|SAT|FAIL]
+        - Type ở đây là
+            - Signed(i) hoặc Unsigned(u)
+            - Size: vd i5, u8 -> 5bit signed, 8bit unsigned
+        - Limit:
+            - i64 -> 63bit để lưu trữ giá trị, 1 bit lưu dấu
+            - u63
+        - No Schema
+        - Offset là vị trị bắt đầu set giá trị value tương ứng với type
+        - Có thể set offset bằng dấu # để redis tính offset dựa trên size của type được set
+        - Có thể dùng u1 để set giá trị từng bit
+- Bit arrays
+    - Cho phép tác động lên từng bit với string datatype.
+    - Bit được đặt ở zero-based offset
+    - Command
+        - GETBIT key offset
+        - SETBIT key offset value
+        - BITCOUNT key [start end] -> đếm số bit 1, đơn vị để dùng cho start và end là byte zero-based từ trái sang phải.
+        - BITOP operation destkey key [key…] để thực hiện các phép toán trên bit
+        - BITPOS key bit [start] [end] -> tìm index của bit đầu tiên được set hoặc unset từ vị trí cho trước của string
+- Use case:
+    - Histograms counters
+        - BITFIELD hist INCRBY u32 #23 1 -> lúc 23h
+        - BITFIELD hist GET u32 #23
+    - Permission bits and masks:
+        - BITOP XOR file 1 request file1
+## Use case: Seat reservations
+- Để tìm những bit liên tục có cùng giá trị (0 hoặc 1) thì có thể dùng phép AND trên bit
+- Ví dụ: 1 block có 8bit: | 1 0 1 1 1 1 1 1 |
+    - Muốn tìm 3 bit 1 gần nhau thì tạo ra một block 3 bit 1:  | 1 1 1 |
+    - Dùng phép AND 2 block này bằng cách dịch (shift) block 3 bit này lần lượt từ vị trí 0 sang phải, nếu kết quả là |1 1 1| thì tìm đc vị trí cần tìm
+- Để giải quyết bài toán 2 user đặt vé ở vị trí khác nhau nhưng trên cùng 1 block
+    - Không thể dùng cách WATCH transaction vì nó nằm chung key
+    - Solution:
+        - Tạo một key cho mỗi vị trí bit
+        - Trước khi thực hiện đặt vé thì tạo key, nếu key có rồi thì lỗi, ko cho đặt
+        - Dùng phép XOR để thực hiện đặt vé bằng cách XOR vị trí đặt vé với block vé hiện tại cần đặt.
+- Tóm lại:
+    - Maintain seat map
+    - Find seat blocks
+    - Booked once and only once
+    - Concurrent bookings
+- Bitfield commands:
+    - BITFIELD
+    - BITCOUNT
+    - BITOP
+    - BITPOS
+## Publish/Subscribe
+- Simple syndication:
+    - PUBLISH channel message
+    - SUBSCRIBE channel [channel …]
+    - UNSUBSCRIBE [channel [channel …]]
+- Pattern syndication
+    - PSUBSCRIBE pattern [pattern …]
+        - ? - 1 kí tự đơn
+        - * - nhiều kí tự
+        - […] - những kí tự thay thế
+        - ^ - prefix ko chứa, cd ^a -> ko đc bắt đầu bằng a
+    - PUNSUBSCRIBE [pattern [pattern …]]
+- Admin
+    - PUBSUB subcommand [argument [argument…]]
+        - CHANNELS [pattern] -> trả về list active channels
+        - NUMSUB [channel - 1 … channel - N] -> trả về số lượng subscribers trừ những pattern subscriber.
+        - NUMPAT -> trả về số lượng pattern subscribers và số patterns.
+- Thứ tự message được đảm bảo
+- Chỉ những subscriber hiện tại mới nhận được message, message được bắn đi và xóa, nên những subscriber sau sẽ k nhận đc tn trước đó
+- Performance:
+    - Payload size
+    - Number of connected subscribers
+    - Number of patterns
+- Use cases:
+    - Gaming & Chat
+## Use case Pubsub
+- Notification & Fan out
+    - Analytics
+        - Sale by Event
+        - Sale by Time of day
+    - Notifier:
+        - Pick lottery winners
+        - Show real time orders

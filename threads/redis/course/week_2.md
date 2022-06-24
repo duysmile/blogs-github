@@ -1,0 +1,87 @@
+# Week 2
+
+## Cardinality & Capped Collections
+- Capped Collections:
+    - Lấy một tập con members
+    - Vd: Leaderboard trong game, Recent post in an Activity Stream
+- Command:
+    - LTRIM key start stop -> lấy list từ start tới stop, remove phần còn lại -> việc trimming một list lớn mà chỉ lấy ít phần tử thì sẽ rất tốn kém
+    - ZREMRANGEBYRANK key start stop -> xóa sorted set từ start tới stop theo index -> cost chỉ cho số lượng phần tử bị remove
+    - ZINTERSTORE:
+        - Destination -> key sẽ lưu kết quả
+        - Numkeys -> số lượng set
+        - Key [key …] -> key set
+        - WEIGHTS weight [weight…] -> dùng để cung cấp hệ số nhân cho mỗi input set dùng trong lệnh aggregate
+        - AGGREGATE SUM | MIN | MAX -> dùng để chỉ định cách new score trong set mới được tính, sum để tính score tổng, max để lấy score cao nhất trong các input set đối với mỗi key, tương tự vs min
+        - Nếu dùng cả sorted set và set, thì score của set mặc định là 1.
+    - ZUNIONSTORE:
+        - Destination -> key sẽ lưu kết quả
+        - Numkeys -> số lượng set
+        - Key [key …] -> key set
+        - WEIGHTS weight [weight…] -> dùng để cung cấp hệ số nhân cho mỗi input set dùng trong lệnh aggregate
+        - AGGREGATE SUM | MIN | MAX -> dùng để chỉ định cách new score trong set mới được tính, sum để tính score tổng, max để lấy score cao nhất trong các input set đối với mỗi key, tương tự vs min
+## Use case
+- Redis ko hỗ trợ compound indexes và secondary indexes nên ở section này sẽ tập trung vào việc làm sao để làm được việc này với redis sử dụng set.
+- Dùng sét để giải quyết một vấn đề cụ thể.
+- Chúng ta sẽ tập trung vào việc search dựa trên attribute cho những event của games.
+- Có 3 công nghệ để giải quyết vấn đề này
+    - Object inspection
+    - Faceted search
+    - Hashed index
+- Cách tiếp cận truyền thống:
+    - Secondary indexes:
+        - Là một cách hiệu quả để search cho single value
+        - Cost sẽ tăng khi có record được thêm vào hoặc những giá trị index bị thay đổi vì khi đó secondary index phải được maintain.
+        - Cần nhiều memory, disk, I/O hơn để hỗ trợ secondary index
+        - Để dùng được nhiều index thì cần một database có hỗ trợ việc index intersection (giao các index) và có thể dùng thống kê để xác định các query tối ưu.
+        - Nếu mà bây giờ bạn đang có một database thống kê đặc biệt trên một tập dữ liệu động thì bạn sẽ biết điều này rất có vấn đề.
+        - Nếu muốn search trên nhiều giá trị thì phải tạo compound indexes cho tất cả các các combination có thể có -> cần tới cách thứ hai
+    - Full text Search
+        - Những tool full-text search engine như là Solr hoặc Lucene.
+        - Sử dụng một full-text search product có nghĩa là cần phải thêm việc quản trị và độ phúc tạp cho việc triển khai ứng dụng của bạn
+        - Và ứng dụng cần phải lưu ý về tính nhất quán (eventual consistency).
+        - Và sẽ có một phần delay giữa việc thay đổi dữ liệu ở primary database và text index được cập nhật để phản ánh giá trị mới.
+        - Và điều tệ nhất là khi tìm được một giá trị khớp và nó đã ko còn tồn tại hoặc đã bị thay đổi -> dẫn tới UX tệ.
+- > một giải pháp thay thế đơn giản gọn nhẹ hơn là faceted search
+    - Một công nghệ cho phép điều hướng đơn giản, phân loại sử dụng nhiều bộ lọc và tiêu chí (simple navigation of a classification using multiple filter and criteria)
+    - Còn được gọi là inverted index.
+-  ———————————————————————
+- Method 1: Object inspection
+    - Dùng cách đơn giản nhất, lưu vào SET theo định dạng key, value, với key là để định danh, value chứa thông tin dưới dạng json được serialize
+    - Sau đó dùng SCAN để get hết giá trị và lặp qua tất cả để tìm giá trị thỏa điều kiện search
+    - Độ phức tạp tìm kiếm SCAN(N) và GET(N) -> cost sẽ tăng theo số lượng tổng số key
+- ———————————————————————-
+- Method 2: Set Intersection
+    - Dùng SADD để thêm các key của event vào các SET có key ứng với field dữ liệu cần tìm kiếm
+        - Vd: SADD fs:gender:Male Duy Nam Nhat
+    - Dùng SINTER để tìm kiếm với điều kiện là combination của nhiều field
+        - Vd: SINTER fs:gender:Male fs:gender:Female
+    - Độ phức tạp tìm kiếm SINTER(N * M) -> N là số phần tử của tập set nhỏ nhất và M là số tập set, chỉ cần dùng GET để lấy giá trị của matched objects. -> cost của SINTER phụ thuộc vào số member của tập set nhỏ nhất và sự phân bổ các member vào các attribute cần search. Nên SINTER sẽ giảm cost search khi số member của tập nhỏ nhất matching dưới 50% tổng member khi tìm kiếm vs 2 attributes.
+    - Khi search vs 2 attribute thì cost của SINTER sẽ bằng số member của tập nhỏ nhất * 2 -> số lượng member < 50% tổng key -> cost mới giảm được
+    - Khi search vs 3 attribute thì cost của SINTER sẽ bằng số member của tập nhỏ nhất * 3 -> số lượng member < 33% tổng key -> cost mới giảm được
+- —————————————————————
+- Method 3: Hashed Keys
+    - Generate một hash dựa trên việc kết hợp các key
+        - Vd: md5([“fs:gender:Male”, “fs:gender:Female”])
+    - Dùng hash đó làm key cho set tương ứng rồi add các member vào
+    - Dùng SSCAN để duyệt tất cả member trong set tương ứng
+    - Độ phức tạp SSCAN(N) với N là số phần tử matching, cost sẽ ko thay đổi cho dù có cần tìm theo nhiều thuộc tính, nhưng nó lại thêm cost khi data thay đổi, khi một item thay đổi attribute thì phải xóa nó trong set cũ và add vào set mới
+    - > Phù hợp với data có tần suất thay đổi thấp
+## Performance & Big O Notation
+- Redis xử lí command trên single thread, theo thứ tự và từng cái một.
+- Để sử dụng redis hiệu quả trên prod ko chỉ cần chú ý tới data structure mà còn phải chú ý tới việc kết hợp các command
+- O(1): APPEND, EXISTS, GET, SET, HGET, LPUSH, RPOP, …
+    - Lưu ý các command có độ phức tạp = nhau nhưng chưa chắc thời gian xử lí là như nhau, vì cót CPU, Network, … của từng command là khác nhau có thể bị ảnh hưởng bởi lượng dữ liệu …
+- O(N):
+    - Vd: DEL key [key …] ->
+        - O(1) khi xóa một string data type,
+        - O(N) khi nhiều key được xóa.
+        - O(M) khi key được xóa chứa List, Set, Sorted Set hoặc Hash, với M là số phần tử
+    - O(N * M): SINTER
+    - O(S+N): LRANGE key start stop:  với S là khoảng cách từ đầu list cho tới vị trí start, N là số phần tử trong range đó.
+- Những thứ cần xem xét khi nói tới performance:
+    - Time complexity của command
+    - Cardinality của data (số lượng element của list, số member của set, …)
+    - Multiplying factor: ví dụ như N * M thì M là hệ số nhân
+    - Clock times ko phải O time: ví dụ 2 command có độ phức tạp như nhau nhưng clock time khác nhau.
+

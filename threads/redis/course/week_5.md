@@ -1,0 +1,79 @@
+# Week 5
+
+## Redis Geospatial
+- Lưu tọa độ
+- Tìm những vị trí trong bán kính
+- Điều chỉnh danh sách với những lệnh tùy chỉnh
+- Storage:
+    - GeoHash để encoding: tọa độ lng, lat -> hash -> 12 kí tự
+    - 52 bits in length: giá trị hash chứa trong 52 bits
+    - Sorted Sets for storage -> lưu trong sorted sets
+- Commands:
+    - GEOADD key longitude latitude member [longitude latitude member …] -> them vào sorted set một member
+    - GEOHASH key member [member …] -> lấy giá trị geohash
+    - GEOPOS key member [member …] -> trả về lng, lat
+    - ———————————————
+    - GEODIST key member1 member2 [unit] -> default là meters (m)
+    - GEORADIUS key longitude latitude radius m | km | ft | mi [WITHCOORD][WITHDIST][WITHHASH][COUNT count][ASC | DESC][STORE key][STOREDIST key]
+    - GEORADIUSBYMEMBER key member radius m | km | ft | mi [WITHCOORD][WITHDIST][WITHHASH][COUNT count][ASC | DESC][STORE key][STOREDIST key]
+    -
+- Valid lng là từ -180 -> 180 -> no limit
+- Valid lat là từ -85.05112878 -> 85.05112878 -> limited
+- Use cases:
+    - Tìm những điểm ở gần
+    - Customer trong một khu vực
+    - Offer theo khu vực
+## Use case: Finding events and Venues
+## Lua script
+- Tại sao cần Lua:
+    - Wrap Redis command
+    - Reduce network traffic
+    - Similar to a stored procedure
+    - Atomic unit of work
+- Commands:
+    - EVAL script numkeys key [key …] arg [arg …]
+        - Atomic operations - như transaction queue
+        - Parse
+        - Execution
+        - Return values
+        - Caches compiled scripts
+    - SCRIPT LOAD script -> tạo ra hash
+    - SCRIPT EXSITS sha1 [sha1…]
+    - SCRIPT FLUSH
+    - SCRIPT KILL -> nếu script có vấn đề có thể kill
+    - SCRIPT DEBUG YES | SYNC | NO -> ko dùng ở production
+    - EVALSHA sha numkeys key [key …] arg [arg …] -> xài hash
+    -
+    - Vd:
+        - hset hash-key field1 hello field2 world
+        - eval “return redis.call(‘HGET’, KEYS[1], ARGV[1])” 1 hash-key field2
+        - > kết quả là “world”
+    - Có 2 script trong Lua để gọi command của redis, chúng khác nhau cách xử lí lỗi trả về từ Redis
+        - redis.call - chỉ truyền lỗi về nếu có, terminate script
+        - redis.pcal - trả về một cấu trúc thể hiện lỗi để có thể dùng trong lập trình
+    - Rules:
+        - Key nên được truyền vào, không nên hard code
+        - Array bắt đầu từ 1
+        - Lua không có float, nên dùng string để trả về giá trị
+    - Lua script sẽ ko phải atomic khi:
+        - Mặc định thời gian thực thi là 5s (có thể điều chỉnh) trước khi redis nhận command mới và run.
+        - Long running scripts are not terminated
+    - Redis sẽ làm gì khi script vượt quá thời gian thực thi:
+        - Log message cho long running script
+        - Accept new commands:
+            - Accepts admin commands
+            - All other commands rejected with BUSY response
+        - SCRIPT KILL: chỉ khi ko có writes command nào được thực thi.
+        - Nếu có write thì nên dùng SHUTDOWN NOSAVE -> server terminate
+    - Developer nên:
+        - Không để script thực thi quá threshold
+        - Scope script to minimum
+        - Script là một transactional boundary -> tách large script thành nhiều unit script nhỏ hơn rồi quản lí
+        - Test
+    - Use case:
+        - Limit counters: thay vì dùng concurrency control và transaction
+            - Count by period
+            - Adjust count
+            - Allow request if threshold not exceeded
+## Inventory with Lua
+- ipairs() để tạo một iterable object dùng trong vòng for
