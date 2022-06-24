@@ -106,6 +106,7 @@
 - SQL Optimize: https://demtv.hashnode.dev/sql-performance
 - SQL vs NoSQL: https://viblo.asia/p/cau-chuyen-muon-thuo-cua-sql-va-nosql-Do754OXelM6
 - Transaction in MySQL: https://shirleysong.life/skills/skill-learning-mysql-transactions-concurrency-problems/
+- Compare MySQL and Postgres: https://developer.okta.com/blog/2019/07/19/mysql-vs-postgres
 
 # React native
 - https://www.youtube.com/channel/UCPal0d6hhitCzcvJ130ngbg?fbclid=IwAR2X3IFSBVairMEOOH6Dwim4s5W-t37RH97io_Dh4HL70FrXimsf6ZDpnC0
@@ -116,6 +117,7 @@
 # LINUX
 - Guide: https://github.com/ErikHorus1249/Guide-Documents?fbclid=IwAR0T1CXtmVfzS3RXWNx03G4DKJg1uba-AT5XdKQiDb3Gdet_H9UMSLfCvsU
 - Book and course: https://man7.org/tlpi/
+- /dev/null: https://viblo.asia/p/su-khac-nhau-giua-devnull-21-va-21-devnull-OeVKB4QMlkW
 
 # REGEX
 - https://github.com/ziishaned/learn-regex: lí thuyết dễ hiểu (có tiếng việt)
@@ -202,6 +204,7 @@
 - Compare and swap in Redis in distributed system: https://olvrng.github.io/w/redis.cas/
 - Wall-clock and Monotonic-clock: https://blog.codeminer42.com/the-monotonic-clock-and-why-you-should-care-about-it/
 - Histogram Prometheus: https://stackoverflow.com/questions/55162093/understanding-histogram-quantile-based-on-rate-in-prometheus
+- Dead letter queue: https://www.ksolves.com/blog/big-data/apache-kafka/reprocessing-and-dead-letter-queue-defining-the-event-delivery-in-kafka#:~:text=A%20dead%20letter%20queue%20is,destination%20due%20to%20an%20error.
 
 # Tools:
 - Sync cloud to local: https://rclone.org/s3/
@@ -246,6 +249,7 @@
 # System:
 - Why free and top not show correct memory limit for container: https://ops.tips/blog/why-top-inside-container-wrong-memory/
 - Why threads bad: https://web.stanford.edu/~ouster/cgi-bin/papers/threads.pdf?utm_source=thenewstack&utm_medium=website&utm_campaign=platform
+- Jump table: https://thuc.space/posts/jump_table/
 
 # UI:
 - Link references: https://dev.to/surajondev/40-useful-resources-for-mastering-web-1i0h

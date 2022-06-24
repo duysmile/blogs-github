@@ -28,7 +28,7 @@ Nào, bây giờ thì bắt tay vào làm thôi 😎
 
 Đầu tiên, cách dễ nhất là khi có thông tin cuộc gọi, ta tính được chi phí, lấy dữ liệu của tài khoản từ DB sau đó kiểm tra xem khoản chi phí này có vượt quá số dư hiện tại không, nếu không thì cập nhật chi phí dự tính này vào DB và thực hiện gọi, nếu có thì reject yêu cầu này luôn. Yahh, clear rồi phải không, vậy thì code thôi.
 
-```
+~~~js
 // Kiểm tra và update estimate cost khi bắt đầu gọi
 {
 	const account = await AccountModel.findOne({
@@ -61,7 +61,8 @@ Nào, bây giờ thì bắt tay vào làm thôi 😎
 		},
 	});
 }
-```
+~~~
+
 
 Thiệt là đơn giản, xong xuôi 😌 à khoann, có gì đó không ổn, sao lại dễ dàng như vậy được.
 Đúng rồi, cách làm trên nhìn thì ok, nhưng vấn đề là khi có nhiều concurrent request cùng tạo cuộc gọi trên tài khoản này thì sẽ phát sinh vấn đề liền:
@@ -72,7 +73,8 @@ Vậy thì phải tìm cách để việc update estimate cost là 1 atomic oper
 Mình sẽ cần thông tin của `balance` - số dư hiện tại, `estimate` - khoản tiền dự tính hiện tại, `estimateCostPerCall` - khoản tiền tối đa phải trả để thực hiện gọi theo yêu cầu. Từ đó ta có được biểu thức cần áp dụng: `balance >= estimate + costEstimatePerCall`. Giờ làm sao đưa biểu thức này vào điều kiện update trong MongoDB đây? Mình cũng không biết, nên đành nhờ vào bác Google tiếp thôi :)).
 
 Và sau một hồi tìm kiếm, chân ái cuộc đời mình chính là `$where`, mình có thể truyền vào 1 function với JS syntax và MongoDB sẽ dùng JS engine để thực thi nó. Nên lưu ý là trong trường hợp này mình đã tìm được chính xác document cần cập nhật, nếu không thì việc bật JS engine và thực thi script trên mỗi document sẽ ảnh hưởng rất lớn đến performance. Mình sẽ implement cách này như sau:
-```
+
+~~~js
 const nUpdate = await AccountModel.updateOne({
 	name: userName,
 	$where: `function() {
@@ -87,12 +89,14 @@ if (nUpdate.nModified == 0) {
 }
 
 return true;
-```
+~~~
+
 
 Giờ thì thật sự là xong rồi 😎 cảm giác như được khai sáng. Mọi người có thể xem full source của ví dụ này ở repo này nhé. Cảm ơn mọi người đã kiên nhẫn đọc hết những lời nhảm nhí này của mình. Byeee 👮‍♀️.
 
 À quên, để hướng dẫn mn chạy thử cái demo chứ :))
-```
+
+~~~bash
 // cài package
 npm install
 
@@ -108,6 +112,6 @@ node create-account.js
 /*
  * chỉnh sửa api /jobs-normal, /jobs-atomic để xem sự khác biệt, nhớ sửa data trong DB lại nhé, mình lười lắm nên ko viết sẵn đâu 😌
 */
-```
+~~~
 
 Toàn bộ source code ở đây nhé mn: https://github.com/duysmile/payment-call-system-mongo
