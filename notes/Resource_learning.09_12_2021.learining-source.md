@@ -336,6 +336,7 @@
 - Learn Nginx basics: https://dev.to/ajayv1/learn-nginx-and-its-basics-in-2022-4ddb
 - Migrations: https://blog.pragmaticengineer.com/typical-migration-approaches/
 - Shipping to production: https://newsletter.pragmaticengineer.com/p/shipping-to-production
+- Zero-downtime deployment: https://dev.to/stebunovd/migrating-a-production-database-without-any-downtime-2p2d
 
 # Game:
 - Sync state in Game: https://medium.com/@qingweilim/how-do-multiplayer-games-sync-their-state-part-1-ab72d6a54043?p=d746fa303950
