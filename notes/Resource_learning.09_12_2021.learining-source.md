@@ -79,6 +79,7 @@
 - Go concurrent with GoSched(): https://200lab.io/blog/goroutines-la-gi/
 - Go interface: https://200lab.io/blog/interface-trong-golang-cach-dung-chinh-xac/
 - Goroutine under the hood: https://osmh.dev/posts/goroutines-under-the-hood
+- Go Scheduling: https://www.sobyte.net/post/2022-01/go-scheduling/
 
 
 # MongoDB
