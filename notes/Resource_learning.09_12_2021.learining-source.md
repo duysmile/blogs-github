@@ -249,6 +249,7 @@
 - LMAX Architecture: https://martinfowler.com/articles/lmax.html
 - Event Driven Architecture: https://www.confluent.io/blog/journey-to-event-driven-part-1-why-event-first-thinking-changes-everything/
 - Backoff: https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/
+- Pitfalls to avoid in event-driven architecture: https://natansil.medium.com/event-driven-architecture-5-pitfalls-to-avoid-b3ebf885bdb1
 
 
 # System:
