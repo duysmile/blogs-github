@@ -80,6 +80,7 @@
 - Go interface: https://200lab.io/blog/interface-trong-golang-cach-dung-chinh-xac/
 - Goroutine under the hood: https://osmh.dev/posts/goroutines-under-the-hood
 - Go Scheduling: https://www.sobyte.net/post/2022-01/go-scheduling/
+- Sarama - Kafka client: https://zhuanlan.zhihu.com/p/110114004?utm_id=0
 
 
 # MongoDB
