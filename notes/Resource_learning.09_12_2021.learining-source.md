@@ -81,6 +81,7 @@
 - Goroutine under the hood: https://osmh.dev/posts/goroutines-under-the-hood
 - Go Scheduling: https://www.sobyte.net/post/2022-01/go-scheduling/
 - Sarama - Kafka client: https://zhuanlan.zhihu.com/p/110114004?utm_id=0
+- Go generics B-Tree shaving: https://thenewstack.io/shaving-40-off-googles-b-tree-implementation-with-go-generics
 
 
 # MongoDB
