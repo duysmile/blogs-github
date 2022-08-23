@@ -82,6 +82,7 @@
 - Go Scheduling: https://www.sobyte.net/post/2022-01/go-scheduling/
 - Sarama - Kafka client: https://zhuanlan.zhihu.com/p/110114004?utm_id=0
 - Go generics B-Tree shaving: https://thenewstack.io/shaving-40-off-googles-b-tree-implementation-with-go-generics
+- GOMEMLIMIT: https://weaviate.io/blog/2022/08/GOMEMLIMIT-a-Game-Changer-for-High-Memory-Applications.html
 
 
 # MongoDB
