@@ -210,6 +210,7 @@
 - Histogram Prometheus: https://stackoverflow.com/questions/55162093/understanding-histogram-quantile-based-on-rate-in-prometheus
 - Dead letter queue: https://www.ksolves.com/blog/big-data/apache-kafka/reprocessing-and-dead-letter-queue-defining-the-event-delivery-in-kafka#:~:text=A%20dead%20letter%20queue%20is,destination%20due%20to%20an%20error.
 - Kafka introduction: https://developer.confluent.io/what-is-apache-kafka/
+- Back to basics: https://www.joelonsoftware.com/2001/12/11/back-to-basics/
 
 # Tools:
 - Sync cloud to local: https://rclone.org/s3/
