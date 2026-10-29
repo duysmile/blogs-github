@@ -12,8 +12,11 @@ permissions: {}
 jobs:
   rebuild:
     runs-on: ubuntu-latest
-    timeout-minutes: 2
+    timeout-minutes: 4
     steps:
+      # GitHub's API caches "latest commit on master" for up to 60s; the site resolves it at build time.
+      - name: Wait for GitHub's API cache to catch up
+        run: sleep 75
       - name: Trigger Netlify build hook
         env:
           HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
