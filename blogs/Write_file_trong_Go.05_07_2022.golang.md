@@ -22,9 +22,7 @@ Ok, done!!! Vậy là xong, vấn đề đã được giải quyết quá gọn 
 
 Nghĩ ra chưa? Đó chính là việc load hết nội dung file vào memory, vậy nếu memory của bạn không đủ thì sao?
 
-> As of Go 1.18, the default maximum stack size is 1 GB on 64-bit systems, and 250 MB on 32-bit systems
-
-Nếu như nội dung file vượt quá thì 1GB thì Go process của bạn sẽ bị crash khi mà bạn còn chưa kịp làm gì cả.
+Nếu như nội dung file lớn hơn lượng memory còn trống thì Go process của bạn sẽ bị crash (out of memory) khi mà bạn còn chưa kịp làm gì cả.
 
 Rồi giờ làm sao đây, không đọc được thì sao ghi vào được?
 
