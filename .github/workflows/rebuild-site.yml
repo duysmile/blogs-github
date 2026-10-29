@@ -1,0 +1,26 @@
+name: Rebuild duysmile.com
+
+# duysmile.com reads blogs/ at build time, so a new or edited post needs a fresh Netlify build.
+on:
+  push:
+    branches: [master]
+    paths: ['blogs/**']
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Trigger Netlify build hook
+        env:
+          HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "::error::Secret NETLIFY_BUILD_HOOK is not set in this repo."
+            exit 1
+          fi
+          curl --fail --silent --show-error -X POST -d '{}' "$HOOK"
+          echo "Netlify build triggered."
